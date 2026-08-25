@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 3,
+  "exploits": {
+    "ghostlock-cve-2026-43499": {
+      "description": "Futex PI UAF — работает на ядрах 6.1-6.12 GKI",
+      "maxFixedKernel": {"6.6": "6.6.140", "6.12": null, "6.1": "6.1.145"},
+      "requiresC Ashmem": true
+    },
+    "adreno-cve-2025-21479": {
+      "description": "Adreno KGSL GPU — для ядер 5.10/5.15",
+      "maxFixedKernel": {"5.15": "5.15.178", "5.10": "5.10.198"}
+    }
+  },
+  "payloads": [
+    {
+      "payloadId": "pd2520-a16-0-26",
+      "displayName": "iQOO Neo 11 | SM8750 | Kernel 6.6.89",
+      "models": ["PD2520", "PD2520A", "PD2520B", "PD2520C", "PD2520D", "PD2520E"],
+      "marketNames": ["V2520A"],
+      "kernelVersions": ["6.6.89"],
+      "exploit": "ghostlock-cve-2026-43499",
+      "files": {
+        "preload.so": {
+          "url": "https://github.com/boxiaolanya2008/CVE-2026-43499-Neo11Plus/releases/download/v1.3.0/preload.so",
+          "sha256": "8c3410cbc7dce25df3274c0e35d293cb38d7ad2384af7ecc549a3400c50695d9",
+          "size": 176544
+        }
+      },
+      "offsets": {
+        "kimage_text_base": "ffffffc080000000",
+        "init_task": "0x210E280",
+        "init_cred": "0x21205C8",
+        "ashmem_misc_fops": "0x226B4E8",
+        "ashmem_fops": "0x12EBB18",
+        "ashmem_ioctl": "0xC814B4",
+        "ashmem_mmap": "0xC81BC4",
+        "configfs_read_iter": "0x48CBB8",
+        "configfs_bin_write_iter": "0x48D0E4"
+      },
+      "structLayout": "6.6",
+      "verifiedBy": "zenyxx-xd (real device test)"
+    },
+    {
+      "payloadId": "vivo-x200-b57",
+      "displayName": "vivo X200 | Dimensity 9400 | Kernel 6.6.89-b57",
+      "models": ["PD2415"],
+      "kernelVersions": ["6.6.89"],
+      "exploit": "ghostlock-cve-2026-43499",
+      "files": {
+        "note": "Используй ghostlock-x200-root репо для генерации payload"
+      },
+      "structLayout": "6.6",
+      "verifiedBy": "xiaohj233"
+    }
+  ]
+}
