@@ -4,7 +4,7 @@
     "ghostlock-cve-2026-43499": {
       "description": "Futex PI UAF — работает на ядрах 6.1-6.12 GKI",
       "maxFixedKernel": {"6.6": "6.6.140", "6.12": null, "6.1": "6.1.145"},
-      "requiresC Ashmem": true
+      "requiresCAshmem": true
     },
     "adreno-cve-2025-21479": {
       "description": "Adreno KGSL GPU — для ядер 5.10/5.15",
@@ -19,6 +19,7 @@
       "marketNames": ["V2520A"],
       "kernelVersions": ["6.6.89"],
       "exploit": "ghostlock-cve-2026-43499",
+      "enabled": true,
       "files": {
         "preload.so": {
           "url": "https://github.com/boxiaolanya2008/CVE-2026-43499-Neo11Plus/releases/download/v1.3.0/preload.so",
@@ -44,11 +45,12 @@
       "payloadId": "vivo-x200-b57",
       "displayName": "vivo X200 | Dimensity 9400 | Kernel 6.6.89-b57",
       "models": ["PD2415"],
+      "marketNames": [],
       "kernelVersions": ["6.6.89"],
       "exploit": "ghostlock-cve-2026-43499",
-      "files": {
-        "note": "Используй ghostlock-x200-root репо для генерации payload"
-      },
+      "enabled": false,
+      "files": {},
+      "offsets": {},
       "structLayout": "6.6",
       "verifiedBy": "xiaohj233"
     }
