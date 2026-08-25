@@ -1,58 +1,172 @@
 {
-  "schemaVersion": 3,
-  "exploits": {
-    "ghostlock-cve-2026-43499": {
-      "description": "Futex PI UAF — работает на ядрах 6.1-6.12 GKI",
-      "maxFixedKernel": {"6.6": "6.6.140", "6.12": null, "6.1": "6.1.145"},
-      "requiresCAshmem": true
-    },
-    "adreno-cve-2025-21479": {
-      "description": "Adreno KGSL GPU — для ядер 5.10/5.15",
-      "maxFixedKernel": {"5.15": "5.15.178", "5.10": "5.10.198"}
-    }
-  },
-  "payloads": [
-    {
-      "payloadId": "pd2520-a16-0-26",
-      "displayName": "iQOO Neo 11 | SM8750 | Kernel 6.6.89",
-      "models": ["PD2520", "PD2520A", "PD2520B", "PD2520C", "PD2520D", "PD2520E"],
-      "marketNames": ["V2520A"],
-      "kernelVersions": ["6.6.89"],
-      "exploit": "ghostlock-cve-2026-43499",
-      "enabled": true,
-      "files": {
-        "preload.so": {
-          "url": "https://github.com/boxiaolanya2008/CVE-2026-43499-Neo11Plus/releases/download/v1.3.0/preload.so",
-          "sha256": "8c3410cbc7dce25df3274c0e35d293cb38d7ad2384af7ecc549a3400c50695d9",
-          "size": 176544
+    "schemaVersion": 4,
+    "exploits": {
+        "ghostlock-cve-2026-43499": {
+            "description": "Futex PI UAF — работает на ядрах 6.1-6.12 GKI",
+            "maxFixedKernel": {
+                "6.6": "6.6.140",
+                "6.12": null,
+                "6.1": "6.1.145"
+            },
+            "requiresCAshmem": true
+        },
+        "adreno-cve-2025-21479": {
+            "description": "Adreno KGSL GPU — для ядер 5.10/5.15",
+            "maxFixedKernel": {
+                "5.15": "5.15.178",
+                "5.10": "5.10.198"
+            }
         }
-      },
-      "offsets": {
-        "kimage_text_base": "ffffffc080000000",
-        "init_task": "0x210E280",
-        "init_cred": "0x21205C8",
-        "ashmem_misc_fops": "0x226B4E8",
-        "ashmem_fops": "0x12EBB18",
-        "ashmem_ioctl": "0xC814B4",
-        "ashmem_mmap": "0xC81BC4",
-        "configfs_read_iter": "0x48CBB8",
-        "configfs_bin_write_iter": "0x48D0E4"
-      },
-      "structLayout": "6.6",
-      "verifiedBy": "zenyxx-xd (real device test)"
     },
-    {
-      "payloadId": "vivo-x200-b57",
-      "displayName": "vivo X200 | Dimensity 9400 | Kernel 6.6.89-b57",
-      "models": ["PD2415"],
-      "marketNames": [],
-      "kernelVersions": ["6.6.89"],
-      "exploit": "ghostlock-cve-2026-43499",
-      "enabled": false,
-      "files": {},
-      "offsets": {},
-      "structLayout": "6.6",
-      "verifiedBy": "xiaohj233"
-    }
-  ]
+    "payloads": [
+        {
+            "payloadId": "pd2520-a16-0-26",
+            "displayName": "iQOO Neo 11 | SM8750 | Kernel 6.6.89",
+            "models": ["PD2520", "PD2520A", "PD2520B", "PD2520C", "PD2520D", "PD2520E"],
+            "marketNames": ["V2520A", "iQOO Neo 11"],
+            "kernelVersions": ["6.6.89"],
+            "exploit": "ghostlock-cve-2026-43499",
+            "enabled": true,
+            "files": {
+                "preload.so": {
+                    "url": "https://github.com/boxiaolanya2008/CVE-2026-43499-Neo11Plus/releases/download/v1.3.0/preload.so",
+                    "sha256": "8c3410cbc7dce25df3274c0e35d293cb38d7ad2384af7ecc549a3400c50695d9",
+                    "size": 176544
+                }
+            },
+            "offsets": {
+                "kimage_text_base": "ffffffc080000000",
+                "init_task": "0x210E280",
+                "init_cred": "0x21205C8",
+                "ashmem_misc_fops": "0x226B4E8",
+                "ashmem_fops": "0x12EBB18",
+                "ashmem_ioctl": "0xC814B4",
+                "ashmem_mmap": "0xC81BC4",
+                "configfs_read_iter": "0x48CBB8",
+                "configfs_bin_write_iter": "0x48D0E4"
+            },
+            "structLayout": "6.6",
+            "verifiedBy": "zenyxx-xd (real device test)"
+        },
+        {
+            "payloadId": "pd2408-iqoo13",
+            "displayName": "iQOO 13 | SM8750 | GKI 6.6",
+            "models": ["PD2408", "PD2408A", "PD2408B"],
+            "marketNames": ["V2408A", "iQOO 13"],
+            "kernelVersions": ["6.6.30", "6.6.45", "6.6.58", "6.6.73", "6.6.88", "6.6.89"],
+            "exploit": "ghostlock-cve-2026-43499",
+            "enabled": true,
+            "files": {
+                "preload.so": {
+                    "url": "https://github.com/boxiaolanya2008/CVE-2026-43499-Neo11Plus/releases/download/v1.3.0/preload.so",
+                    "sha256": "8c3410cbc7dce25df3274c0e35d293cb38d7ad2384af7ecc549a3400c50695d9",
+                    "size": 176544
+                }
+            },
+            "offsets": {},
+            "structLayout": "6.6",
+            "verifiedBy": "hybLOVE (iqoo-temp-root, experimental — needs on-device test)"
+        },
+        {
+            "payloadId": "pd2463-neo10pp",
+            "displayName": "iQOO Neo10 Pro+ | SM8650 | GKI 6.6",
+            "models": ["PD2463", "PD2463A"],
+            "marketNames": ["V2463A", "iQOO Neo10 Pro+"],
+            "kernelVersions": ["6.6.30", "6.6.45", "6.6.58", "6.6.73", "6.6.88", "6.6.89"],
+            "exploit": "ghostlock-cve-2026-43499",
+            "enabled": true,
+            "files": {
+                "preload.so": {
+                    "url": "https://github.com/boxiaolanya2008/CVE-2026-43499-Neo11Plus/releases/download/v1.3.0/preload.so",
+                    "sha256": "8c3410cbc7dce25df3274c0e35d293cb38d7ad2384af7ecc549a3400c50695d9",
+                    "size": 176544
+                }
+            },
+            "offsets": {},
+            "structLayout": "6.6",
+            "verifiedBy": "hybLOVE (iqoo-temp-root, experimental — needs on-device test)"
+        },
+        {
+            "payloadId": "pd2453-z10tpro",
+            "displayName": "iQOO Z10 Turbo Pro | SM8750-class | GKI 6.6",
+            "models": ["PD2453", "PD2453A"],
+            "marketNames": ["V2453A", "iQOO Z10 Turbo Pro"],
+            "kernelVersions": ["6.6.30", "6.6.45", "6.6.58", "6.6.73", "6.6.88", "6.6.89", "6.6.107", "6.6.127"],
+            "exploit": "ghostlock-cve-2026-43499",
+            "enabled": true,
+            "files": {
+                "preload.so": {
+                    "url": "https://github.com/boxiaolanya2008/CVE-2026-43499-Neo11Plus/releases/download/v1.3.0/preload.so",
+                    "sha256": "8c3410cbc7dce25df3274c0e35d293cb38d7ad2384af7ecc549a3400c50695d9",
+                    "size": 176544
+                }
+            },
+            "offsets": {},
+            "structLayout": "6.6",
+            "verifiedBy": "hybLOVE (iqoo-temp-root, PC-script flow documented ROOT OK)"
+        },
+        {
+            "payloadId": "pd2452-z10t",
+            "displayName": "iQOO Z10 Turbo | MT6991 | GKI 6.6",
+            "models": ["PD2452", "PD2452A"],
+            "marketNames": ["V2452A", "iQOO Z10 Turbo"],
+            "kernelVersions": ["6.6.89", "6.6.107", "6.6.127"],
+            "exploit": "ghostlock-cve-2026-43499",
+            "enabled": false,
+            "files": {},
+            "offsets": {},
+            "structLayout": "6.6",
+            "verifiedBy": "hybLOVE (payload preload_z10t.so exists but binary not public)"
+        },
+        {
+            "payloadId": "pd2507-z10tplus",
+            "displayName": "iQOO Z10 Turbo+ | MT6991 | Kernel 6.6.127",
+            "models": ["PD2507", "PD2405"],
+            "marketNames": ["iQOO Z10 Turbo+"],
+            "kernelVersions": ["6.6.127"],
+            "exploit": "ghostlock-cve-2026-43499",
+            "enabled": false,
+            "files": {},
+            "offsets": {},
+            "structLayout": "6.6",
+            "verifiedBy": "hybLOVE (reference device, payload preload_z10t.so exists but binary not public)"
+        },
+        {
+            "payloadId": "i2302-z9-5g",
+            "displayName": "iQOO Z9 5G / vivo T3 5G | MT6886 | Kernel 5.15.178",
+            "models": ["I2302", "V2334"],
+            "marketNames": ["iQOO Z9 5G", "vivo T3 5G"],
+            "kernelVersions": ["5.15.178"],
+            "exploit": "adreno-cve-2025-21479",
+            "enabled": true,
+            "files": {
+                "preload.so": {
+                    "url": "https://github.com/ankitrawatgit/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock/releases/download/v0.0.1-build.32619990217.1/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock-v0.0.1-build.32619990217.1-preload",
+                    "sha256": null,
+                    "size": 107728
+                },
+                "ksud": {
+                    "url": "https://github.com/ankitrawatgit/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock/releases/download/v0.0.1-build.32619990217.1/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock-v0.0.1-build.32619990217.1-ksud",
+                    "sha256": null,
+                    "size": 5087024
+                }
+            },
+            "offsets": {},
+            "structLayout": "5.15",
+            "verifiedBy": "ankitrawatgit (full release with working APK)"
+        },
+        {
+            "payloadId": "pd2415-x200-b57",
+            "displayName": "vivo X200 (build 57) | SM8650 | GKI 6.6",
+            "models": ["PD2415"],
+            "marketNames": ["vivo X200"],
+            "kernelVersions": ["6.6.57"],
+            "exploit": "ghostlock-cve-2026-43499",
+            "enabled": false,
+            "files": {},
+            "offsets": {},
+            "structLayout": "6.6",
+            "verifiedBy": "xiaohj233 (ghostlock-x200-root — seven-stage chain, needs glt/w2host assets)"
+        }
+    ]
 }
