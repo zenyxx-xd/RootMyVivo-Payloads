@@ -41,18 +41,18 @@
       "enabled": true,
       "files": {
         "preload.so": {
-          "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.3.2-6.6.127-neo11/preload-rmv-127.so",
-          "sha256": "e7e5d8a5e5bcd81f8d6405e9a5c4dc41ea43aea1afd477d9e3a08d01d6211d66",
+          "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-6.6.127-neo11/preload-rmv-127.so",
+          "sha256": "754125b4816d4dfe3defab94cda37cddcecba0d857212e6ecaa1bec0107e21b3",
           "size": 144704
         }
       },
       "offsets": {},
       "structLayout": "6.6",
       "env": {
-        "RMV_ATTEMPTS": "6",
-        "RMV_RETRY_DELAY": "8"
+        "RMV_ATTEMPTS": "3",
+        "RMV_RETRY_DELAY": "15"
       },
-      "verifiedBy": "zenyxx-xd (rmv-exploit v0.3.2, offsets from boot_b kallsyms — pending on-device test)"
+      "verifiedBy": "zenyxx-xd (rmv-exploit v0.4.0-127, offsets from boot_b kallsyms)"
     },
     {
       "payloadId": "pd2520-a16-0-26",
@@ -76,8 +76,8 @@
       "enabled": true,
       "files": {
         "preload.so": {
-          "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.3.0-neo11/preload-rmv.so",
-          "sha256": "7654977411429c8ee1e53643787b4da5e1d50b8dc4f3d8ec1f473b8fc157bf00",
+          "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-neo11/preload-rmv.so",
+          "sha256": "b3c4557e1f5fbb95745a9a1d9796c73fc02b19a3a03184aee2c03f686b87ca2e",
           "size": 144720
         }
       },
@@ -93,10 +93,10 @@
         "configfs_bin_write_iter": "0x48D0E4"
       },
       "structLayout": "6.6",
-      "verifiedBy": "zenyxx-xd (rmv-exploit v0.3.0 — proven stable)",
+      "verifiedBy": "zenyxx-xd (rmv-exploit v0.4.0 — upstream-aligned load fix)",
       "env": {
-        "RMV_ATTEMPTS": "6",
-        "RMV_RETRY_DELAY": "8"
+        "RMV_ATTEMPTS": "3",
+        "RMV_RETRY_DELAY": "15"
       }
     },
     {
