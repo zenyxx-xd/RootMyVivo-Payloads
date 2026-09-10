@@ -20,6 +20,41 @@
   },
   "payloads": [
     {
+      "payloadId": "pd2520-a16-0-28-2",
+      "displayName": "iQOO Neo 11 | SM8750 | Kernel 6.6.127 (16.0.28.2)",
+      "models": [
+        "PD2520",
+        "PD2520A",
+        "PD2520B",
+        "PD2520C",
+        "PD2520D",
+        "PD2520E"
+      ],
+      "marketNames": [
+        "V2520A",
+        "iQOO Neo 11"
+      ],
+      "kernelVersions": [
+        "6.6.127"
+      ],
+      "exploit": "ghostlock-cve-2026-43499",
+      "enabled": true,
+      "files": {
+        "preload.so": {
+          "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.3.2-6.6.127-neo11/preload-rmv-127.so",
+          "sha256": "e7e5d8a5e5bcd81f8d6405e9a5c4dc41ea43aea1afd477d9e3a08d01d6211d66",
+          "size": 144704
+        }
+      },
+      "offsets": {},
+      "structLayout": "6.6",
+      "env": {
+        "RMV_ATTEMPTS": "6",
+        "RMV_RETRY_DELAY": "8"
+      },
+      "verifiedBy": "zenyxx-xd (rmv-exploit v0.3.2, offsets from boot_b kallsyms — pending on-device test)"
+    },
+    {
       "payloadId": "pd2520-a16-0-26",
       "displayName": "iQOO Neo 11 | SM8750 | Kernel 6.6.89",
       "models": [
