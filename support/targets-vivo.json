@@ -41,8 +41,8 @@
       "enabled": true,
       "files": {
         "preload.so": {
-          "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.3.0-neo11/preload-rmv.so",
-          "sha256": "7654977411429c8ee1e53643787b4da5e1d50b8dc4f3d8ec1f473b8fc157bf00",
+          "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.3.1-neo11/preload-rmv.so",
+          "sha256": "5732d1943b8a3fede192b2c63873f5e2edbb8b7ee7d79f6fe7c451da6793b385",
           "size": 144720
         }
       },
@@ -58,10 +58,10 @@
         "configfs_bin_write_iter": "0x48D0E4"
       },
       "structLayout": "6.6",
-      "verifiedBy": "zenyxx-xd (rmv-exploit v0.3.0)",
+      "verifiedBy": "zenyxx-xd (rmv-exploit v0.3.1)",
       "env": {
-        "RMV_ATTEMPTS": "6",
-        "RMV_RETRY_DELAY": "8"
+        "RMV_ATTEMPTS": "12",
+        "RMV_RETRY_DELAY": "5"
       }
     },
     {
