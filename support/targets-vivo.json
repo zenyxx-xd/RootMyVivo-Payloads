@@ -362,7 +362,7 @@
         "iQOO Neo10 Pro"
       ],
       "kernelVersions": [
-        "6.6.89"
+        "6.6.89-android15-8-gf2c960562dc8"
       ],
       "exploit": "ghostlock-cve-2026-43499",
       "enabled": true,
@@ -389,6 +389,37 @@
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
       }
+    },
+    {
+      "payloadId": "pd2426-b57",
+      "displayName": "iQOO Neo10 Pro (b57 kernel) | Dimensity 9400 | Kernel 6.6.89",
+      "models": [
+        "PD2426",
+        "PD2426A"
+      ],
+      "marketNames": [
+        "V2426A",
+        "iQOO Neo10 Pro"
+      ],
+      "kernelVersions": [
+        "6.6.89-android15-8-gb57af212129c"
+      ],
+      "exploit": "ghostlock-cve-2026-43499",
+      "enabled": true,
+      "files": {
+        "preload.so": {
+          "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-ports/preload-pd2415.so",
+          "sha256": "a711a89f6824fcc1d5bdc2a13814d9541a83585d08162c2aa64255530ffbda68",
+          "size": 144544
+        }
+      },
+      "offsets": {},
+      "structLayout": "6.6",
+      "env": {
+        "RMV_ATTEMPTS": "3",
+        "RMV_RETRY_DELAY": "8"
+      },
+      "verifiedBy": "Same binary as pd2415-x200-b57: some Neo10 Pro units (RMV user report, 2026-09-12) run the identical kernel 6.6.89-android15-8-gb57af212129c-abogki457297774-4k as the X200 b57 build — offsets match 1:1. App picks it by kernel match when the b57 kernel is detected."
     },
     {
       "payloadId": "pd2301-neo8",
