@@ -200,7 +200,7 @@
     },
     {
       "payloadId": "pd2452-z10t",
-      "displayName": "iQOO Z10 Turbo | MT6991 | GKI 6.6",
+      "displayName": "iQOO Z10 Turbo (b57 kernel) | Kernel 6.6.89",
       "models": [
         "PD2452",
         "PD2452A"
@@ -210,16 +210,24 @@
         "iQOO Z10 Turbo"
       ],
       "kernelVersions": [
-        "6.6.89",
-        "6.6.107",
-        "6.6.127"
+        "6.6.89-android15-8-gb57af212129c"
       ],
       "exploit": "ghostlock-cve-2026-43499",
-      "enabled": false,
-      "files": {},
+      "enabled": true,
+      "files": {
+        "preload.so": {
+          "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-ports/preload-pd2415.so",
+          "sha256": "a711a89f6824fcc1d5bdc2a13814d9541a83585d08162c2aa64255530ffbda68",
+          "size": 144544
+        }
+      },
       "offsets": {},
       "structLayout": "6.6",
-      "verifiedBy": "hybLOVE (iqoo-temp-root): preload_z10t.so (156KB, fingerprint pd2405_mt6991) exists only inside the DailyCleaner_v1.12.apk toolbox which is NOT published — repo README states binaries are not hosted (https://github.com/hybLOVE/iqoo-temp-root), 0 GitHub releases, v2.x uses per-device license keys. GitHub repo/code search for PD2452/z10t (2026-09-11): no public binary found. NOT PUBLIC."
+      "verifiedBy": "Same binary as pd2415-x200-b57: RMV user form report (2026-09-12) shows Z10 Turbo on the identical kernel build 6.6.89-android15-8-gb57af212129c-abogki457297774-4k. Full-kernel match required (app v1.0.11+).",
+      "env": {
+        "RMV_ATTEMPTS": "3",
+        "RMV_RETRY_DELAY": "8"
+      }
     },
     {
       "payloadId": "pd2507-z10tplus",
