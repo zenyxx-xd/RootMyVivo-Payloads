@@ -112,25 +112,33 @@
         "iQOO 13"
       ],
       "kernelVersions": [
-        "6.6.30",
-        "6.6.45",
-        "6.6.58",
-        "6.6.73",
-        "6.6.88",
-        "6.6.89"
+        "6.6.89-android15-8-g1f71897ac249"
       ],
       "exploit": "ghostlock-cve-2026-43499",
       "enabled": true,
       "files": {
         "preload.so": {
-          "url": "https://github.com/boxiaolanya2008/CVE-2026-43499-Neo11Plus/releases/download/v1.3.0/preload.so",
-          "sha256": "8c3410cbc7dce25df3274c0e35d293cb38d7ad2384af7ecc549a3400c50695d9",
-          "size": 176544
+          "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-neo11/preload-rmv.so",
+          "sha256": "b3c4557e1f5fbb95745a9a1d9796c73fc02b19a3a03184aee2c03f686b87ca2e",
+          "size": 144720
         }
       },
-      "offsets": {},
+      "offsets": {
+        "kimage_text_base": "ffffffc080000000",
+        "init_task": "0x210E280",
+        "ashmem_misc_fops": "0x226B4E8",
+        "ashmem_fops": "0x12EBB18",
+        "ashmem_ioctl": "0xC814B4",
+        "ashmem_mmap": "0xC81BC4",
+        "configfs_read_iter": "0x48CBB8",
+        "configfs_bin_write_iter": "0x48D0E4"
+      },
       "structLayout": "6.6",
-      "verifiedBy": "hybLOVE (iqoo-temp-root, experimental — needs on-device test) Still the hybLOVE generic build: an exact RMV port needs a kallsyms dump from the PD2408 China kernel (16.1.x build differs from every published target.h). Send `su -c cat /proc/kallsyms` or a boot.img to get an exact RMV build."
+      "verifiedBy": "RMV production preload (v0.4.0-neo11, kernel pd2520-bp2a): hybLOVE's table maps the China iQOO 13 (V2408A) to preload_neo11.so. The India I2401 build has its own kernel — use the i2401-iqoo13 payload there. Needs on-device confirm.",
+      "env": {
+        "RMV_ATTEMPTS": "3",
+        "RMV_RETRY_DELAY": "15"
+      }
     },
     {
       "payloadId": "pd2463-neo10pp",
@@ -144,25 +152,33 @@
         "iQOO Neo10 Pro+"
       ],
       "kernelVersions": [
-        "6.6.30",
-        "6.6.45",
-        "6.6.58",
-        "6.6.73",
-        "6.6.88",
-        "6.6.89"
+        "6.6.89-android15-8-g1f71897ac249"
       ],
       "exploit": "ghostlock-cve-2026-43499",
       "enabled": true,
       "files": {
         "preload.so": {
-          "url": "https://github.com/boxiaolanya2008/CVE-2026-43499-Neo11Plus/releases/download/v1.3.0/preload.so",
-          "sha256": "8c3410cbc7dce25df3274c0e35d293cb38d7ad2384af7ecc549a3400c50695d9",
-          "size": 176544
+          "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-neo11/preload-rmv.so",
+          "sha256": "b3c4557e1f5fbb95745a9a1d9796c73fc02b19a3a03184aee2c03f686b87ca2e",
+          "size": 144720
         }
       },
-      "offsets": {},
+      "offsets": {
+        "kimage_text_base": "ffffffc080000000",
+        "init_task": "0x210E280",
+        "ashmem_misc_fops": "0x226B4E8",
+        "ashmem_fops": "0x12EBB18",
+        "ashmem_ioctl": "0xC814B4",
+        "ashmem_mmap": "0xC81BC4",
+        "configfs_read_iter": "0x48CBB8",
+        "configfs_bin_write_iter": "0x48D0E4"
+      },
       "structLayout": "6.6",
-      "verifiedBy": "hybLOVE (iqoo-temp-root, experimental — needs on-device test). 2026-09-11 main-agent research: SoC is SM8750 (same GKI platform as PD2520 Neo11), latest firmware 16.1.19.1.W10 (OriginOS 6, Android 16, built 2026-05-28; full zip sha256 d797f72ef950838686637fc1409676b2a5db1691e7995e1aa8fc7266c520e662); previous line 15.0.12.15.W10. If the device runs the same android15-8 GKI build as PD2520 (verify: uname -r shows 6.6.89-android15-8-g1f71897ac249-abogki467805059-4k), the pd2520 payload offsets apply unchanged. Still the hybLOVE generic build: PD2463 16.1.19.1.W10 kernel kallsyms not published. If uname -r matches the PD2520 build (6.6.89-android15-8-g1f71897ac249-abogki467805059-4k), the pd2520-a16-0-26 payload works unchanged."
+      "verifiedBy": "RMV production preload (v0.4.0-neo11, kernel pd2520-bp2a): hybLOVE's compatibility table maps Neo10 Pro+ to preload_neo11.so (pd2520-bp2a kernel). Android-16 units on a different kernel build fail closed at the slide. Needs on-device confirm.",
+      "env": {
+        "RMV_ATTEMPTS": "3",
+        "RMV_RETRY_DELAY": "15"
+      }
     },
     {
       "payloadId": "pd2453-z10tpro",
@@ -176,27 +192,33 @@
         "iQOO Z10 Turbo Pro"
       ],
       "kernelVersions": [
-        "6.6.30",
-        "6.6.45",
-        "6.6.58",
-        "6.6.73",
-        "6.6.88",
-        "6.6.89",
-        "6.6.107",
-        "6.6.127"
+        "6.6.89-android15-8-g1f71897ac249"
       ],
       "exploit": "ghostlock-cve-2026-43499",
       "enabled": true,
       "files": {
         "preload.so": {
-          "url": "https://github.com/boxiaolanya2008/CVE-2026-43499-Neo11Plus/releases/download/v1.3.0/preload.so",
-          "sha256": "8c3410cbc7dce25df3274c0e35d293cb38d7ad2384af7ecc549a3400c50695d9",
-          "size": 176544
+          "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-neo11/preload-rmv.so",
+          "sha256": "b3c4557e1f5fbb95745a9a1d9796c73fc02b19a3a03184aee2c03f686b87ca2e",
+          "size": 144720
         }
       },
-      "offsets": {},
+      "offsets": {
+        "kimage_text_base": "ffffffc080000000",
+        "init_task": "0x210E280",
+        "ashmem_misc_fops": "0x226B4E8",
+        "ashmem_fops": "0x12EBB18",
+        "ashmem_ioctl": "0xC814B4",
+        "ashmem_mmap": "0xC81BC4",
+        "configfs_read_iter": "0x48CBB8",
+        "configfs_bin_write_iter": "0x48D0E4"
+      },
       "structLayout": "6.6",
-      "verifiedBy": "hybLOVE (iqoo-temp-root, PC-script flow documented ROOT OK) Still the hybLOVE generic build: no public target.h for the PD2453 kernel. An exact RMV port needs a kallsyms dump from the device."
+      "verifiedBy": "RMV production preload (v0.4.0-neo11, kernel pd2520-bp2a): hybLOVE's iqoo-temp-root ships preload_neo11.so (fingerprint pd2520-bp2a) for the Z10 Turbo Pro — same kernel image as iQOO Neo 11 16.0.26.6. Replaces the generic Neo11Plus build that timed out for users. Needs on-device confirm.",
+      "env": {
+        "RMV_ATTEMPTS": "3",
+        "RMV_RETRY_DELAY": "15"
+      }
     },
     {
       "payloadId": "pd2452-z10t",
