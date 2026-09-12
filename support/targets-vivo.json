@@ -560,7 +560,7 @@
         "6.1.145-android14-11-g74d1702dab4d-ab14669069"
       ],
       "exploit": "ghostlock-cve-2026-43499",
-      "enabled": true,
+      "enabled": false,
       "files": {
         "preload.so": {
           "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.1-compact/preload-i2407.so",
@@ -574,7 +574,7 @@
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
       },
-      "verifiedBy": "RMV port v0.4.1-compact (EXPERIMENTAL, needs on-device test): kernel bit-identical to vivo T4; offsets JoinChang/ghostlock-oneplus (vivo T4, kallsyms+BTF); first compact-waiter build of the RMV engine. If slide fails, tune RMV_SLIDE_SHIFT/RMV_FOPS_SHIFT env."
+      "verifiedBy": "DISABLED 2026-09-12: kernel 6.1.145-android14-11-g74d1702dab4d-ab14669069 proven INFEASIBLE for GhostLock. JoinChang boot.img analysis (ghostlock-oneplus issue 'Exploit failed on IQOO 12', 2026-09-11): futex_wait_requeue_pi frame 0x1B0 -> waiter_word=9, task/lock fields land at fd_set words 15/16 inside the kernel-zeroed result area — the write cannot be controlled, same root cause as the 6.1 Not-Feasible table. Affects ALL devices on this exact kernel build: iQOO Z10 India (I2407), vivo T4, iQOO 12/12 Pro. No shift/fdset tuning can fix this; needs a different exploit."
     },
     {
       "payloadId": "pd2454-x200u-6689",
