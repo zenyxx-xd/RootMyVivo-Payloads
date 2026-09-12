@@ -182,14 +182,17 @@
     },
     {
       "payloadId": "pd2453-z10tpro",
-      "displayName": "iQOO Z10 Turbo Pro | SM8750-class | GKI 6.6",
+      "displayName": "iQOO Z10 Turbo Pro / Neo 10 Global | SM8735 | Kernel 6.6.89",
       "models": [
         "PD2453",
-        "PD2453A"
+        "PD2453A",
+        "PD2453HF",
+        "I2405"
       ],
       "marketNames": [
         "V2453A",
-        "iQOO Z10 Turbo Pro"
+        "iQOO Z10 Turbo Pro",
+        "iQOO Neo 10 (Global)"
       ],
       "kernelVersions": [
         "6.6.89-android15-8-g1f71897ac249"
@@ -214,7 +217,7 @@
         "configfs_bin_write_iter": "0x48D0E4"
       },
       "structLayout": "6.6",
-      "verifiedBy": "RMV production preload (v0.4.0-neo11, kernel pd2520-bp2a): hybLOVE's iqoo-temp-root ships preload_neo11.so (fingerprint pd2520-bp2a) for the Z10 Turbo Pro — same kernel image as iQOO Neo 11 16.0.26.6. Replaces the generic Neo11Plus build that timed out for users. Needs on-device confirm.",
+      "verifiedBy": "RMV production preload (v0.4.0-neo11, kernel 6.6.89-android15-8-g1f71897ac249-abogki467805059-4k): hybLOVE's iqoo-temp-root ships preload_neo11.so (fingerprint pd2520-bp2a) for the Z10 Turbo Pro — same kernel image as iQOO Neo 11 16.0.26.6. The GLOBAL variant (iQOO Neo 10, model I2405, ROM family PD2453HF_EX) is the SAME hardware: works on firmware with the 6.6.89 g1f71897ac249 build (launch-era). Global units UPDATED to Android 16 run 6.6.127-android15-8-gf0987337fa35-ab15756704-4k (user reports, 2026-09-12) — a different kernel build, NOT covered by this payload; needs its own port (and a 43499-fix check). Global users: send your full uname -r via the device-request form to confirm.",
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "15"
