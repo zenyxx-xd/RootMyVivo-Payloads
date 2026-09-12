@@ -524,6 +524,65 @@
         "RMV_RETRY_DELAY": "8"
       },
       "verifiedBy": "RMV port v0.4.0-ports: offsets from theVakhovskeIsTaken/CyberMeowfia (PD2405-AP3A.240905.015.A1 target of the same engine family). Engine = device-verified RMV PD2520 build (soft-reboot-free chain). Needs on-device test."
+    },
+    {
+      "payloadId": "i2407-iqooz10",
+      "displayName": "iQOO Z10 (India) | SM8650 | Kernel 6.1.145",
+      "models": [
+        "I2407"
+      ],
+      "marketNames": [
+        "iQOO Z10"
+      ],
+      "kernelVersions": [
+        "6.1.145-android14-11-g74d1702dab4d-ab14669069"
+      ],
+      "exploit": "ghostlock-cve-2026-43499",
+      "enabled": true,
+      "files": {
+        "preload.so": {
+          "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.1-compact/preload-i2407.so",
+          "sha256": "4f34c5d9a419aa18ddc6015934d4d93dae8c4e6b1dae94be02b1244c29f299f2",
+          "size": 145232
+        }
+      },
+      "offsets": {},
+      "structLayout": "6.1",
+      "env": {
+        "RMV_ATTEMPTS": "3",
+        "RMV_RETRY_DELAY": "8"
+      },
+      "verifiedBy": "RMV port v0.4.1-compact (EXPERIMENTAL, needs on-device test): kernel bit-identical to vivo T4; offsets JoinChang/ghostlock-oneplus (vivo T4, kallsyms+BTF); first compact-waiter build of the RMV engine. If slide fails, tune RMV_SLIDE_SHIFT/RMV_FOPS_SHIFT env."
+    },
+    {
+      "payloadId": "pd2454-x200u-6689",
+      "displayName": "vivo X200 Ultra | SM8750 | Kernel 6.6.89",
+      "models": [
+        "PD2454"
+      ],
+      "marketNames": [
+        "V2454A",
+        "vivo X200 Ultra"
+      ],
+      "kernelVersions": [
+        "6.6.89-android15-8-g1f71897ac249"
+      ],
+      "exploit": "ghostlock-cve-2026-43499",
+      "enabled": true,
+      "files": {
+        "preload.so": {
+          "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-neo11/preload-rmv.so",
+          "sha256": "b3c4557e1f5fbb95745a9a1d9796c73fc02b19a3a03184aee2c03f686b87ca2e",
+          "size": 144720
+        }
+      },
+      "offsets": {},
+      "structLayout": "6.6",
+      "env": {
+        "RMV_ATTEMPTS": "3",
+        "RMV_RETRY_DELAY": "15"
+      },
+      "verifiedBy": "Same kernel image as iQOO Neo 11 16.0.26.6 (6.6.89-android15-8-g1f71897ac249-abogki467805059-4k) — the production Neo 11 preload fits 1:1 (incl. vr.ko handling). For X200 Ultra units still on the 6.6.89 firmware (JoinChang ghostlock-oneplus device table). Units on 6.6.127 are NOT covered: the 43499 fix is backported there."
     }
   ]
 }
