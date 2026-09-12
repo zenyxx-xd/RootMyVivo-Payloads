@@ -43,7 +43,11 @@
         "preload.so": {
           "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-6.6.127-neo11/preload-rmv-127.so",
           "sha256": "754125b4816d4dfe3defab94cda37cddcecba0d857212e6ecaa1bec0107e21b3",
-          "size": 144704
+          "size": 144704,
+          "mirrors": [
+            "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/pd2520-127.so",
+            "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/pd2520-127.so"
+          ]
         }
       },
       "offsets": {},
@@ -78,7 +82,11 @@
         "preload.so": {
           "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-neo11/preload-rmv.so",
           "sha256": "b3c4557e1f5fbb95745a9a1d9796c73fc02b19a3a03184aee2c03f686b87ca2e",
-          "size": 144720
+          "size": 144720,
+          "mirrors": [
+            "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/pd2520-6689.so",
+            "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/pd2520-6689.so"
+          ]
         }
       },
       "offsets": {
@@ -120,7 +128,11 @@
         "preload.so": {
           "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-neo11/preload-rmv.so",
           "sha256": "b3c4557e1f5fbb95745a9a1d9796c73fc02b19a3a03184aee2c03f686b87ca2e",
-          "size": 144720
+          "size": 144720,
+          "mirrors": [
+            "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/pd2520-6689.so",
+            "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/pd2520-6689.so"
+          ]
         }
       },
       "offsets": {
@@ -160,7 +172,11 @@
         "preload.so": {
           "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-neo11/preload-rmv.so",
           "sha256": "b3c4557e1f5fbb95745a9a1d9796c73fc02b19a3a03184aee2c03f686b87ca2e",
-          "size": 144720
+          "size": 144720,
+          "mirrors": [
+            "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/pd2520-6689.so",
+            "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/pd2520-6689.so"
+          ]
         }
       },
       "offsets": {
@@ -203,7 +219,11 @@
         "preload.so": {
           "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-neo11/preload-rmv.so",
           "sha256": "b3c4557e1f5fbb95745a9a1d9796c73fc02b19a3a03184aee2c03f686b87ca2e",
-          "size": 144720
+          "size": 144720,
+          "mirrors": [
+            "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/pd2520-6689.so",
+            "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/pd2520-6689.so"
+          ]
         }
       },
       "offsets": {
@@ -243,7 +263,11 @@
         "preload.so": {
           "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-ports/preload-pd2415.so",
           "sha256": "a711a89f6824fcc1d5bdc2a13814d9541a83585d08162c2aa64255530ffbda68",
-          "size": 144544
+          "size": 144544,
+          "mirrors": [
+            "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/pd2415.so",
+            "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/pd2415.so"
+          ]
         }
       },
       "offsets": {},
@@ -324,7 +348,11 @@
         "preload.so": {
           "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-ports/preload-pd2415.so",
           "sha256": "a711a89f6824fcc1d5bdc2a13814d9541a83585d08162c2aa64255530ffbda68",
-          "size": 144544
+          "size": 144544,
+          "mirrors": [
+            "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/pd2415.so",
+            "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/pd2415.so"
+          ]
         }
       },
       "offsets": {
@@ -363,7 +391,11 @@
         "preload.so": {
           "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-ports/preload-i2401.so",
           "sha256": "6a4450e016005b0e5e03dcffdb5877b8050aa09eb16252e3aed2ca29f8ed3b4c",
-          "size": 144704
+          "size": 144704,
+          "mirrors": [
+            "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/i2401.so",
+            "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/i2401.so"
+          ]
         }
       },
       "offsets": {
@@ -403,7 +435,11 @@
         "preload.so": {
           "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-ports/preload-pd2426.so",
           "sha256": "96c63306bd4cec7fe3edb3178995092dd2a587c10dd4c19cc66e9306636bb2d3",
-          "size": 144576
+          "size": 144576,
+          "mirrors": [
+            "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/pd2426.so",
+            "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/pd2426.so"
+          ]
         }
       },
       "offsets": {
@@ -443,7 +479,11 @@
         "preload.so": {
           "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-ports/preload-pd2415.so",
           "sha256": "a711a89f6824fcc1d5bdc2a13814d9541a83585d08162c2aa64255530ffbda68",
-          "size": 144544
+          "size": 144544,
+          "mirrors": [
+            "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/pd2415.so",
+            "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/pd2415.so"
+          ]
         }
       },
       "offsets": {},
@@ -539,7 +579,11 @@
         "preload.so": {
           "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-ports/preload-pd2405.so",
           "sha256": "38e3abddaca7746f579ea2e76e1810aca9cb0adca963f8f5f634d3ec2c4cbe14",
-          "size": 144576
+          "size": 144576,
+          "mirrors": [
+            "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/pd2405.so",
+            "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/pd2405.so"
+          ]
         }
       },
       "offsets": {},
@@ -568,7 +612,11 @@
         "preload.so": {
           "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.1-compact/preload-i2407.so",
           "sha256": "4f34c5d9a419aa18ddc6015934d4d93dae8c4e6b1dae94be02b1244c29f299f2",
-          "size": 145232
+          "size": 145232,
+          "mirrors": [
+            "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/i2407.so",
+            "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/i2407.so"
+          ]
         }
       },
       "offsets": {},
@@ -598,7 +646,11 @@
         "preload.so": {
           "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-neo11/preload-rmv.so",
           "sha256": "b3c4557e1f5fbb95745a9a1d9796c73fc02b19a3a03184aee2c03f686b87ca2e",
-          "size": 144720
+          "size": 144720,
+          "mirrors": [
+            "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/pd2520-6689.so",
+            "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/pd2520-6689.so"
+          ]
         }
       },
       "offsets": {},
