@@ -20,45 +20,6 @@
   },
   "payloads": [
     {
-      "payloadId": "pd2520-a16-0-28-2",
-      "displayName": "iQOO Neo 11 | SM8750 | Kernel 6.6.127 (16.0.28.2)",
-      "models": [
-        "PD2520",
-        "PD2520A",
-        "PD2520B",
-        "PD2520C",
-        "PD2520D",
-        "PD2520E"
-      ],
-      "marketNames": [
-        "V2520A",
-        "iQOO Neo 11"
-      ],
-      "kernelVersions": [
-        "6.6.127"
-      ],
-      "exploit": "ghostlock-cve-2026-43499",
-      "enabled": true,
-      "files": {
-        "preload.so": {
-          "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-6.6.127-neo11/preload-rmv-127.so",
-          "sha256": "754125b4816d4dfe3defab94cda37cddcecba0d857212e6ecaa1bec0107e21b3",
-          "size": 144704,
-          "mirrors": [
-            "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/pd2520-127.so",
-            "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/pd2520-127.so"
-          ]
-        }
-      },
-      "offsets": {},
-      "structLayout": "6.6",
-      "env": {
-        "RMV_ATTEMPTS": "3",
-        "RMV_RETRY_DELAY": "15"
-      },
-      "verifiedBy": "zenyxx-xd (rmv-exploit v0.4.0-127, offsets from boot_b kallsyms)"
-    },
-    {
       "payloadId": "pd2520-a16-0-26",
       "displayName": "iQOO Neo 11 | SM8750 | Kernel 6.6.89",
       "models": [
@@ -67,11 +28,14 @@
         "PD2520B",
         "PD2520C",
         "PD2520D",
-        "PD2520E"
+        "PD2520E",
+        "V2520A"
       ],
       "marketNames": [
         "V2520A",
-        "iQOO Neo 11"
+        "iQOO Neo 11",
+        "iQOO Neo11",
+        "Neo 11"
       ],
       "kernelVersions": [
         "6.6.89"
@@ -113,11 +77,13 @@
       "models": [
         "PD2408",
         "PD2408A",
-        "PD2408B"
+        "PD2408B",
+        "V2408A"
       ],
       "marketNames": [
         "V2408A",
-        "iQOO 13"
+        "iQOO 13",
+        "iQOO13"
       ],
       "kernelVersions": [
         "6.6.89-android15-8-g1f71897ac249"
@@ -157,11 +123,13 @@
       "displayName": "iQOO Neo10 Pro+ | SM8750 (8 Elite) | GKI 6.6",
       "models": [
         "PD2463",
-        "PD2463A"
+        "PD2463A",
+        "V2463A"
       ],
       "marketNames": [
         "V2463A",
-        "iQOO Neo10 Pro+"
+        "iQOO Neo10 Pro+",
+        "iQOO Neo 10 Pro+"
       ],
       "kernelVersions": [
         "6.6.89-android15-8-g1f71897ac249"
@@ -198,17 +166,16 @@
     },
     {
       "payloadId": "pd2453-z10tpro",
-      "displayName": "iQOO Z10 Turbo Pro / Neo 10 Global | SM8735 | Kernel 6.6.89",
+      "displayName": "iQOO Z10 Turbo Pro | SM8735 | Kernel 6.6.89",
       "models": [
         "PD2453",
         "PD2453A",
-        "PD2453HF",
-        "I2405"
+        "V2453A"
       ],
       "marketNames": [
         "V2453A",
         "iQOO Z10 Turbo Pro",
-        "iQOO Neo 10 (Global)"
+        "Z10 Turbo Pro"
       ],
       "kernelVersions": [
         "6.6.89-android15-8-g1f71897ac249"
@@ -248,11 +215,13 @@
       "displayName": "iQOO Z10 Turbo (b57 kernel) | Kernel 6.6.89",
       "models": [
         "PD2452",
-        "PD2452A"
+        "PD2452A",
+        "V2452A"
       ],
       "marketNames": [
         "V2452A",
-        "iQOO Z10 Turbo"
+        "iQOO Z10 Turbo",
+        "Z10 Turbo"
       ],
       "kernelVersions": [
         "6.6.89-android15-8-gb57af212129c"
@@ -283,10 +252,12 @@
       "displayName": "iQOO Z10 Turbo+ | MT6991 | Kernel 6.6.127",
       "models": [
         "PD2507",
-        "PD2405"
+        "V2507A"
       ],
       "marketNames": [
-        "iQOO Z10 Turbo+"
+        "iQOO Z10 Turbo+",
+        "V2507A",
+        "Z10 Turbo+"
       ],
       "kernelVersions": [
         "6.6.127"
@@ -296,24 +267,31 @@
       "files": {},
       "offsets": {},
       "structLayout": "6.6",
-      "verifiedBy": "hybLOVE (iqoo-temp-root): reference device for real-machine verification (Z10 Turbo+ pd2507), payload preload_z10t.so ships only inside the non-public DailyCleaner APK (see README_交接.md). https://github.com/hybLOVE/iqoo-temp-root — 0 releases. Partial public material: theVakhovskeIsTaken/CyberMeowfia fork has a vivo X200 Pro (PD2405, MT6991) target.h + root.c vr-bypass (https://github.com/theVakhovskeIsTaken/CyberMeowfia, IonStack/CVE-2026-43499/exploit/src/targets/PD2405-AP3A.240905.015.A1) but no compiled binary. NOT PUBLIC."
+      "verifiedBy": "hybLOVE (iqoo-temp-root): reference device for real-machine verification (Z10 Turbo+ pd2507), payload preload_z10t.so ships only inside the non-public DailyCleaner APK (see README_交接.md). https://github.com/hybLOVE/iqoo-temp-root — 0 releases. Partial public material: theVakhovskeIsTaken/CyberMeowfia fork has a vivo X200 Pro (PD2405, MT6991) target.h + root.c vr-bypass (https://github.com/theVakhovskeIsTaken/CyberMeowfia, IonStack/CVE-2026-43499/exploit/src/targets/PD2405-AP3A.240905.015.A1) but no compiled binary. NOT PUBLIC. | 2026-09-13: still disabled. Forms show both 6.6.127 and b57. b57 units should hit pd2415-x200-b57 by kernel match; 6.6.127 needs its own port."
     },
     {
       "payloadId": "i2302-z9-5g",
       "displayName": "iQOO Z9 5G / vivo T3 5G | MT6886 | Kernel 5.15.178",
       "models": [
         "I2302",
-        "V2334"
+        "V2334",
+        "V2361A",
+        "PD2361",
+        "V2361"
       ],
       "marketNames": [
         "iQOO Z9 5G",
-        "vivo T3 5G"
+        "vivo T3 5G",
+        "iQOO Z9",
+        "IQOO Z9",
+        "V2361A"
       ],
       "kernelVersions": [
-        "5.15.178"
+        "5.15.178",
+        "5.15.197"
       ],
       "exploit": "adreno-cve-2025-21479",
-      "enabled": true,
+      "enabled": false,
       "files": {
         "preload.so": {
           "url": "https://github.com/ankitrawatgit/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock/releases/download/v0.0.1-build.34135024085.1/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock-v0.0.1-build.34135024085.1-preload",
@@ -328,18 +306,39 @@
       },
       "offsets": {},
       "structLayout": "5.15",
-      "verifiedBy": "ankitrawatgit (v0.0.1-build.34135024085.1, 2026-09-07 — latest release with working APK; verified binary hashes)"
+      "verifiedBy": "ankitrawatgit (v0.0.1-build.34135024085.1, 2026-09-07 — latest release with working APK; verified binary hashes) | 2026-09-13: added V2361A/PD2361/iQOO Z9 aliases. DISABLED: Adreno GPU fix on current builds; payload only for old pre-fix firmware."
     },
     {
       "payloadId": "pd2415-x200-b57",
       "displayName": "vivo X200 (PD2415, build b57) | Dimensity 9400 | Kernel 6.6.89",
       "models": [
-        "PD2415"
+        "PD2415",
+        "PD2419",
+        "PD2419A",
+        "V2551A",
+        "PD2551",
+        "V2419A",
+        "PD2507",
+        "V2507A",
+        "PD2452",
+        "PD2452A"
       ],
       "marketNames": [
-        "vivo X200"
+        "vivo X200",
+        "V2419A",
+        "vivo X200 Pro mini",
+        "X200 Pro mini",
+        "iQOO Z11",
+        "V2551A",
+        "iQOO Z10 Turbo+",
+        "Z10 Turbo+",
+        "V2415A",
+        "V2507A",
+        "iQOO Z10 Turbo",
+        "V2452A"
       ],
       "kernelVersions": [
+        "6.6.89-android15-8-gb57af212129c",
         "6.6.89"
       ],
       "exploit": "ghostlock-cve-2026-43499",
@@ -367,7 +366,7 @@
         "configfs_bin_write_iter": "0x48C928"
       },
       "structLayout": "6.6",
-      "verifiedBy": "RMV port v0.4.0-ports: offsets from xiaohj233/ghostlock-x200-root v1.3.5 (device-verified on PD2415 / OriginOS 16.1.12.2.W10 / kernel 6.6.89-android15-8-gb57af212129c-abogki457297774-4k, offsets_auto.py from kallsyms+BTF). Engine = device-verified RMV PD2520 build (soft-reboot-free chain, single-preload flow replaces the 7-stage host bundle). Needs on-device test.",
+      "verifiedBy": "RMV port v0.4.0-ports: offsets from xiaohj233/ghostlock-x200-root v1.3.5 (device-verified on PD2415 / OriginOS 16.1.12.2.W10 / kernel 6.6.89-android15-8-gb57af212129c-abogki457297774-4k, offsets_auto.py from kallsyms+BTF). Engine = device-verified RMV PD2520 build (soft-reboot-free chain, single-preload flow replaces the 7-stage host bundle). Needs on-device test. | 2026-09-13: added X200 Pro mini (V2419A/PD2419) because user forms report the identical b57 kernel 6.6.89-android15-8-gb57af212129c-abogki457297774-4k. Needs on-device confirmation. | 2026-09-13: forms report iQOO Z11 / V2551A on b57 kernel string; alias added, needs on-device confirmation. | 2026-09-13: some Z10 Turbo+ units report b57 kernel string 6.6.89-...gb57af212129c... and can reuse this payload ONLY on that kernel. 6.6.127 Z10 Turbo+ units are NOT covered here.",
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
@@ -377,13 +376,19 @@
       "payloadId": "i2401-iqoo13",
       "displayName": "iQOO 13 (India) | SM8750 | Kernel 6.6.89",
       "models": [
-        "I2401"
+        "I2401",
+        "I2405"
       ],
       "marketNames": [
-        "iQOO 13 (India)"
+        "iQOO 13 (India)",
+        "iQOO Neo 10 Global",
+        "Neo 10 Global",
+        "I2405",
+        "iqoo neo 10"
       ],
       "kernelVersions": [
-        "6.6.89"
+        "6.6.89",
+        "6.6.89-android15-8-g97a9aaefab9a"
       ],
       "exploit": "ghostlock-cve-2026-43499",
       "enabled": true,
@@ -409,7 +414,7 @@
         "configfs_bin_write_iter": "0x48C298"
       },
       "structLayout": "6.6",
-      "verifiedBy": "RMV port v0.4.0-ports: offsets from AmarnathCJD/IQOO13-Root (I2401 16.1.22.2.W30, kernel 6.6.89-android15-8-g97a9aaefab9a-ab14519050-4k, vmlinux-to-elf + disassembly), engine = the device-verified RMV PD2520 build (soft-reboot-free chain, KSU installs without userspace restart). Needs on-device test.",
+      "verifiedBy": "RMV port v0.4.0-ports: offsets from AmarnathCJD/IQOO13-Root (I2401 16.1.22.2.W30, kernel 6.6.89-android15-8-g97a9aaefab9a-ab14519050-4k, vmlinux-to-elf + disassembly), engine = the device-verified RMV PD2520 build (soft-reboot-free chain, KSU installs without userspace restart). Needs on-device test. | 2026-09-13: forms report I2405/Neo10 Global on g97a9aaefab9a (same kernel string as I2401). Mapped as alias; needs on-device confirmation and may be different boot despite same string.",
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
@@ -420,11 +425,13 @@
       "displayName": "iQOO Neo10 Pro | MT6991 | Kernel 6.6.89",
       "models": [
         "PD2426",
-        "PD2426A"
+        "PD2426A",
+        "V2426A"
       ],
       "marketNames": [
         "V2426A",
-        "iQOO Neo10 Pro"
+        "iQOO Neo10 Pro",
+        "iQOO Neo 10 Pro"
       ],
       "kernelVersions": [
         "6.6.89-android15-8-gf2c960562dc8"
@@ -464,11 +471,13 @@
       "displayName": "iQOO Neo10 Pro (b57 kernel) | Dimensity 9400 | Kernel 6.6.89",
       "models": [
         "PD2426",
-        "PD2426A"
+        "PD2426A",
+        "V2426A"
       ],
       "marketNames": [
         "V2426A",
-        "iQOO Neo10 Pro"
+        "iQOO Neo10 Pro",
+        "iQOO Neo 10 Pro"
       ],
       "kernelVersions": [
         "6.6.89-android15-8-gb57af212129c"
@@ -503,7 +512,8 @@
       ],
       "marketNames": [
         "V2301A",
-        "iQOO Neo8"
+        "iQOO Neo8",
+        "iQOO Neo 8"
       ],
       "kernelVersions": [
         "5.10.198"
@@ -519,22 +529,30 @@
       },
       "offsets": {},
       "structLayout": "5.10",
-      "verifiedBy": "Qingizi7 (cve-2025-21479_iqooneo8) — cheese-lineage KGSL exploit, device-verified on vivo V2301A (PD2301, SM8475/Adreno 730, Android 14 UP1A.231005.007, kernel 5.10.198-gki-gfb2f5774872c, SPL 2024-11-01, uid=0 screenshot in repo). Standalone binary (not LD_PRELOAD); needs apanic/vr.ko disable for stable root. https://github.com/Qingizi7/cve-2025-21479_iqooneo8"
+      "verifiedBy": "Qingizi7 (cve-2025-21479_iqooneo8) — cheese-lineage KGSL exploit, device-verified on vivo V2301A (PD2301, SM8475/Adreno 730, Android 14 UP1A.231005.007, kernel 5.10.198-gki-gfb2f5774872c, SPL 2024-11-01, uid=0 screenshot in repo). Standalone binary (not LD_PRELOAD); needs apanic/vr.ko disable for stable root. https://github.com/Qingizi7/cve-2025-21479_iqooneo8 | 2026-09-13: confirm GPU firmware still vulnerable before promising support."
     },
     {
       "payloadId": "pd2338c-neo9",
       "displayName": "iQOO Neo9 | SM8550 | Adreno 740 | Kernel 5.15.178",
       "models": [
-        "PD2338C"
+        "PD2338C",
+        "PD2338",
+        "V2338A",
+        "V2338"
       ],
       "marketNames": [
-        "iQOO Neo9 (China)"
+        "iQOO Neo9 (China)",
+        "iQOO Neo9",
+        "iQOO Neo 9",
+        "iQOO NEO 9",
+        "V2338A"
       ],
       "kernelVersions": [
-        "5.15.178"
+        "5.15.178",
+        "5.15.197"
       ],
       "exploit": "adreno-cve-2025-21479",
-      "enabled": true,
+      "enabled": false,
       "files": {
         "exploit": {
           "url": "https://raw.githubusercontent.com/linux-tools/vivo_iqoo_neo_9_root_research_on_CVE-2025-21479/main/exploit/exploit_vivo_neo9",
@@ -559,16 +577,20 @@
       },
       "offsets": {},
       "structLayout": "5.15",
-      "verifiedBy": "linux-tools (vivo_iqoo_neo_9_root_research_on_CVE-2025-21479) — KSUOneTap v1.0.3 APK (2026-08-31, ReSukiSU 35090/2); chain: GPU phys-r/w -> SELinux permissive -> rootd + kernelsu-vivo.ko (vermagic 5.15.178). Requires OriginOS 5 (橘子5) last build with pre-fix GPU firmware (< v676). https://github.com/linux-tools/vivo_iqoo_neo_9_root_research_on_CVE-2025-21479"
+      "verifiedBy": "linux-tools (vivo_iqoo_neo_9_root_research_on_CVE-2025-21479) — KSUOneTap v1.0.3 APK (2026-08-31, ReSukiSU 35090/2); chain: GPU phys-r/w -> SELinux permissive -> rootd + kernelsu-vivo.ko (vermagic 5.15.178). Requires OriginOS 5 (橘子5) last build with pre-fix GPU firmware (< v676). https://github.com/linux-tools/vivo_iqoo_neo_9_root_research_on_CVE-2025-21479 | 2026-09-13: added V2338A/PD2338/iQOO Neo9 aliases (app matches Build.DEVICE/MODEL exactly). DISABLED: Adreno CVE-2025-21479 GPU firmware is fixed on current user builds; pre-fix OriginOS5-only. GhostLock not ported for 5.15 yet."
     },
     {
       "payloadId": "pd2405-x200pro",
       "displayName": "vivo X200 Pro | Dimensity 9400 | Kernel 6.6.89",
       "models": [
-        "PD2405"
+        "PD2405",
+        "V2405A"
       ],
       "marketNames": [
-        "vivo X200 Pro"
+        "vivo X200 Pro",
+        "V2405A",
+        "X200 Pro",
+        "Vivo X200 Pro"
       ],
       "kernelVersions": [
         "6.6.89"
@@ -592,7 +614,7 @@
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
       },
-      "verifiedBy": "RMV port v0.4.0-ports: offsets from theVakhovskeIsTaken/CyberMeowfia (PD2405-AP3A.240905.015.A1 target of the same engine family). Engine = device-verified RMV PD2520 build (soft-reboot-free chain). Needs on-device test."
+      "verifiedBy": "RMV port v0.4.0-ports: offsets from theVakhovskeIsTaken/CyberMeowfia (PD2405-AP3A.240905.015.A1 target of the same engine family). Engine = device-verified RMV PD2520 build (soft-reboot-free chain). Needs on-device test. | 2026-09-13: if unit reports gb57af212129c, app should prefer pd2415-x200-b57 via full-kernel match."
     },
     {
       "payloadId": "i2407-iqooz10",
@@ -601,7 +623,8 @@
         "I2407"
       ],
       "marketNames": [
-        "iQOO Z10"
+        "iQOO Z10",
+        "I2407"
       ],
       "kernelVersions": [
         "6.1.145-android14-11-g74d1702dab4d-ab14669069"
@@ -631,11 +654,14 @@
       "payloadId": "pd2454-x200u-6689",
       "displayName": "vivo X200 Ultra | SM8750 | Kernel 6.6.89",
       "models": [
-        "PD2454"
+        "PD2454",
+        "V2454A"
       ],
       "marketNames": [
         "V2454A",
-        "vivo X200 Ultra"
+        "vivo X200 Ultra",
+        "vivo x200ultra",
+        "X200 Ultra"
       ],
       "kernelVersions": [
         "6.6.89-android15-8-g1f71897ac249"
