@@ -291,7 +291,7 @@
         "5.15.197"
       ],
       "exploit": "adreno-cve-2025-21479",
-      "enabled": false,
+      "enabled": true,
       "files": {
         "preload.so": {
           "url": "https://github.com/ankitrawatgit/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock/releases/download/v0.0.1-build.34135024085.1/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock-v0.0.1-build.34135024085.1-preload",
@@ -306,7 +306,7 @@
       },
       "offsets": {},
       "structLayout": "5.15",
-      "verifiedBy": "ankitrawatgit (v0.0.1-build.34135024085.1, 2026-09-07 — latest release with working APK; verified binary hashes) | 2026-09-13: added V2361A/PD2361/iQOO Z9 aliases. DISABLED: Adreno GPU fix on current builds; payload only for old pre-fix firmware."
+      "verifiedBy": "ankitrawatgit (v0.0.1-build.34135024085.1, 2026-09-07 — latest release with working APK; verified binary hashes) | 2026-09-13: added V2361A/PD2361/iQOO Z9 aliases. DISABLED: Adreno GPU fix on current builds; payload only for old pre-fix firmware. | 2026-09-13: re-enabled. Aliases kept (V2338A/PD2338, V2361A/iQOO Z9). Adreno still only works on pre-fix GPU firmware; patched units will match then fail at runtime."
     },
     {
       "payloadId": "pd2415-x200-b57",
@@ -552,7 +552,7 @@
         "5.15.197"
       ],
       "exploit": "adreno-cve-2025-21479",
-      "enabled": false,
+      "enabled": true,
       "files": {
         "exploit": {
           "url": "https://raw.githubusercontent.com/linux-tools/vivo_iqoo_neo_9_root_research_on_CVE-2025-21479/main/exploit/exploit_vivo_neo9",
@@ -577,7 +577,7 @@
       },
       "offsets": {},
       "structLayout": "5.15",
-      "verifiedBy": "linux-tools (vivo_iqoo_neo_9_root_research_on_CVE-2025-21479) — KSUOneTap v1.0.3 APK (2026-08-31, ReSukiSU 35090/2); chain: GPU phys-r/w -> SELinux permissive -> rootd + kernelsu-vivo.ko (vermagic 5.15.178). Requires OriginOS 5 (橘子5) last build with pre-fix GPU firmware (< v676). https://github.com/linux-tools/vivo_iqoo_neo_9_root_research_on_CVE-2025-21479 | 2026-09-13: added V2338A/PD2338/iQOO Neo9 aliases (app matches Build.DEVICE/MODEL exactly). DISABLED: Adreno CVE-2025-21479 GPU firmware is fixed on current user builds; pre-fix OriginOS5-only. GhostLock not ported for 5.15 yet."
+      "verifiedBy": "linux-tools (vivo_iqoo_neo_9_root_research_on_CVE-2025-21479) — KSUOneTap v1.0.3 APK (2026-08-31, ReSukiSU 35090/2); chain: GPU phys-r/w -> SELinux permissive -> rootd + kernelsu-vivo.ko (vermagic 5.15.178). Requires OriginOS 5 (橘子5) last build with pre-fix GPU firmware (< v676). https://github.com/linux-tools/vivo_iqoo_neo_9_root_research_on_CVE-2025-21479 | 2026-09-13: added V2338A/PD2338/iQOO Neo9 aliases (app matches Build.DEVICE/MODEL exactly). DISABLED: Adreno CVE-2025-21479 GPU firmware is fixed on current user builds; pre-fix OriginOS5-only. GhostLock not ported for 5.15 yet. | 2026-09-13: re-enabled. Aliases kept (V2338A/PD2338, V2361A/iQOO Z9). Adreno still only works on pre-fix GPU firmware; patched units will match then fail at runtime."
     },
     {
       "payloadId": "pd2405-x200pro",
