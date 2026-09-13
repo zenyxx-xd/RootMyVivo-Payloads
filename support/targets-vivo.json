@@ -38,7 +38,7 @@
         "Neo 11"
       ],
       "kernelVersions": [
-        "6.6.89"
+        "6.6.89-android15-8-g1f71897ac249"
       ],
       "exploit": "ghostlock-cve-2026-43499",
       "enabled": true,
@@ -65,7 +65,7 @@
         "configfs_bin_write_iter": "0x48D0E4"
       },
       "structLayout": "6.6",
-      "verifiedBy": "zenyxx-xd (rmv-exploit v0.4.0 — upstream-aligned load fix)",
+      "verifiedBy": "zenyxx-xd (rmv-exploit v0.4.0 — upstream-aligned load fix). 2026-09-13: same binary as pd2520-a16-0-26 (sha256 b3c4557e…). Local kernel_6_6_89.img is Linux 6.6.89-android15-8-g1f71897ac249-abogki467805059-4k; remove_waiter still uses current/sp_el0 (unpatched 43499 form). ashmem_ioctl/init_task/configfs_read_iter match this Image. App matches the full GKI string only — 6.6.127-g24b70dd1 on the same phone is a different Image where remove_waiter already clears waiter->task->pi_blocked_on.",
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "15"
@@ -104,6 +104,7 @@
       "offsets": {
         "kimage_text_base": "ffffffc080000000",
         "init_task": "0x210E280",
+        "init_cred": "0x21205C8",
         "ashmem_misc_fops": "0x226B4E8",
         "ashmem_fops": "0x12EBB18",
         "ashmem_ioctl": "0xC814B4",
@@ -112,7 +113,7 @@
         "configfs_bin_write_iter": "0x48D0E4"
       },
       "structLayout": "6.6",
-      "verifiedBy": "RMV production preload (v0.4.0-neo11, kernel pd2520-bp2a): hybLOVE's table maps the China iQOO 13 (V2408A) to preload_neo11.so. The India I2401 build has its own kernel — use the i2401-iqoo13 payload there. Needs on-device confirm.",
+      "verifiedBy": "hybLOVE maps China iQOO 13 (V2408A) to preload_neo11.so. 2026-09-13: same binary as pd2520-a16-0-26 (sha256 b3c4557e…). Local kernel_6_6_89.img is Linux 6.6.89-android15-8-g1f71897ac249-abogki467805059-4k; remove_waiter still uses current/sp_el0 (unpatched 43499 form). ashmem_ioctl/init_task/configfs_read_iter match this Image. App matches the full GKI string only — 6.6.127-g24b70dd1 on the same phone is a different Image where remove_waiter already clears waiter->task->pi_blocked_on.",
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "15"
@@ -150,6 +151,7 @@
       "offsets": {
         "kimage_text_base": "ffffffc080000000",
         "init_task": "0x210E280",
+        "init_cred": "0x21205C8",
         "ashmem_misc_fops": "0x226B4E8",
         "ashmem_fops": "0x12EBB18",
         "ashmem_ioctl": "0xC814B4",
@@ -158,7 +160,7 @@
         "configfs_bin_write_iter": "0x48D0E4"
       },
       "structLayout": "6.6",
-      "verifiedBy": "RMV production preload (v0.4.0-neo11, kernel pd2520-bp2a): hybLOVE's compatibility table maps Neo10 Pro+ to preload_neo11.so (pd2520-bp2a kernel). Android-16 units on a different kernel build fail closed at the slide. Needs on-device confirm.",
+      "verifiedBy": "hybLOVE maps Neo10 Pro+ to preload_neo11.so. 2026-09-13: same binary as pd2520-a16-0-26 (sha256 b3c4557e…). Local kernel_6_6_89.img is Linux 6.6.89-android15-8-g1f71897ac249-abogki467805059-4k; remove_waiter still uses current/sp_el0 (unpatched 43499 form). ashmem_ioctl/init_task/configfs_read_iter match this Image. App matches the full GKI string only — 6.6.127-g24b70dd1 on the same phone is a different Image where remove_waiter already clears waiter->task->pi_blocked_on.",
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "15"
@@ -196,6 +198,7 @@
       "offsets": {
         "kimage_text_base": "ffffffc080000000",
         "init_task": "0x210E280",
+        "init_cred": "0x21205C8",
         "ashmem_misc_fops": "0x226B4E8",
         "ashmem_fops": "0x12EBB18",
         "ashmem_ioctl": "0xC814B4",
@@ -204,7 +207,7 @@
         "configfs_bin_write_iter": "0x48D0E4"
       },
       "structLayout": "6.6",
-      "verifiedBy": "RMV production preload (v0.4.0-neo11, kernel 6.6.89-android15-8-g1f71897ac249-abogki467805059-4k): hybLOVE's iqoo-temp-root ships preload_neo11.so (fingerprint pd2520-bp2a) for the Z10 Turbo Pro — same kernel image as iQOO Neo 11 16.0.26.6. The GLOBAL variant (iQOO Neo 10, model I2405, ROM family PD2453HF_EX) is the SAME hardware: works on firmware with the 6.6.89 g1f71897ac249 build (launch-era). Global units UPDATED to Android 16 run 6.6.127-android15-8-gf0987337fa35-ab15756704-4k (user reports, 2026-09-12) — a different kernel build, NOT covered by this payload; needs its own port (and a 43499-fix check). Global users: send your full uname -r via the device-request form to confirm.",
+      "verifiedBy": "hybLOVE ships preload_neo11.so for Z10 Turbo Pro. 2026-09-13: same binary as pd2520-a16-0-26 (sha256 b3c4557e…). Local kernel_6_6_89.img is Linux 6.6.89-android15-8-g1f71897ac249-abogki467805059-4k; remove_waiter still uses current/sp_el0 (unpatched 43499 form). ashmem_ioctl/init_task/configfs_read_iter match this Image. App matches the full GKI string only — 6.6.127-g24b70dd1 on the same phone is a different Image where remove_waiter already clears waiter->task->pi_blocked_on.",
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "15"
@@ -239,9 +242,19 @@
           ]
         }
       },
-      "offsets": {},
+      "offsets": {
+        "kimage_text_base": "ffffffc080000000",
+        "init_task": "0x210E280",
+        "init_cred": "0x21205C8",
+        "ashmem_misc_fops": "0x226B4E8",
+        "ashmem_fops": "0x12EBA58",
+        "ashmem_ioctl": "0xC803DC",
+        "ashmem_mmap": "0xC80AEC",
+        "configfs_read_iter": "0x48C3FC",
+        "configfs_bin_write_iter": "0x48C928"
+      },
       "structLayout": "6.6",
-      "verifiedBy": "Same binary as pd2415-x200-b57: RMV user form report (2026-09-12) shows Z10 Turbo on the identical kernel build 6.6.89-android15-8-gb57af212129c-abogki457297774-4k. Full-kernel match required (app v1.0.11+).",
+      "verifiedBy": "Same .so as pd2415-x200-b57. Form 2026-09-12: Z10 Turbo on gb57af212129c. 2026-09-13: same binary as pd2415-x200-b57 (sha256 a711a89f…). Offsets match xiaohj233/ghostlock-x200-root devices/x200_b57 (init_task 0x210e280, ashmem_fops 0x12eba58, phys load 0x80000000). Engine strings in .so are pd2415-b57 / NEO11_*. App matches 6.6.89-android15-8-gb57af212129c only.",
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
@@ -267,30 +280,23 @@
       "files": {},
       "offsets": {},
       "structLayout": "6.6",
-      "verifiedBy": "hybLOVE (iqoo-temp-root): reference device for real-machine verification (Z10 Turbo+ pd2507), payload preload_z10t.so ships only inside the non-public DailyCleaner APK (see README_交接.md). https://github.com/hybLOVE/iqoo-temp-root — 0 releases. Partial public material: theVakhovskeIsTaken/CyberMeowfia fork has a vivo X200 Pro (PD2405, MT6991) target.h + root.c vr-bypass (https://github.com/theVakhovskeIsTaken/CyberMeowfia, IonStack/CVE-2026-43499/exploit/src/targets/PD2405-AP3A.240905.015.A1) but no compiled binary. NOT PUBLIC. | 2026-09-13: still disabled. Forms show both 6.6.127 and b57. b57 units should hit pd2415-x200-b57 by kernel match; 6.6.127 needs its own port."
+      "verifiedBy": "No public 6.6.127 GhostLock .so for PD2507. Local kernel_6_6_127.img is 6.6.127-android15-8-g24b70dd1cb81-abogki543627741-4k: remove_waiter loads waiter->task then str xzr,[x20,#0x938] — patched 43499 form on that Image. Units still on gb57af212129c match pd2415-x200-b57. Do not reuse Neo11 6.6.89 .so here."
     },
     {
       "payloadId": "i2302-z9-5g",
       "displayName": "iQOO Z9 5G / vivo T3 5G | MT6886 | Kernel 5.15.178",
       "models": [
         "I2302",
-        "V2334",
-        "V2361A",
-        "PD2361",
-        "V2361"
+        "V2334"
       ],
       "marketNames": [
         "iQOO Z9 5G",
-        "vivo T3 5G",
-        "iQOO Z9",
-        "IQOO Z9",
-        "V2361A"
+        "vivo T3 5G"
       ],
       "kernelVersions": [
-        "5.15.178",
-        "5.15.197"
+        "5.15.178-android13-8-g0ebe6a5da65d"
       ],
-      "exploit": "adreno-cve-2025-21479",
+      "exploit": "ghostlock-cve-2026-43499",
       "enabled": true,
       "files": {
         "preload.so": {
@@ -306,40 +312,59 @@
       },
       "offsets": {},
       "structLayout": "5.15",
-      "verifiedBy": "ankitrawatgit (v0.0.1-build.34135024085.1, 2026-09-07 — latest release with working APK; verified binary hashes) | 2026-09-13: added V2361A/PD2361/iQOO Z9 aliases. DISABLED: Adreno GPU fix on current builds; payload only for old pre-fix firmware. | 2026-09-13: re-enabled. Aliases kept (V2338A/PD2338, V2361A/iQOO Z9). Adreno still only works on pre-fix GPU firmware; patched units will match then fail at runtime."
+      "verifiedBy": "ankitrawatgit iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock (CVE-2026-43499), kernel 5.15.178-android13-8-g0ebe6a5da65d, models I2302 / V2334 (MT6886). This is GhostLock, not Adreno. China iQOO Z9 V2361A is a different SoC/kernel (forms: 5.15.178-g3575c47dc7ce-dirty / gcd4530fed6e8-dirty) — not this payload. JoinChang lists a generic 'iQOO Z9 5G 5.15.178' as infeasible for the OnePlus pselect engine; ankitrawatgit uses a different 5.15 target (phys 0x44000000)."
     },
     {
       "payloadId": "pd2415-x200-b57",
       "displayName": "vivo X200 (PD2415, build b57) | Dimensity 9400 | Kernel 6.6.89",
       "models": [
         "PD2415",
+        "PD2415A",
+        "V2415A",
         "PD2419",
         "PD2419A",
-        "V2551A",
-        "PD2551",
         "V2419A",
+        "PD2551",
+        "PD2551A",
+        "V2551A",
         "PD2507",
         "V2507A",
         "PD2452",
-        "PD2452A"
+        "PD2452A",
+        "V2452A",
+        "PD2426",
+        "PD2426A",
+        "V2426A",
+        "PD2405",
+        "V2405A"
       ],
       "marketNames": [
         "vivo X200",
-        "V2419A",
+        "V2415A",
         "vivo X200 Pro mini",
         "X200 Pro mini",
+        "V2419A",
         "iQOO Z11",
         "V2551A",
         "iQOO Z10 Turbo+",
         "Z10 Turbo+",
-        "V2415A",
         "V2507A",
         "iQOO Z10 Turbo",
-        "V2452A"
+        "V2452A",
+        "iQOO Neo10 Pro",
+        "iQOO Neo 10 Pro",
+        "V2426A",
+        "vivo X200 Pro",
+        "V2405A",
+        "X200 Pro",
+        "Vivo X200 Pro",
+        "vivo X200s",
+        "vivo X200S",
+        "X200s",
+        "X200S"
       ],
       "kernelVersions": [
-        "6.6.89-android15-8-gb57af212129c",
-        "6.6.89"
+        "6.6.89-android15-8-gb57af212129c"
       ],
       "exploit": "ghostlock-cve-2026-43499",
       "enabled": true,
@@ -366,7 +391,7 @@
         "configfs_bin_write_iter": "0x48C928"
       },
       "structLayout": "6.6",
-      "verifiedBy": "RMV port v0.4.0-ports: offsets from xiaohj233/ghostlock-x200-root v1.3.5 (device-verified on PD2415 / OriginOS 16.1.12.2.W10 / kernel 6.6.89-android15-8-gb57af212129c-abogki457297774-4k, offsets_auto.py from kallsyms+BTF). Engine = device-verified RMV PD2520 build (soft-reboot-free chain, single-preload flow replaces the 7-stage host bundle). Needs on-device test. | 2026-09-13: added X200 Pro mini (V2419A/PD2419) because user forms report the identical b57 kernel 6.6.89-android15-8-gb57af212129c-abogki457297774-4k. Needs on-device confirmation. | 2026-09-13: forms report iQOO Z11 / V2551A on b57 kernel string; alias added, needs on-device confirmation. | 2026-09-13: some Z10 Turbo+ units report b57 kernel string 6.6.89-...gb57af212129c... and can reuse this payload ONLY on that kernel. 6.6.127 Z10 Turbo+ units are NOT covered here.",
+      "verifiedBy": "RMV port v0.4.0-ports / xiaohj233 GhostLock-X200 v1.3.5 (device-verified PD2415 16.1.12.2.W10). 2026-09-13: same binary as pd2415-x200-b57 (sha256 a711a89f…). Offsets match xiaohj233/ghostlock-x200-root devices/x200_b57 (init_task 0x210e280, ashmem_fops 0x12eba58, phys load 0x80000000). Engine strings in .so are pd2415-b57 / NEO11_*. App matches 6.6.89-android15-8-gb57af212129c only. Aliases are form-reported phones on this exact GKI id (X200 Pro mini, Z11, Z10 Turbo/Turbo+ b57 units, Neo10 Pro b57, X200 Pro b57). xiaohj README: X200s 16.1.12.12.W10 kernel SHA256 equals X200 b57 (not on-device tested). X200s is listed by market name only (xiaohj: same b57 kernel SHA256 as PD2415; not on-device tested). No PD/V code was confirmed in sources, so none was invented.",
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
@@ -376,18 +401,13 @@
       "payloadId": "i2401-iqoo13",
       "displayName": "iQOO 13 (India) | SM8750 | Kernel 6.6.89",
       "models": [
-        "I2401",
-        "I2405"
+        "I2401"
       ],
       "marketNames": [
         "iQOO 13 (India)",
-        "iQOO Neo 10 Global",
-        "Neo 10 Global",
-        "I2405",
-        "iqoo neo 10"
+        "I2401"
       ],
       "kernelVersions": [
-        "6.6.89",
         "6.6.89-android15-8-g97a9aaefab9a"
       ],
       "exploit": "ghostlock-cve-2026-43499",
@@ -414,7 +434,7 @@
         "configfs_bin_write_iter": "0x48C298"
       },
       "structLayout": "6.6",
-      "verifiedBy": "RMV port v0.4.0-ports: offsets from AmarnathCJD/IQOO13-Root (I2401 16.1.22.2.W30, kernel 6.6.89-android15-8-g97a9aaefab9a-ab14519050-4k, vmlinux-to-elf + disassembly), engine = the device-verified RMV PD2520 build (soft-reboot-free chain, KSU installs without userspace restart). Needs on-device test. | 2026-09-13: forms report I2405/Neo10 Global on g97a9aaefab9a (same kernel string as I2401). Mapped as alias; needs on-device confirmation and may be different boot despite same string.",
+      "verifiedBy": "RMV port v0.4.0-ports: offsets from AmarnathCJD/IQOO13-Root (I2401 16.1.22.2.W30, kernel 6.6.89-android15-8-g97a9aaefab9a-ab14519050-4k). .so strings: i2401-16.1.22.2 / NEO11_*. I2405/Neo10 Global is a different model: forms also report 6.6.127-gf0987337fa35 on that hardware. If an I2405 unit actually runs g97a9aaefab9a, add it as its own alias after uname confirm — not via this India-13 entry.",
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
@@ -460,7 +480,7 @@
         "configfs_bin_write_iter": "0x48C920"
       },
       "structLayout": "6.6",
-      "verifiedBy": "RMV port v0.4.0-ports: offsets from sgswzglwlx/vivo-root-build exact build (boot.img sha256 e4dbb70df0147184438dc97e3bcdeb67e1670cf5a6f66d2a5ed3d5867387e2dd, kernel 6.6.89-android15-8-gf2c960562dc8-abogki443614061-4k); phys map 0x80000000/0x80000000 from the device-verified PD2415 X200 (same Dimensity 9400 platform). Engine = device-verified RMV PD2520 build (soft-reboot-free chain). Needs on-device test.",
+      "verifiedBy": "RMV port v0.4.0-ports: offsets from sgswzglwlx/vivo-root-build PD2426-exact (kernel 6.6.89-android15-8-gf2c960562dc8-abogki443614061-4k). .so strings: pd2426-6.6.89 / NEO11_*. sha256 96c63306bd4cec7fe3edb3178995092dd2a587c10dd4c19cc66e9306636bb2d3. b57 units of this model use pd2415-x200-b57 / pd2426-b57.",
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
@@ -495,13 +515,23 @@
           ]
         }
       },
-      "offsets": {},
+      "offsets": {
+        "kimage_text_base": "ffffffc080000000",
+        "init_task": "0x210E280",
+        "init_cred": "0x21205C8",
+        "ashmem_misc_fops": "0x226B4E8",
+        "ashmem_fops": "0x12EBA58",
+        "ashmem_ioctl": "0xC803DC",
+        "ashmem_mmap": "0xC80AEC",
+        "configfs_read_iter": "0x48C3FC",
+        "configfs_bin_write_iter": "0x48C928"
+      },
       "structLayout": "6.6",
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
       },
-      "verifiedBy": "Same binary as pd2415-x200-b57: some Neo10 Pro units (RMV user report, 2026-09-12) run the identical kernel 6.6.89-android15-8-gb57af212129c-abogki457297774-4k as the X200 b57 build — offsets match 1:1. App picks it by kernel match when the b57 kernel is detected."
+      "verifiedBy": "Same .so as pd2415-x200-b57. Some Neo10 Pro units report gb57af212129c (gf2c960562dc8 units use pd2426-neo10pro). 2026-09-13: same binary as pd2415-x200-b57 (sha256 a711a89f…). Offsets match xiaohj233/ghostlock-x200-root devices/x200_b57 (init_task 0x210e280, ashmem_fops 0x12eba58, phys load 0x80000000). Engine strings in .so are pd2415-b57 / NEO11_*. App matches 6.6.89-android15-8-gb57af212129c only."
     },
     {
       "payloadId": "pd2301-neo8",
@@ -529,7 +559,7 @@
       },
       "offsets": {},
       "structLayout": "5.10",
-      "verifiedBy": "Qingizi7 (cve-2025-21479_iqooneo8) — cheese-lineage KGSL exploit, device-verified on vivo V2301A (PD2301, SM8475/Adreno 730, Android 14 UP1A.231005.007, kernel 5.10.198-gki-gfb2f5774872c, SPL 2024-11-01, uid=0 screenshot in repo). Standalone binary (not LD_PRELOAD); needs apanic/vr.ko disable for stable root. https://github.com/Qingizi7/cve-2025-21479_iqooneo8 | 2026-09-13: confirm GPU firmware still vulnerable before promising support."
+      "verifiedBy": "Qingizi7 cve-2025-21479_iqooneo8 — Adreno 730 / kernel 5.10.198-gki-gfb2f5774872c, device-verified on V2301A. Not GhostLock. GPU firmware must still be pre-fix."
     },
     {
       "payloadId": "pd2338c-neo9",
@@ -577,7 +607,7 @@
       },
       "offsets": {},
       "structLayout": "5.15",
-      "verifiedBy": "linux-tools (vivo_iqoo_neo_9_root_research_on_CVE-2025-21479) — KSUOneTap v1.0.3 APK (2026-08-31, ReSukiSU 35090/2); chain: GPU phys-r/w -> SELinux permissive -> rootd + kernelsu-vivo.ko (vermagic 5.15.178). Requires OriginOS 5 (橘子5) last build with pre-fix GPU firmware (< v676). https://github.com/linux-tools/vivo_iqoo_neo_9_root_research_on_CVE-2025-21479 | 2026-09-13: added V2338A/PD2338/iQOO Neo9 aliases (app matches Build.DEVICE/MODEL exactly). DISABLED: Adreno CVE-2025-21479 GPU firmware is fixed on current user builds; pre-fix OriginOS5-only. GhostLock not ported for 5.15 yet. | 2026-09-13: re-enabled. Aliases kept (V2338A/PD2338, V2361A/iQOO Z9). Adreno still only works on pre-fix GPU firmware; patched units will match then fail at runtime."
+      "verifiedBy": "linux-tools vivo_iqoo_neo_9_root_research_on_CVE-2025-21479 (Adreno/KGSL), not GhostLock. Two PD2338 OriginOS4 boots (5.15.104 / 5.15.137) measured waiter_word≈-5 under the Neo11 pselect model. Keep this Adreno payload for pre-fix GPU firmware. GhostLock-on-5.15 for SM8550 is not this binary."
     },
     {
       "payloadId": "pd2405-x200pro",
@@ -614,7 +644,7 @@
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
       },
-      "verifiedBy": "RMV port v0.4.0-ports: offsets from theVakhovskeIsTaken/CyberMeowfia (PD2405-AP3A.240905.015.A1 target of the same engine family). Engine = device-verified RMV PD2520 build (soft-reboot-free chain). Needs on-device test. | 2026-09-13: if unit reports gb57af212129c, app should prefer pd2415-x200-b57 via full-kernel match."
+      "verifiedBy": "RMV port v0.4.0-ports: offsets from theVakhovskeIsTaken/CyberMeowfia PD2405-AP3A.240905.015.A1 (init_task 0x20ce280, ashmem_fops 0x12cc418, phys 0x80000000). sha256 38e3abddaca7746f579ea2e76e1810aca9cb0adca963f8f5f634d3ec2c4cbe14. .so strings: pd2405-ap3a.240905.015.a1 / NEO11_*. If uname contains gb57af212129c, the more specific pd2415-x200-b57 entry wins. This payload is the AP3A symbol map, not the b57 Image."
     },
     {
       "payloadId": "i2407-iqooz10",
@@ -648,7 +678,7 @@
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
       },
-      "verifiedBy": "DISABLED 2026-09-12: kernel 6.1.145-android14-11-g74d1702dab4d-ab14669069 proven INFEASIBLE for GhostLock. JoinChang boot.img analysis (ghostlock-oneplus issue 'Exploit failed on IQOO 12', 2026-09-11): futex_wait_requeue_pi frame 0x1B0 -> waiter_word=9, task/lock fields land at fd_set words 15/16 inside the kernel-zeroed result area — the write cannot be controlled, same root cause as the 6.1 Not-Feasible table. Affects ALL devices on this exact kernel build: iQOO Z10 India (I2407), vivo T4, iQOO 12/12 Pro. No shift/fdset tuning can fix this; needs a different exploit."
+      "verifiedBy": "DISABLED: 6.1.145-android14-11-g74d1702dab4d-ab14669069 — JoinChang/our batch: waiter_word=9 lands in kernel-zeroed fd_set. Same kernel id as vivo T4 / some iQOO 12 reports. Binary exists (compact-waiter experiment) but is not a working claim."
     },
     {
       "payloadId": "pd2454-x200u-6689",
@@ -679,13 +709,70 @@
           ]
         }
       },
-      "offsets": {},
+      "offsets": {
+        "kimage_text_base": "ffffffc080000000",
+        "init_task": "0x210E280",
+        "init_cred": "0x21205C8",
+        "ashmem_misc_fops": "0x226B4E8",
+        "ashmem_fops": "0x12EBB18",
+        "ashmem_ioctl": "0xC814B4",
+        "ashmem_mmap": "0xC81BC4",
+        "configfs_read_iter": "0x48CBB8",
+        "configfs_bin_write_iter": "0x48D0E4"
+      },
       "structLayout": "6.6",
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "15"
       },
-      "verifiedBy": "Same kernel image as iQOO Neo 11 16.0.26.6 (6.6.89-android15-8-g1f71897ac249-abogki467805059-4k) — the production Neo 11 preload fits 1:1 (incl. vr.ko handling). For X200 Ultra units still on the 6.6.89 firmware (JoinChang ghostlock-oneplus device table). Units on 6.6.127 are NOT covered: the 43499 fix is backported there."
+      "verifiedBy": "JoinChang ghostlock-oneplus vivox200ultra offsets.h is the same g1f71897ac249 Image (init_task/ashmem_fops/ashmem_ioctl match Neo11). configfs_read_iter in that header is 0x48CEDC vs Neo11 0x48CBB8 — catalog keeps the Neo11 Image symbols verified from kernel_6_6_89.img. 2026-09-13: same binary as pd2520-a16-0-26 (sha256 b3c4557e…). Local kernel_6_6_89.img is Linux 6.6.89-android15-8-g1f71897ac249-abogki467805059-4k; remove_waiter still uses current/sp_el0 (unpatched 43499 form). ashmem_ioctl/init_task/configfs_read_iter match this Image. App matches the full GKI string only — 6.6.127-g24b70dd1 on the same phone is a different Image where remove_waiter already clears waiter->task->pi_blocked_on."
+    },
+    {
+      "payloadId": "i2405-g97",
+      "displayName": "iQOO Neo 10 Global (I2405) | Kernel 6.6.89 g97",
+      "models": [
+        "I2405"
+      ],
+      "marketNames": [
+        "I2405",
+        "iQOO Neo 10 Global",
+        "Neo 10 Global",
+        "iqoo neo 10",
+        "IQOO Neo 10",
+        "Iqoo Neo 10"
+      ],
+      "kernelVersions": [
+        "6.6.89-android15-8-g97a9aaefab9a"
+      ],
+      "exploit": "ghostlock-cve-2026-43499",
+      "enabled": true,
+      "files": {
+        "preload.so": {
+          "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-ports/preload-i2401.so",
+          "sha256": "6a4450e016005b0e5e03dcffdb5877b8050aa09eb16252e3aed2ca29f8ed3b4c",
+          "size": 144704,
+          "mirrors": [
+            "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/i2401.so",
+            "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/i2401.so"
+          ]
+        }
+      },
+      "offsets": {
+        "kimage_text_base": "ffffffc080000000",
+        "init_task": "0x20FE280",
+        "ashmem_misc_fops": "0x225B3E8",
+        "ashmem_fops": "0x12DBE98",
+        "ashmem_ioctl": "0xC7F754",
+        "ashmem_mmap": "0xC7FE64",
+        "configfs_read_iter": "0x48BD6C",
+        "configfs_bin_write_iter": "0x48C298"
+      },
+      "structLayout": "6.6",
+      "env": {
+        "RMV_ATTEMPTS": "3",
+        "RMV_RETRY_DELAY": "8"
+      },
+      "verifiedBy": "Forms 2026-09-12 report I2405 / Neo10 Global on the same GKI id as I2401 India (6.6.89-android15-8-g97a9aaefab9a-ab14519050-4k). Binary is the I2401 RMV port (sha256 6a4450e016005b0e5e03dcffdb5877b8050aa09eb16252e3aed2ca29f8ed3b4c). Not claimed for 6.6.127-gf0987337fa35 on the same model. Needs on-device confirm: same string is not automatic proof of identical Image."
     }
   ]
 }
