@@ -582,7 +582,7 @@
         "5.15.197"
       ],
       "exploit": "adreno-cve-2025-21479",
-      "enabled": true,
+      "enabled": false,
       "files": {
         "exploit": {
           "url": "https://raw.githubusercontent.com/linux-tools/vivo_iqoo_neo_9_root_research_on_CVE-2025-21479/main/exploit/exploit_vivo_neo9",
