@@ -1,0 +1,445 @@
+{
+  "schemaVersion": 5,
+  "updated": "2026-09-17",
+  "exploits": {
+    "ghostlock-cve-2026-43499": {
+      "name": "GhostLock (futex PI UAF)",
+      "description": "Use-after-free в futex PI-puti; работает на GKI 6.1–6.12 до закрытия CVE",
+      "fixedIn": { "5.15": null, "6.1": "6.1.145", "6.6": "6.6.140", "6.12": null }
+    },
+    "adreno-cve-2025-21479": {
+      "name": "Adreno KGSL GPU",
+      "description": "GPU-эксплойт для ядер 5.10/5.15; требует прошивку GPU до фикса. Движок приложения такие бинари не запускает",
+      "fixedIn": { "5.10": "5.10.198", "5.15": "5.15.178" }
+    }
+  },
+  "builds": {
+    "g1f71897ac249": {
+      "match": ["6.6.89-android15-8-g1f71897ac249"],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "ready",
+      "file": {
+        "name": "preload.so",
+        "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-neo11/preload-rmv.so",
+        "mirrors": [
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g1f71897ac249.so",
+          "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g1f71897ac249.so"
+        ],
+        "sha256": "b3c4557e1f5fbb95745a9a1d9796c73fc02b19a3a03184aee2c03f686b87ca2e",
+        "size": 144720
+      },
+      "matchCondition": "Пейлоад Neo11 v0.4.0 (upstream-aligned load fix). По локальному kernel_6_6_89.img проверено: это Linux 6.6.89-android15-8-g1f71897ac249-abogki467805059-4k, remove_waiter в unpatched-форме 43499 (current/sp_el0), ashmem_ioctl/init_task/configfs_read_iter совпадают. 6.6.127-g24b70dd1cb81 на тех же телах — другой Image, закрытый."
+    },
+    "gb57af212129c": {
+      "match": ["6.6.89-android15-8-gb57af212129c"],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "ready",
+      "file": {
+        "name": "preload.so",
+        "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-ports/preload-pd2415.so",
+        "mirrors": [
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/gb57af212129c.so",
+          "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/gb57af212129c.so"
+        ],
+        "sha256": "a711a89f6824fcc1d5bdc2a13814d9541a83585d08162c2aa64255530ffbda68",
+        "size": 144544
+      },
+      "env": { "RMV_ATTEMPTS": "3", "RMV_RETRY_DELAY": "8" },
+      "matchCondition": "RMV port v0.4.0-ports / xiaohj233 GhostLock-X200 v1.3.5 (device-verified PD2415 16.1.12.2.W10). Оффсеты совпадают с xiaohj233/ghostlock-x200-root devices/x200_b57 (init_task 0x210e280, ashmem_fops 0x12eba58, phys load 0x80000000). Строки в .so: pd2415-b57 / NEO11_*."
+    },
+    "g97a9aaefab9a": {
+      "match": ["6.6.89-android15-8-g97a9aaefab9a"],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "ready",
+      "file": {
+        "name": "preload.so",
+        "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-ports/preload-i2401.so",
+        "mirrors": [
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g97a9aaefab9a.so",
+          "https://raw.googleapis…b9a.so"
+        ],
+        "sha256": "6a4450e016005b0e5e03dcffdb5877b8050aa09eb16252e3aed2ca29f8ed3b4c",
+        "size": 144704
+      },
+      "env": { "RMV_ATTEMPTS": "3", "RMV_RETRY_DELAY": "8" },
+      "matchCondition": "RMV port v0.4.0-ports: оффсеты из AmarnathCJD/IQOO13-Root (I2401 16.1.22.2.W30, kernel 6.6.89-android15-8-g97a9aaefab9a-ab14519050-4k). Строки в .so: i2401-16.1.22.2 / NEO11_*."
+    },
+    "gf2c960562dc8": {
+      "match": ["6.6.89-android15-8-gf2c960562dc8"],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "ready",
+      "file": {
+        "name": "preload.so",
+        "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-ports/preload-pd2426.so",
+        "mirrors": [
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/gf2c960562dc8.so",
+          "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/gf2c960562dc8.so"
+        ],
+        "sha256": "96c63306bd4cec7fe3edb3178995092dd2a587c10dd4c19cc66e9306636bb2d3",
+        "size": 144576
+      },
+      "env": { "RMV_ATTEMPTS": "3", "RMV_RETRY_DELAY": "8" },
+      "matchCondition": "RMV port v0.4.0-ports: оффсеты из sgswzglwlx/vivo-root-build PD2426-exact (kernel 6.6.89-android15-8-gf2c960562dc8-abogki443614061-4k). Строки в .so: pd2426-6.6.89 / NEO11_*."
+    },
+    "pd2405-ap3a": {
+      "match": ["6.6.89"],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "ready",
+      "file": {
+        "name": "preload.so",
+        "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-ports/preload-pd2405.so",
+        "mirrors": [
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/pd2405-ap3a.so",
+          "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/pd2405-ap3a.so"
+        ],
+        "sha256": "38e3abddaca7746f579ea2e76e1810aca9cb0adca963f8f5f634d3ec2c4cbe14",
+        "size": 144576
+      },
+      "env": { "RMV_ATTEMPTS": "3", "RMV_RETRY_DELAY": "8" },
+      "matchCondition": "RMV port v0.4.0-ports: оффсеты из карты символов theVakhovskeIsTaken/CyberMeowfia PD2405-AP3A.240905.015.A1 (init_task 0x20ce280, ashmem_fops 0x12cc418, phys 0x80000000). Строки в .so: pd2405-ap3a.240905.015.a1 / NEO11_*. Символьная карта AP3A, не Image b57: если uname содержит gb57af212129c, приложение сопоставит более строгий билд gb57af212129c."
+    },
+    "g24b70dd1cb81": {
+      "match": ["6.6.127-android15-8-g24b70dd1cb81"],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "patched",
+      "file": {
+        "name": "preload.so",
+        "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g24b70dd1cb81.so",
+        "mirrors": [
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g24b70dd1cb81.so"
+        ],
+        "sha256": "754125b4816d4dfe3defab94cda37cddcecba0d857212e6ecaa1bec0107e21b3",
+        "size": 144704
+      },
+      "matchCondition": "По локальному kernel_6_6_127.img (g24b70dd1cb81-abogki543627741-4k): remove_waiter уже обнуляет waiter->task->pi_blocked_on — CVE-2026-43499 закрыт. bin/g24b70dd1cb81.so — экспериментальная сборка, рабочей не является; не переиспользовать пейлоад 6.6.89."
+    },
+    "gf0987337fa35": {
+      "match": ["6.6.127-android15-8-gf0987337fa35"],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "unsupported",
+      "matchCondition": "Сборы Neo10 Global (I2405) после обновления. Пейлоад не собран: символьной карты этого Image нет, статус 43499 не проверялся по Image."
+    },
+    "g74d1702dab4d": {
+      "match": ["6.1.145-android14-11-g74d1702dab4d-ab14669069"],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "off",
+      "file": {
+        "name": "preload.so",
+        "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.1-compact/preload-i2407.so",
+        "mirrors": [
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g74d1702dab4d.so",
+          "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g74d1702dab4d.so"
+        ],
+        "sha256": "4f34c5d9a419aa18ddc6015934d4d93dae8c4e6b1dae94be02b1244c29f299f2",
+        "size": 145232
+      },
+      "env": { "RMV_ATTEMPTS": "3", "RMV_RETRY_DELAY": "8" },
+      "matchCondition": "DISABLED: компактно-вайтерный эксперимент (JoinChang/наши прогоны): waiter_word=9 попадает в обнулённый ядром fd_set. Бинарь существует, но рабочей заявляться не должен. Тот же id ядра встречался у vivo T4 / части iQOO 12."
+    },
+    "g0ebe6a5da65d": {
+      "match": ["5.15.178-android13-8-g0ebe6a5da65d"],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "ready",
+      "file": {
+        "name": "preload.so",
+        "url": "https://github.com/ankitrawatgit/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock/releases/download/v0.0.1-build.34135024085.1/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock-v0.0.1-build.34135024085.1-preload",
+        "sha256": "4bcda6f69489d312695a2a5dab41349f6a391efa8c66376c3636a9dfa9e30d1d",
+        "size": 107728
+      },
+      "matchCondition": "GhostLock-порт ankitrawatgit (CVE-2026-43499) для I2302/V2334 (MT6886): его собственный движок 5.15 (phys 0x44000000), не pselect-движок Neo11. Generic «iQOO Z9 5G 5.15.178» без кода модели JoinChang считает неосуществимым. Китайский iQOO Z9 (V2361A) — другой SoC/ядра, не этот билд."
+    },
+    "neo8-adreno": {
+      "match": ["5.10.198"],
+      "exploit": "adreno-cve-2025-21479",
+      "status": "off",
+      "file": {
+        "name": "exploit",
+        "url": "https://raw.githubusercontent.com/Qingizi7/cve-2025-21479_iqooneo8/main/exploit",
+        "sha256": "30d75162f2d7cbbba891d47fab042ba205077b81f032f15c5a95b88b24cb4b7e",
+        "size": 42816
+      },
+      "matchCondition": "Qingizi7 cve-2025-21479_iqooneo8 — Adreno 730 (kernel 5.10.198-gki-gfb2f5774872c), device-verified на V2301A; прошивка GPU должна быть до фикса. Выключен: движок приложения исполняет только LD_PRELOAD .so, standalone-бинарь через него не запускается."
+    },
+    "neo9-adreno": {
+      "match": ["5.15.178", "5.15.197"],
+      "exploit": "adreno-cve-2025-21479",
+      "status": "off",
+      "file": {
+        "name": "exploit",
+        "url": "https://raw.githubusercontent.com/linux-tools/vivo_iqoo_neo_9_root_research_on_CVE-2025-21479/main/exploit/exploit_vivo_neo9",
+        "sha256": "76c5f16fb34c457c24166a6bbac40792be01e1f02297bee05f2782e71c15d5f5",
+        "size": 786544
+      },
+      "matchCondition": "linux-tools vivo_iqoo_neo_9_root_research_on_CVE-2025-21479 (Adreno/KGSL), не GhostLock; в исходном репо ещё exploit_vivo_neo9_ndk / ksud / kernelsu-vivo.ko. Выключен 2026-09-17 пользователем + движок приложения такие бинари не исполняет. PD2338 OriginOS4 (5.15.104/5.15.137) под моделью Neo11-пселекта даёт waiter_word≈-5 — GhostLock-на-5.15 для SM8550 это не тот путь."
+    }
+  },
+  "devices": [
+    {
+      "id": "iqoo13-india",
+      "marketName": "iQOO 13",
+      "code": "I2401",
+      "models": ["I2401"],
+      "names": ["iQOO 13 Índia", "iQOO 13 India", "I2401"],
+      "kernels": [
+        {
+          "build": "g97a9aaefab9a",
+          "note": "Индийский iQOO 13 16.1.22.2.W30. I2405 (Neo 10 Global) — другое тело, отдельная запись."
+        }
+      ]
+    },
+    {
+      "id": "iqoo13-china",
+      "marketName": "iQOO 13",
+      "code": "V2408A",
+      "models": ["PD2408", "PD2408A", "PD2408B", "V2408A"],
+      "names": ["V2408A", "iQOO 13", "iQOO13"],
+      "kernels": [
+        {
+          "build": "g1f71897ac249",
+          "note": "hybLOVE относит китайский iQOO 13 (V2408A) к preload Neo11."
+        }
+      ]
+    },
+    {
+      "id": "neo8",
+      "marketName": "iQOO Neo8",
+      "code": "V2301A",
+      "models": ["PD2301", "V2301A"],
+      "names": ["V2301A", "iQOO Neo8", "iQOO Neo 8"],
+      "kernels": [
+        {
+          "build": "neo8-adreno",
+          "note": "Публичный порт device-verified на V2301A; приложением root не добывается."
+        }
+      ]
+    },
+    {
+      "id": "neo9",
+      "marketName": "iQOO Neo9",
+      "code": "V2338A",
+      "models": ["PD2338C", "PD2338", "V2338A", "V2338"],
+      "names": ["iQOO Neo9 (China)", "iQOO Neo9", "iQOO Neo 9", "iQOO NEO 9", "V2338A"],
+      "kernels": [
+        {
+          "build": "neo9-adreno",
+          "note": "Adreno-исследование, выключено пользователем 2026-09-17."
+        }
+      ]
+    },
+    {
+      "id": "neo10-global",
+      "marketName": "iQOO Neo 10",
+      "code": "I2405",
+      "models": ["I2405"],
+      "names": ["I2405", "iQOO Neo 10 Global", "Neo 10 Global", "iqoo neo 10", "IQOO Neo 10", "Iqoo Neo 10"],
+      "kernels": [
+        {
+          "build": "g97a9aaefab9a",
+          "note": "Формы 2026-09-12 сообщают тот же GKI, что у индийского I2401 (…-ab14519050-4k). Нужно подтверждение на устройстве: совпадение строки — не автоматическое доказательство идентичного Image. Для 6.6.127-gf0987337fa35 этот пейлоад не заявляется."
+        },
+        {
+          "build": "gf0987337fa35",
+          "note": "Сборы после обновления прошивки."
+        }
+      ]
+    },
+    {
+      "id": "neo10-pro",
+      "marketName": "iQOO Neo10 Pro",
+      "code": "V2426A",
+      "models": ["PD2426", "PD2426A", "V2426A"],
+      "names": ["V2426A", "iQOO Neo10 Pro", "iQOO Neo 10 Pro"],
+      "kernels": [
+        {
+          "build": "gf2c960562dc8",
+          "note": "Штатные сборки 6.6.89-android15-8-gf2c960562dc8."
+        },
+        {
+          "build": "gb57af212129c",
+          "note": "Часть тел грузит gb57af212129c — для них работает общий b57-пейлоад X200."
+        }
+      ]
+    },
+    {
+      "id": "neo10-pro-plus",
+      "marketName": "iQOO Neo10 Pro+",
+      "code": "V2463A",
+      "models": ["PD2463", "PD2463A", "V2463A"],
+      "names": ["V2463A", "iQOO Neo10 Pro+", "iQOO Neo 10 Pro+"],
+      "kernels": [
+        {
+          "build": "g1f71897ac249",
+          "note": "hybLOVE относит Neo10 Pro+ к preload Neo11."
+        }
+      ]
+    },
+    {
+      "id": "neo11",
+      "marketName": "iQOO Neo 11",
+      "code": "V2520A",
+      "models": ["PD2520", "PD2520A", "PD2520B", "PD2520C", "PD2520D", "PD2520E", "V2520A"],
+      "names": ["V2520A", "iQOO Neo 11", "iQOO Neo11", "Neo 11"],
+      "kernels": [
+        {
+          "build": "g1f71897ac249",
+          "note": "Базовое устройство поддержки; .so собран и проверен на этом теле (16.0.26.6)."
+        },
+        {
+          "build": "g24b70dd1cb81",
+          "note": "Сентябрьское обновление (16.0.28.2) грузит 6.6.127 — 43499 закрыт, root этим путём недоступен."
+        }
+      ]
+    },
+    {
+      "id": "z9-5g",
+      "marketName": "iQOO Z9 5G",
+      "code": "I2302",
+      "models": ["I2302", "V2334"],
+      "names": ["iQOO Z9 5G", "vivo T3 5G", "V2334"],
+      "kernels": [
+        {
+          "build": "g0ebe6a5da65d",
+          "note": "GhostLock ankitrawatgit, MT6886."
+        }
+      ]
+    },
+    {
+      "id": "z10-india",
+      "marketName": "iQOO Z10",
+      "code": "I2407",
+      "models": ["I2407"],
+      "names": ["iQOO Z10", "I2407"],
+      "kernels": [
+        {
+          "build": "g74d1702dab4d",
+          "note": "SM8650 6.1.145: эксперимент с компактным вайтером, не заявлен рабочим."
+        }
+      ]
+    },
+    {
+      "id": "z10-turbo",
+      "marketName": "iQOO Z10 Turbo",
+      "code": "V2452A",
+      "models": ["PD2452", "PD2452A", "V2452A"],
+      "names": ["V2452A", "iQOO Z10 Turbo", "Z10 Turbo"],
+      "kernels": [
+        {
+          "build": "gb57af212129c",
+          "note": "Формы от 2026-09-12: Z10 Turbo на gb57af212129c (тот же .so, что X200)."
+        }
+      ]
+    },
+    {
+      "id": "z10-turbo-pro",
+      "marketName": "iQOO Z10 Turbo Pro",
+      "code": "V2453A",
+      "models": ["PD2453", "PD2453A", "V2453A"],
+      "names": ["V2453A", "iQOO Z10 Turbo Pro", "Z10 Turbo Pro"],
+      "kernels": [
+        {
+          "build": "g1f71897ac249",
+          "note": "hybLOVE кладёт preload Neo11 в комплект для Z10 Turbo Pro."
+        }
+      ]
+    },
+    {
+      "id": "z10-turbo-plus",
+      "marketName": "iQOO Z10 Turbo+",
+      "code": "V2507A",
+      "models": ["PD2507", "V2507A"],
+      "names": ["iQOO Z10 Turbo+", "V2507A", "Z10 Turbo+"],
+      "kernels": [
+        {
+          "build": "gb57af212129c",
+          "note": "b57-корпуса: работает пейлоад X200 (оффсеты x200_b57)."
+        },
+        {
+          "build": "g24b70dd1cb81",
+          "note": "6.6.127-g24b70dd1cb81: remove_waiter уже чистит pi_blocked_on — 43499 закрыт; пейлоад Neo11 6.6.89 не переиспользовать."
+        }
+      ]
+    },
+    {
+      "id": "z11",
+      "marketName": "iQOO Z11",
+      "code": "V2551A",
+      "models": ["PD2551", "PD2551A", "V2551A"],
+      "names": ["iQOO Z11", "V2551A"],
+      "kernels": [
+        {
+          "build": "gb57af212129c",
+          "note": "Формы сообщают PD2551 на этом GKI-иде (алиас, не on-device)."
+        }
+      ]
+    },
+    {
+      "id": "x200",
+      "marketName": "vivo X200",
+      "code": "V2415A",
+      "models": ["PD2415", "PD2415A", "V2415A"],
+      "names": ["vivo X200", "V2415A"],
+      "kernels": [
+        {
+          "build": "gb57af212129c",
+          "note": "Главное проверенное тело b57-пейлоада: device-verified PD2415 16.1.12.2.W10 (GhostLock-X200 v1.3.5)."
+        }
+      ]
+    },
+    {
+      "id": "x200-pro",
+      "marketName": "vivo X200 Pro",
+      "code": "V2405A",
+      "models": ["PD2405", "V2405A"],
+      "names": ["vivo X200 Pro", "V2405A", "X200 Pro", "Vivo X200 Pro"],
+      "kernels": [
+        {
+          "build": "pd2405-ap3a",
+          "note": "Символьная карта AP3A.240905.015.A1 для сборок без git-суффикса в uname."
+        },
+        {
+          "build": "gb57af212129c",
+          "note": "b57-корпуса: тот же пейлоад, что X200; сопоставляется строже, когда uname содержит gb57af212129c."
+        }
+      ]
+    },
+    {
+      "id": "x200-pro-mini",
+      "marketName": "vivo X200 Pro mini",
+      "code": "V2419A",
+      "models": ["PD2419", "PD2419A", "V2419A"],
+      "names": ["vivo X200 Pro mini", "X200 Pro mini", "V2419A"],
+      "kernels": [
+        {
+          "build": "gb57af212129c",
+          "note": "Формы относят PD2419 к этому билду (алиас, не on-device)."
+        }
+      ]
+    },
+    {
+      "id": "x200s",
+      "marketName": "vivo X200s",
+      "code": "",
+      "models": [],
+      "names": ["vivo X200s", "vivo X200S", "X200s", "X200S"],
+      "kernels": [
+        {
+          "build": "gb57af212129c",
+          "note": "По xiaohj233: X200s 16.1.12.12.W10 имеет SHA256 ядра, равный X200 b57; на устройстве не проверено. PD-код не подтверждён источниками — не придуман."
+        }
+      ]
+    },
+    {
+      "id": "x200-ultra",
+      "marketName": "vivo X200 Ultra",
+      "code": "V2454A",
+      "models": ["PD2454", "V2454A"],
+      "names": ["V2454A", "vivo X200 Ultra", "vivo x200ultra", "X200 Ultra"],
+      "kernels": [
+        {
+          "build": "g1f71897ac249",
+          "note": "JoinChang ghostlock-oneplus vivox200ultra — тот же Image g1f71897ac249 (init_task/ashmem_fops/ashmem_ioctl совпадают с Neo11); configfs_read_iter в его заголовке 0x48CEDC vs 0x48CBB8 — в каталоге символы, проверенные по kernel_6_6_89.img Neo11."
+        }
+      ]
+    }
+  ]
+}

@@ -1,47 +1,49 @@
 # RootMyVivo Payloads
 
-The payload catalog for [RootMyVivo](https://github.com/zenyxx-xd/RootMyVivo). The app ships empty-handed — every exploit is downloaded from here.
+The payload catalog for [RootMyVivo](https://github.com/zenyxx-xd/RootMyVivo).
+The app ships no exploits — it downloads binaries described in
+[`catalog/devices.json`](catalog/devices.json).
 
 [Русский](README.md) · [中文](README.zh.md)
 
-## What's in here
+## Structure
 
-- `support/targets-vivo.json` — the catalog: which devices are supported, by which exploit, where the binary lives
-- Releases — the payloads themselves. One build per device; offsets don't carry over between kernels
-
-## How the app picks a payload
-
-Model first (`models` / `marketNames`), then kernel. A `kernelVersions` entry comes in three shapes:
-
-```json
-"6.6.89"                              // short: any 6.6.89
-"6.6.89-android15-8-gb57af212129c"    // full: one specific kernel build (matched against uname)
-"6.6.89-android15-8-*"                // prefix
+```
+catalog/devices.json        the single catalog manifest (schemaVersion 5)
+bin/                        canonical .so files named by kernel build git-id
+                            (bin/g1f71897ac249.so); builds without a git suffix
+                            use a readable id (pd2405-ap3a.so)
+support/targets-vivo.json   LEGACY v4 catalog for old app versions.
+                            Frozen — do not edit; update the app instead.
 ```
 
-The full form matters when one model ships on different kernel builds — e.g. the Neo10 Pro exists on both `gf2c960562dc8` and `b57af212129c` (shared with the X200). A short entry would grab the wrong binary and the slide simply won't converge.
+## devices.json schema (v5)
 
-## Builds
+- `builds` — one-entry-per-KERNEL-BUILD table keyed by GKI git-id. One build =
+  one Image = one payload binary. Fields: `match` (uname patterns; full GKI
+  string is stricter than a short version, `.*` = prefix), `exploit`, `status`,
+  `file` ({name,url,mirrors,sha256,size}), `env`, `matchCondition` (provenance
+  and evidence).
+- `devices` — one entry per physical body: `marketName` + `code` (V-code), alias
+  lists `models` (Build.DEVICE) / `names` (Build.MODEL), and `kernels` — every
+  known kernel build of the body as `{build, note}`.
+- Build `status`: `ready` | `off` | `patched` | `unsupported`.
+- Matching: device by `models`/`names`, kernel by `match` — a short version must
+  equal the uname release exactly, full strings match as substrings (this tells
+  gf2c960562dc8 and gb57af212129c apart). No "any payload of this model"
+  fallback.
 
-| Release | Contents |
-|---|---|
-| [v0.4.0-ports](https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/tag/v0.4.0-ports) | RMV-engine ports: iQOO 13 India (I2401), Neo10 Pro (PD2426), X200 (PD2415), X200 Pro (PD2405) |
-| [v0.4.0-neo11](https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/tag/v0.4.0-neo11) | Neo 11, kernel 6.6.89 |
-| [v0.4.0-6.6.127-neo11](https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/tag/v0.4.0-6.6.127-neo11) | Neo 11, kernel 6.6.127 |
-| [v0.2.1-neo11](https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/tag/v0.2.1-neo11) | Neo 11, early build |
+## Adding a device
 
-Offsets for the ports come from the public repos of the respective device authors (AmarnathCJD, sgswzglwlx, xiaohj233, CyberMeowfia) — credit lives in each catalog entry's `verifiedBy` field.
+1. Obtain the exact kernel Image (full OTA → boot → uname/kallsyms, confirm
+   unpatched remove_waiter).
+2. Build the .so, put it in `bin/` named by git-id, record sha256 and size.
+3. Extend `builds` and `devices` (note = data source: user form reports,
+   upstream release, on-device test). Never invent model codes or statuses.
 
-## Adding your device
+## Mirrors
 
-You need your firmware's `boot.img` (an OTA zip is enough, no root required) or a kallsyms dump. Then:
+`url` — GitHub release asset; `mirrors` — jsDelivr and raw repo (the asset CDN
+is unreachable for some users while the catalog host works).
 
-1. Generate target.h from kallsyms+BTF — see [RootMyVivo-Exploit](https://github.com/zenyxx-xd/RootMyVivo-Exploit), the generator is there
-2. Build preload.so and check the chain at least gets past the slide
-3. PR with an entry in `targets-vivo.json`: model, full kernel string, binary URL, sha256
-
-Third-party payloads are welcome too, as long as they don't soft-reboot the phone mid-install — that's the whole point of this setup.
-
-## Disclaimer
-
-Your own devices only. The authors are not responsible for the consequences.
+Older app versions read the frozen `support/targets-vivo.json` (v4).

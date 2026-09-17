@@ -1,47 +1,40 @@
-# RootMyVivo Payloads
+# RootMyVivo Payloads（中文）
 
-[RootMyVivo](https://github.com/zenyxx-xd/RootMyVivo) 的 payload 目录。应用本体不带任何漏洞利用——全部从这里下载。
+[RootMyVivo](https://github.com/zenyxx-xd/RootMyVivo) 应用的载荷目录。
+应用不含任何漏洞利用代码，按 [`catalog/devices.json`](catalog/devices.json)
+的描述下载二进制。
 
 [Русский](README.md) · [English](README.en.md)
 
-## 仓库内容
+## 结构
 
-- `support/targets-vivo.json` —— 目录：哪些设备受支持、用哪个漏洞、二进制在哪
-- Releases —— payload 本体。一个设备一个构建，偏移量在内核之间不通用
-
-## 应用怎么挑 payload
-
-先看机型（`models` / `marketNames`），再看内核。`kernelVersions` 有三种写法：
-
-```json
-"6.6.89"                              // 短格式：任意 6.6.89
-"6.6.89-android15-8-gb57af212129c"    // 完整格式：指定一个内核构建（对照 uname）
-"6.6.89-android15-8-*"                // 前缀匹配
+```
+catalog/devices.json        唯一目录清单（schemaVersion 5）
+bin/                        规范 .so，文件名 = 内核构建 git-id
+                            （bin/g1f71897ac249.so）；无 git 后缀的构建使用
+                            可读 id（pd2405-ap3a.so）
+support/targets-vivo.json   旧版应用（v4 格式）的冻结目录，勿改。
 ```
 
-完整格式用在同一个机型存在多种内核构建的情况——比如 Neo10 Pro 既有 `gf2c960562dc8` 的，也有和 X200 共用的 `b57af212129c`。用短格式会拿错二进制，slide 那一步直接就不收敛。
+## devices.json（v5）
 
-## 构建
+- `builds`：按 GKI git-id 索引的**内核构建**表。一个构建 = 一个 Image = 一个
+  载荷。字段：`match`（uname 匹配模式，完整 GKI 串比短版本更严格）、
+  `exploit`、`status`、`file`（{name,url,mirrors,sha256,size}）、`env`、
+  `matchCondition`（来源与验证依据）。
+- `devices`：每台物理机器一条：`marketName` + `code`（V 型号），别名
+  `models`（Build.DEVICE）/ `names`（Build.MODEL），`kernels` 列出该机所有
+  已知内核构建 `{build, note}`。
+- `status`：`ready` · `off` · `patched`（该内核已修复）· `unsupported`。
+- 匹配：先按 models/names 找机器，再按 match 找内核——短版本须与 uname
+  release 完全相等，完整串按子串匹配（区分同型号不同构建）。没有“任意该
+  型号载荷”的兜底。
 
-| Release | 内容 |
-|---|---|
-| [v0.4.0-ports](https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/tag/v0.4.0-ports) | RMV 引擎移植：iQOO 13 印度版 (I2401)、Neo10 Pro (PD2426)、X200 (PD2415)、X200 Pro (PD2405) |
-| [v0.4.0-neo11](https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/tag/v0.4.0-neo11) | Neo 11，内核 6.6.89 |
-| [v0.4.0-6.6.127-neo11](https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/tag/v0.4.0-6.6.127-neo11) | Neo 11，内核 6.6.127 |
-| [v0.2.1-neo11](https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/tag/v0.2.1-neo11) | Neo 11，早期构建 |
+## 添加设备
 
-移植用的偏移量来自各机型作者公开的仓库（AmarnathCJD、sgswzglwlx、xiaohj233、CyberMeowfia）——署名在目录每条记录的 `verifiedBy` 字段里。
+1. 获取该构建准确的 kernel Image（完整 OTA → boot → uname/kallsyms，确认
+   remove_waiter 未打补丁）。
+2. 编译 .so 放入 `bin/`（按 git-id 命名），记录 sha256/大小。
+3. 补充 `builds` 与 `devices`（note 注明数据来源）。不得臆造型号代码与状态。
 
-## 添加自己的设备
-
-需要你固件的 `boot.img`（OTA 包就够，不用 root），或者 kallsyms 转储。然后：
-
-1. 用 kallsyms+BTF 生成 target.h —— 见 [RootMyVivo-Exploit](https://github.com/zenyxx-xd/RootMyVivo-Exploit)，生成器在那里
-2. 编译 preload.so，确认链条至少能过 slide 那步
-3. 向 `targets-vivo.json` 提 PR：机型、完整内核字符串、二进制链接、sha256
-
-也欢迎第三方的 payload，前提是它不会在安装中途把手机软重启——这套东西存在的意义就在这。
-
-## 免责声明
-
-只用于自己的设备，后果自负。
+旧版应用读取冻结的 `support/targets-vivo.json`（v4）。

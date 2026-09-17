@@ -1,0 +1,5 @@
+# локальные research-выгрузки (staging APKs, распакованные архивы), не репозиторий
+payloads/
+# локальные скрипты
+rm_entries.py
+*.tmp
