@@ -122,6 +122,7 @@
     },
     "neo8-adreno": {
       "match": [
+        "5.10.198-gki-gfb2f5774872c",
         "5.10.198"
       ],
       "exploit": "adreno-cve-2025-21479",
@@ -132,28 +133,13 @@
         "sha256": "30d75162f2d7cbbba891d47fab042ba205077b81f032f15c5a95b88b24cb4b7e",
         "size": 42816
       },
-      "matchCondition": "Qingizi7 cve-2025-21479_iqooneo8 — Adreno 730 (kernel 5.10.198-gki-gfb2f5774872c), device-verified на V2301A; прошивка GPU должна быть до фикса."
-    },
-    "neo9-adreno": {
-      "match": [
-        "5.15.178",
-        "5.15.197"
-      ],
-      "exploit": "adreno-cve-2025-21479",
-      "status": "off",
-      "file": {
-        "name": "exploit",
-        "url": "https://raw.githubusercontent.com/linux-tools/vivo_iqoo_neo_9_root_research_on_CVE-2025-21479/main/exploit/exploit_vivo_neo9",
-        "sha256": "76c5f16fb34c457c24166a6bbac40792be01e1f02297bee05f2782e71c15d5f5",
-        "size": 786544
-      },
-      "matchCondition": "linux-tools vivo_iqoo_neo_9_root_research_on_CVE-2025-21479 (Adreno/KGSL), не GhostLock; в исходном репо ещё exploit_vivo_neo9_ndk / ksud / kernelsu-vivo.ko. Выключен 2026-09-17 пользователем + движок приложения такие бинари не исполняет. PD2338 OriginOS4 (5.15.104/5.15.137) под моделью Neo11-пселекта даёт waiter_word≈-5 — GhostLock-на-5.15 для SM8550 это не тот путь."
+      "matchCondition": "Qingizi7 cve-2025-21479_iqooneo8 — Adreno 730 (kernel 5.10.198-gki-gfb2f5774872c), device-verified на V2301A; прошивка GPU должна быть до фикса. Мягкий паттерн 5.10.198 — для корпусов с иной сборкой той же минорной версии."
     }
   },
   "devices": [
     {
       "id": "iqoo13-india",
-      "marketName": "iQOO 13",
+      "marketName": "iQOO 13 Global",
       "code": "I2401",
       "models": [
         "I2401"
@@ -161,7 +147,8 @@
       "names": [
         "iQOO 13 Índia",
         "iQOO 13 India",
-        "I2401"
+        "I2401",
+        "iQOO 13 Global"
       ],
       "kernels": [
         {
@@ -229,16 +216,11 @@
         "iQOO NEO 9",
         "V2338A"
       ],
-      "kernels": [
-        {
-          "build": "neo9-adreno",
-          "note": "Adreno-исследование, выключено пользователем 2026-09-17."
-        }
-      ]
+      "kernels": []
     },
     {
       "id": "neo10-global",
-      "marketName": "iQOO Neo 10",
+      "marketName": "iQOO Neo 10 Global",
       "code": "I2405",
       "models": [
         "I2405"
@@ -332,7 +314,7 @@
     },
     {
       "id": "z9-5g",
-      "marketName": "iQOO Z9 5G",
+      "marketName": "iQOO Z9 5G Global",
       "code": "I2302",
       "models": [
         "I2302",
@@ -341,7 +323,8 @@
       "names": [
         "iQOO Z9 5G",
         "vivo T3 5G",
-        "V2334"
+        "V2334",
+        "iQOO Z9 5G Global"
       ],
       "kernels": [
         {
