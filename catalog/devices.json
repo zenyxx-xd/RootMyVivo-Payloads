@@ -22,10 +22,14 @@
     }
   },
   "builds": {
+    "g24b70dd1cb81": {
+      "match": ["6.6.127-android15-8-g24b70dd1cb81-abogki543627741-4k"],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "patched",
+      "matchCondition": "PD2453 boot.img (OTA 16.1.18.1.W10, uname 6.6.127-android15-8-g24b70dd1cb81-abogki543627741-4k). Disassembly of remove_waiter at ffffffc081074aa8 shows it loads waiter->task (ldr x20,[x23,#0x50]) and takes waiter->task->pi_lock (add x21,x20,#0x90c), with no mrs sp_el0 / current access. This is the FIXED form of CVE-2026-43499 (backported by vivo). Confirms the earlier note in g1f71897ac249: '6.6.127-g24b70dd1cb81 на тех же телах — другой Image, закрытый.' NOT rootable via GhostLock."
+    },
     "g1f71897ac249": {
-      "match": [
-        "6.6.89-android15-8-g1f71897ac249"
-      ],
+      "match": ["6.6.89-android15-8-g1f71897ac249"],
       "exploit": "ghostlock-cve-2026-43499",
       "status": "ready",
       "file": {
@@ -41,9 +45,7 @@
       "matchCondition": "Пейлоад Neo11 v0.4.0 (upstream-aligned load fix). По локальному kernel_6_6_89.img проверено: это Linux 6.6.89-android15-8-g1f71897ac249-abogki467805059-4k, remove_waiter в unpatched-форме 43499 (current/sp_el0), ashmem_ioctl/init_task/configfs_read_iter совпадают. 6.6.127-g24b70dd1cb81 на тех же телах — другой Image, закрытый."
     },
     "gb57af212129c": {
-      "match": [
-        "6.6.89-android15-8-gb57af212129c"
-      ],
+      "match": ["6.6.89-android15-8-gb57af212129c"],
       "exploit": "ghostlock-cve-2026-43499",
       "status": "ready",
       "file": {
@@ -63,9 +65,7 @@
       "matchCondition": "RMV port v0.4.0-ports / xiaohj233 GhostLock-X200 v1.3.5 (device-verified PD2415 16.1.12.2.W10). Оффсеты совпадают с xiaohj233/ghostlock-x200-root devices/x200_b57 (init_task 0x210e280, ashmem_fops 0x12eba58, phys load 0x80000000). Строки в .so: pd2415-b57 / NEO11_*."
     },
     "g97a9aaefab9a": {
-      "match": [
-        "6.6.89-android15-8-g97a9aaefab9a"
-      ],
+      "match": ["6.6.89-android15-8-g97a9aaefab9a"],
       "exploit": "ghostlock-cve-2026-43499",
       "status": "ready",
       "file": {
@@ -85,9 +85,7 @@
       "matchCondition": "RMV port v0.4.0-ports: оффсеты из AmarnathCJD/IQOO13-Root (I2401 16.1.22.2.W30, kernel 6.6.89-android15-8-g97a9aaefab9a-ab14519050-4k). Строки в .so: i2401-16.1.22.2 / NEO11_*."
     },
     "gf2c960562dc8": {
-      "match": [
-        "6.6.89-android15-8-gf2c960562dc8"
-      ],
+      "match": ["6.6.89-android15-8-gf2c960562dc8"],
       "exploit": "ghostlock-cve-2026-43499",
       "status": "ready",
       "file": {
@@ -107,9 +105,7 @@
       "matchCondition": "RMV port v0.4.0-ports: оффсеты из sgswzglwlx/vivo-root-build PD2426-exact (kernel 6.6.89-android15-8-gf2c960562dc8-abogki443614061-4k). Строки в .so: pd2426-6.6.89 / NEO11_*."
     },
     "g0ebe6a5da65d": {
-      "match": [
-        "5.15.178-android13-8-g0ebe6a5da65d"
-      ],
+      "match": ["5.15.178-android13-8-g0ebe6a5da65d"],
       "exploit": "ghostlock-cve-2026-43499",
       "status": "ready",
       "file": {
@@ -121,10 +117,7 @@
       "matchCondition": "GhostLock-порт ankitrawatgit (CVE-2026-43499) для I2302/V2334 (MT6886): его собственный движок 5.15 (phys 0x44000000), не pselect-движок Neo11. Generic «iQOO Z9 5G 5.15.178» без кода модели JoinChang считает неосуществимым. Китайский iQOO Z9 (V2361A) — другой SoC/ядра, не этот билд."
     },
     "neo8-adreno": {
-      "match": [
-        "5.10.198-gki-gfb2f5774872c",
-        "5.10.198"
-      ],
+      "match": ["5.10.198-gki-gfb2f5774872c", "5.10.198"],
       "exploit": "adreno-cve-2025-21479",
       "status": "ready",
       "file": {
@@ -136,9 +129,7 @@
       "matchCondition": "Qingizi7 cve-2025-21479_iqooneo8 — Adreno 730 (kernel 5.10.198-gki-gfb2f5774872c), device-verified на V2301A; прошивка GPU должна быть до фикса. Мягкий паттерн 5.10.198 — для корпусов с иной сборкой той же минорной версии."
     },
     "g468e81627094": {
-      "match": [
-        "6.6.127-android15-8-g468e81627094"
-      ],
+      "match": ["6.6.127-android15-8-g468e81627094"],
       "exploit": "ghostlock-cve-2026-43499",
       "status": "ready",
       "file": {
@@ -162,15 +153,8 @@
       "id": "iqoo13-india",
       "marketName": "iQOO 13 Global",
       "code": "I2401",
-      "models": [
-        "I2401"
-      ],
-      "names": [
-        "iQOO 13 Índia",
-        "iQOO 13 India",
-        "I2401",
-        "iQOO 13 Global"
-      ],
+      "models": ["I2401"],
+      "names": ["iQOO 13 Índia", "iQOO 13 India", "I2401", "iQOO 13 Global"],
       "kernels": [
         {
           "build": "g97a9aaefab9a",
@@ -182,17 +166,8 @@
       "id": "iqoo13-china",
       "marketName": "iQOO 13",
       "code": "V2408A",
-      "models": [
-        "PD2408",
-        "PD2408A",
-        "PD2408B",
-        "V2408A"
-      ],
-      "names": [
-        "V2408A",
-        "iQOO 13",
-        "iQOO13"
-      ],
+      "models": ["PD2408", "PD2408A", "PD2408B", "V2408A"],
+      "names": ["V2408A", "iQOO 13", "iQOO13"],
       "kernels": [
         {
           "build": "g1f71897ac249",
@@ -204,15 +179,8 @@
       "id": "neo8",
       "marketName": "iQOO Neo8",
       "code": "V2301A",
-      "models": [
-        "PD2301",
-        "V2301A"
-      ],
-      "names": [
-        "V2301A",
-        "iQOO Neo8",
-        "iQOO Neo 8"
-      ],
+      "models": ["PD2301", "V2301A"],
+      "names": ["V2301A", "iQOO Neo8", "iQOO Neo 8"],
       "kernels": [
         {
           "build": "neo8-adreno",
@@ -224,12 +192,7 @@
       "id": "neo9",
       "marketName": "iQOO Neo9",
       "code": "V2338A",
-      "models": [
-        "PD2338C",
-        "PD2338",
-        "V2338A",
-        "V2338"
-      ],
+      "models": ["PD2338C", "PD2338", "V2338A", "V2338"],
       "names": [
         "iQOO Neo9 (China)",
         "iQOO Neo9",
@@ -243,9 +206,7 @@
       "id": "neo10-global",
       "marketName": "iQOO Neo 10 Global",
       "code": "I2405",
-      "models": [
-        "I2405"
-      ],
+      "models": ["I2405"],
       "names": [
         "I2405",
         "iQOO Neo 10 Global",
@@ -265,16 +226,8 @@
       "id": "neo10-pro",
       "marketName": "iQOO Neo10 Pro",
       "code": "V2426A",
-      "models": [
-        "PD2426",
-        "PD2426A",
-        "V2426A"
-      ],
-      "names": [
-        "V2426A",
-        "iQOO Neo10 Pro",
-        "iQOO Neo 10 Pro"
-      ],
+      "models": ["PD2426", "PD2426A", "V2426A"],
+      "names": ["V2426A", "iQOO Neo10 Pro", "iQOO Neo 10 Pro"],
       "kernels": [
         {
           "build": "gf2c960562dc8",
@@ -290,16 +243,8 @@
       "id": "neo10-pro-plus",
       "marketName": "iQOO Neo10 Pro+",
       "code": "V2463A",
-      "models": [
-        "PD2463",
-        "PD2463A",
-        "V2463A"
-      ],
-      "names": [
-        "V2463A",
-        "iQOO Neo10 Pro+",
-        "iQOO Neo 10 Pro+"
-      ],
+      "models": ["PD2463", "PD2463A", "V2463A"],
+      "names": ["V2463A", "iQOO Neo10 Pro+", "iQOO Neo 10 Pro+"],
       "kernels": [
         {
           "build": "g1f71897ac249",
@@ -320,12 +265,7 @@
         "PD2520E",
         "V2520A"
       ],
-      "names": [
-        "V2520A",
-        "iQOO Neo 11",
-        "iQOO Neo11",
-        "Neo 11"
-      ],
+      "names": ["V2520A", "iQOO Neo 11", "iQOO Neo11", "Neo 11"],
       "kernels": [
         {
           "build": "g1f71897ac249",
@@ -337,16 +277,8 @@
       "id": "z9-5g",
       "marketName": "iQOO Z9 5G Global",
       "code": "I2302",
-      "models": [
-        "I2302",
-        "V2334"
-      ],
-      "names": [
-        "iQOO Z9 5G",
-        "vivo T3 5G",
-        "V2334",
-        "iQOO Z9 5G Global"
-      ],
+      "models": ["I2302", "V2334"],
+      "names": ["iQOO Z9 5G", "vivo T3 5G", "V2334", "iQOO Z9 5G Global"],
       "kernels": [
         {
           "build": "g0ebe6a5da65d",
@@ -358,16 +290,8 @@
       "id": "z10-turbo",
       "marketName": "iQOO Z10 Turbo",
       "code": "V2452A",
-      "models": [
-        "PD2452",
-        "PD2452A",
-        "V2452A"
-      ],
-      "names": [
-        "V2452A",
-        "iQOO Z10 Turbo",
-        "Z10 Turbo"
-      ],
+      "models": ["PD2452", "PD2452A", "V2452A"],
+      "names": ["V2452A", "iQOO Z10 Turbo", "Z10 Turbo"],
       "kernels": [
         {
           "build": "gb57af212129c",
@@ -379,20 +303,16 @@
       "id": "z10-turbo-pro",
       "marketName": "iQOO Z10 Turbo Pro",
       "code": "V2453A",
-      "models": [
-        "PD2453",
-        "PD2453A",
-        "V2453A"
-      ],
-      "names": [
-        "V2453A",
-        "iQOO Z10 Turbo Pro",
-        "Z10 Turbo Pro"
-      ],
+      "models": ["PD2453", "PD2453A", "V2453A"],
+      "names": ["V2453A", "iQOO Z10 Turbo Pro", "Z10 Turbo Pro"],
       "kernels": [
         {
           "build": "g1f71897ac249",
           "note": "hybLOVE кладёт preload Neo11 в комплект для Z10 Turbo Pro."
+        },
+        {
+          "build": "g24b70dd1cb81",
+          "note": "OTA 16.1.18.1.W10; CVE-2026-43499 patched (verified via remove_waiter disassembly, fixed form uses waiter->task->pi_lock)"
         }
       ]
     },
@@ -400,15 +320,8 @@
       "id": "z10-turbo-plus",
       "marketName": "iQOO Z10 Turbo+",
       "code": "V2507A",
-      "models": [
-        "PD2507",
-        "V2507A"
-      ],
-      "names": [
-        "iQOO Z10 Turbo+",
-        "V2507A",
-        "Z10 Turbo+"
-      ],
+      "models": ["PD2507", "V2507A"],
+      "names": ["iQOO Z10 Turbo+", "V2507A", "Z10 Turbo+"],
       "kernels": [
         {
           "build": "gb57af212129c",
@@ -420,15 +333,8 @@
       "id": "z11",
       "marketName": "iQOO Z11",
       "code": "V2551A",
-      "models": [
-        "PD2551",
-        "PD2551A",
-        "V2551A"
-      ],
-      "names": [
-        "iQOO Z11",
-        "V2551A"
-      ],
+      "models": ["PD2551", "PD2551A", "V2551A"],
+      "names": ["iQOO Z11", "V2551A"],
       "kernels": [
         {
           "build": "gb57af212129c",
@@ -440,15 +346,8 @@
       "id": "x200",
       "marketName": "vivo X200",
       "code": "V2415A",
-      "models": [
-        "PD2415",
-        "PD2415A",
-        "V2415A"
-      ],
-      "names": [
-        "vivo X200",
-        "V2415A"
-      ],
+      "models": ["PD2415", "PD2415A", "V2415A"],
+      "names": ["vivo X200", "V2415A"],
       "kernels": [
         {
           "build": "gb57af212129c",
@@ -460,16 +359,8 @@
       "id": "x200-pro",
       "marketName": "vivo X200 Pro",
       "code": "V2405A",
-      "models": [
-        "PD2405",
-        "V2405A"
-      ],
-      "names": [
-        "vivo X200 Pro",
-        "V2405A",
-        "X200 Pro",
-        "Vivo X200 Pro"
-      ],
+      "models": ["PD2405", "V2405A"],
+      "names": ["vivo X200 Pro", "V2405A", "X200 Pro", "Vivo X200 Pro"],
       "kernels": [
         {
           "build": "gb57af212129c",
@@ -481,16 +372,8 @@
       "id": "x200-pro-mini",
       "marketName": "vivo X200 Pro mini",
       "code": "V2419A",
-      "models": [
-        "PD2419",
-        "PD2419A",
-        "V2419A"
-      ],
-      "names": [
-        "vivo X200 Pro mini",
-        "X200 Pro mini",
-        "V2419A"
-      ],
+      "models": ["PD2419", "PD2419A", "V2419A"],
+      "names": ["vivo X200 Pro mini", "X200 Pro mini", "V2419A"],
       "kernels": [
         {
           "build": "gb57af212129c",
@@ -503,12 +386,7 @@
       "marketName": "vivo X200s",
       "code": "",
       "models": [],
-      "names": [
-        "vivo X200s",
-        "vivo X200S",
-        "X200s",
-        "X200S"
-      ],
+      "names": ["vivo X200s", "vivo X200S", "X200s", "X200S"],
       "kernels": [
         {
           "build": "gb57af212129c",
@@ -520,16 +398,8 @@
       "id": "x200-ultra",
       "marketName": "vivo X200 Ultra",
       "code": "V2454A",
-      "models": [
-        "PD2454",
-        "V2454A"
-      ],
-      "names": [
-        "V2454A",
-        "vivo X200 Ultra",
-        "vivo x200ultra",
-        "X200 Ultra"
-      ],
+      "models": ["PD2454", "V2454A"],
+      "names": ["V2454A", "vivo X200 Ultra", "vivo x200ultra", "X200 Ultra"],
       "kernels": [
         {
           "build": "g468e81627094",
