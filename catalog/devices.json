@@ -30,10 +30,9 @@
       "status": "ready",
       "file": {
         "name": "preload.so",
-        "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-neo11/preload-rmv.so",
+        "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g1f71897ac249.so",
         "mirrors": [
-          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g1f71897ac249.so",
-          "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g1f71897ac249.so"
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g1f71897ac249.so"
         ],
         "sha256": "d5cc95725379a2bba3d9f3325303b27f09ec30a6de9d350c9ac35e52e6fc7049",
         "size": 145824
@@ -48,10 +47,9 @@
       "status": "ready",
       "file": {
         "name": "preload.so",
-        "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-ports/preload-pd2415.so",
+        "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/gb57af212129c.so",
         "mirrors": [
-          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/gb57af212129c.so",
-          "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/gb57af212129c.so"
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/gb57af212129c.so"
         ],
         "sha256": "ffd74d1372682da601099a60b1c86c1652e4a0cb1ffc9be4855a4186bc0e2d07",
         "size": 145648
@@ -70,10 +68,9 @@
       "status": "ready",
       "file": {
         "name": "preload.so",
-        "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-ports/preload-i2401.so",
+        "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g97a9aaefab9a.so",
         "mirrors": [
-          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g97a9aaefab9a.so",
-          "https://raw.googleapis…b9a.so"
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g97a9aaefab9a.so"
         ],
         "sha256": "75736cda5eca6be1e656b286bd072e7b41ebfb895b06ed4c6433b26eb14eb2d6",
         "size": 145824
@@ -92,10 +89,9 @@
       "status": "ready",
       "file": {
         "name": "preload.so",
-        "url": "https://github.com/zenyxx-xd/RootMyVivo-Payloads/releases/download/v0.4.0-ports/preload-pd2426.so",
+        "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/gf2c960562dc8.so",
         "mirrors": [
-          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/gf2c960562dc8.so",
-          "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/gf2c960562dc8.so"
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/gf2c960562dc8.so"
         ],
         "sha256": "7a4fe017e18455bf798a331e5c205e267f96c96bd0e03a26725ffa394dccda53",
         "size": 145696
