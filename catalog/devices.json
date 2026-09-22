@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updated": "2026-09-17",
+  "updated": "2026-09-22",
   "exploits": {
     "ghostlock-cve-2026-43499": {
       "name": "GhostLock (futex PI UAF)",
@@ -35,10 +35,10 @@
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g1f71897ac249.so",
           "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g1f71897ac249.so"
         ],
-        "sha256": "b3c4557e1f5fbb95745a9a1d9796c73fc02b19a3a03184aee2c03f686b87ca2e",
-        "size": 144720
+        "sha256": "d5cc95725379a2bba3d9f3325303b27f09ec30a6de9d350c9ac35e52e6fc7049",
+        "size": 145824
       },
-      "matchCondition": "Пейлоад Neo11 v0.4.0 (upstream-aligned load fix). По локальному kernel_6_6_89.img проверено: это Linux 6.6.89-android15-8-g1f71897ac249-abogki467805059-4k, remove_waiter в unpatched-форме 43499 (current/sp_el0), ashmem_ioctl/init_task/configfs_read_iter совпадают. 6.6.127-g24b70dd1cb81 на тех же телах — другой Image, закрытый."
+      "matchCondition": "Пейлоад Neo11 v0.4.1 (rebuild 2026-09-22). По локальному kernel_6_6_89.img проверено: это Linux 6.6.89-android15-8-g1f71897ac249-abogki467805059-4k, remove_waiter в unpatched-форме 43499 (current/sp_el0), ashmem_ioctl/init_task/configfs_read_iter совпадают. 6.6.127-g24b70dd1cb81 на тех же телах — другой Image, закрытый. v0.4.1: пересборка движка по размеченной геометрии ghostlock-x200-root v1.3.5 — init_ashmem_path больше не читает boot_id до слайда (чтение генерирует UUID и ломает rb-обход -> 100% мисс); dup2 всех fd фиксированным числом; filler fd для max_fds; RED-бит words[0] и drift-безопасные fill слова; писатель на CPU7. Оффсеты не менялись."
     },
     "gb57af212129c": {
       "match": [
@@ -53,14 +53,14 @@
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/gb57af212129c.so",
           "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/gb57af212129c.so"
         ],
-        "sha256": "a711a89f6824fcc1d5bdc2a13814d9541a83585d08162c2aa64255530ffbda68",
-        "size": 144544
+        "sha256": "ffd74d1372682da601099a60b1c86c1652e4a0cb1ffc9be4855a4186bc0e2d07",
+        "size": 145648
       },
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
       },
-      "matchCondition": "RMV port v0.4.0-ports / xiaohj233 GhostLock-X200 v1.3.5 (device-verified PD2415 16.1.12.2.W10). Оффсеты совпадают с xiaohj233/ghostlock-x200-root devices/x200_b57 (init_task 0x210e280, ashmem_fops 0x12eba58, phys load 0x80000000). Строки в .so: pd2415-b57 / NEO11_*."
+      "matchCondition": "RMV port v0.4.1 (rebuild 2026-09-22) / xiaohj233 GhostLock-X200 v1.3.5 (device-verified PD2415 16.1.12.2.W10). Оффсеты совпадают с xiaohj233/ghostlock-x200-root devices/x200_b57 (init_task 0x210e280, ashmem_fops 0x12eba58, phys load 0x80000000) и побайтово совпали с собственным свежим OTA-телом Z10 Turbo 16.1.14.1 (все 12 слайд-символов + selinux_state/compat_ashmem_ioctl из kallsyms). v0.4.1: движок пересобран по разметке кита — boot_id больше не читается до слайда (главная причина «24/24 miss, потом пустые попытки»); dup2 всех fd; filler max_fds; RED-бит+drift-fill; CPU7. Оффсеты не менялись."
     },
     "g97a9aaefab9a": {
       "match": [
@@ -75,14 +75,14 @@
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g97a9aaefab9a.so",
           "https://raw.googleapis…b9a.so"
         ],
-        "sha256": "6a4450e016005b0e5e03dcffdb5877b8050aa09eb16252e3aed2ca29f8ed3b4c",
-        "size": 144704
+        "sha256": "75736cda5eca6be1e656b286bd072e7b41ebfb895b06ed4c6433b26eb14eb2d6",
+        "size": 145824
       },
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
       },
-      "matchCondition": "RMV port v0.4.0-ports: оффсеты из AmarnathCJD/IQOO13-Root (I2401 16.1.22.2.W30, kernel 6.6.89-android15-8-g97a9aaefab9a-ab14519050-4k). Строки в .so: i2401-16.1.22.2 / NEO11_*."
+      "matchCondition": "RMV port v0.4.1 (rebuild 2026-09-22): оффсеты из AmarnathCJD/IQOO13-Root (I2401 16.1.22.2.W30, kernel 6.6.89-android15-8-g97a9aaefab9a-ab14519050-4k). v0.4.1 — те же исправления таймингов слайда, что и b57 (boot_id-before-slide fix, dup2-all, filler max_fds, RED-бит, CPU7)."
     },
     "gf2c960562dc8": {
       "match": [
@@ -97,14 +97,14 @@
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/gf2c960562dc8.so",
           "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/gf2c960562dc8.so"
         ],
-        "sha256": "96c63306bd4cec7fe3edb3178995092dd2a587c10dd4c19cc66e9306636bb2d3",
-        "size": 144576
+        "sha256": "7a4fe017e18455bf798a331e5c205e267f96c96bd0e03a26725ffa394dccda53",
+        "size": 145696
       },
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
       },
-      "matchCondition": "RMV port v0.4.0-ports: оффсеты из sgswzglwlx/vivo-root-build PD2426-exact (kernel 6.6.89-android15-8-gf2c960562dc8-abogki443614061-4k). Строки в .so: pd2426-6.6.89 / NEO11_*."
+      "matchCondition": "RMV port v0.4.1 (rebuild 2026-09-22): оффсеты из sgswzglwlx/vivo-root-build PD2426-exact (kernel 6.6.89-android15-8-gf2c960562dc8-abogki443614061-4k). v0.4.1 — те же исправления таймингов слайда, что и b57 (boot_id-before-slide fix, dup2-all, filler max_fds, RED-бит, CPU7)."
     },
     "g0ebe6a5da65d": {
       "match": [
@@ -140,7 +140,7 @@
         "6.6.127-android15-8-g468e81627094"
       ],
       "exploit": "ghostlock-cve-2026-43499",
-      "status": "ready",
+      "status": "patched",
       "file": {
         "name": "preload.so",
         "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g468e81627094.so",
@@ -150,11 +150,7 @@
         "sha256": "ffe020524e76cf68e389c9b891005e6f63ea000f57db7c6dc5c13cb77b4ad159",
         "size": 145376
       },
-      "env": {
-        "RMV_ATTEMPTS": "3",
-        "RMV_RETRY_DELAY": "8"
-      },
-      "matchCondition": "RMV порт v0.4.x: оффсеты из kallsyms полного OTA boot X200 Ultra PD2454/V2454A 16.1.20.6 (OTA 16.1.20.6.W10.V000L1, boot sha 54d36b22e0f1846df6cf1b2111f7e75b, ядро 6.6.127-android15-8-g468e81627094-abogki530796776-4k). 25/25 символов из kallsyms, layout (WAITER/TASK/CRED/FOPS) перенесён с Neo11. Раскладка фреймов futex_wait_requeue_pi=448 / core_sys_select=496 / pselect6=144 совпадает с рабочим Neo11 6.6.127 побайтово. SLIDE_RANDOM_BOOT_ID_DATA_OFF 0x22794c8 проверен сканом образа (указатель &sysctl_bootid на rel 0x22794c8). На живом X200U гонка 43499 пока не подтверждена — UNTESTED on-device, статически осуществимо."
+      "matchCondition": "ЗАКРЫТО vivo-бэкпортом 2026-09-22 (disasm доказательства, X200 Ultra PD2454/V2454A, OTA 16.1.20.6.W10.V000L1, boot sha 54d36b22e0f1846df6cf1b2111f7e75b). remove_waiter в исправленной форме: waiter->task грузится (ldr xN,[xM,#0x50]) перед операцией над current — сигнатура побайтово совпадает с закрытым Neo11 6.6.127 (g24b70dd1cb81) и отличается от открытой 6.6.89; waiter-слово вне контролируемого окна (raw=34/cal=36, окно 0..14). Попытки запуска бессмысленны (полный мисс slide), пейлоад изъят из ready. Для X200 Ultra на 6.6.89 (без обнова) остаётся билд g1f71897ac249."
     }
   },
   "devices": [
@@ -533,7 +529,7 @@
       "kernels": [
         {
           "build": "g468e81627094",
-          "note": "Собственный билд X200 Ultra 6.6.127-g468e81627094 (OTA 16.1.20.6.W10). Оффсеты из kallsyms boot этого OTA; раскладка фреймов равна Neo11 6.6.127. On-device не гонялся — статически готов."
+          "note": "X200 Ultra 6.6.127-g468e81627094 (OTA 16.1.20.6.W10) — vivo закрыл 43499 бэкпортом: remove_waiter в исправленной форме (waiter->task через ldr [xM,#0x50]), сигнатура побайтово совпадает с закрытым Neo11 6.6.127; waiter-слово вне окна (raw=34/cal=36). Статус patched, на 127-обновлённых запуск бессмысленен. Без обнова до 127 остаётся g1f71897ac249."
         },
         {
           "build": "g1f71897ac249",
