@@ -1,13 +1,13 @@
 {
   "schemaVersion": 5,
-  "updated": "2026-09-22",
+  "updated": "2026-09-23",
   "exploits": {
     "ghostlock-cve-2026-43499": {
       "name": "GhostLock (futex PI UAF)",
       "description": "Use-after-free в futex PI-puti; работает на GKI 6.1–6.12 до закрытия CVE",
       "fixedIn": {
         "5.15": null,
-        "6.1": "6.1.145",
+        "6.1": null,
         "6.6": "6.6.140",
         "6.12": null
       }
@@ -147,6 +147,40 @@
         "size": 145376
       },
       "matchCondition": "ЗАКРЫТО vivo-бэкпортом 2026-09-22 (disasm доказательства, X200 Ultra PD2454/V2454A, OTA 16.1.20.6.W10.V000L1, boot sha 54d36b22e0f1846df6cf1b2111f7e75b). remove_waiter в исправленной форме: waiter->task грузится (ldr xN,[xM,#0x50]) перед операцией над current — сигнатура побайтово совпадает с закрытым Neo11 6.6.127 (g24b70dd1cb81) и отличается от открытой 6.6.89; waiter-слово вне контролируемого окна (raw=34/cal=36, окно 0..14). Попытки запуска бессмысленны (полный мисс slide), пейлоад изъят из ready. Для X200 Ultra на 6.6.89 (без обнова) остаётся билд g1f71897ac249."
+    },
+    "g2e8d90b015f1_pd2352": {
+      "match": [
+        "6.1.145-android14"
+      ],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "experimental",
+      "file": {
+        "name": "preload.so",
+        "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g2e8d90b015f1_pd2352.so",
+        "mirrors": [
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g2e8d90b015f1_pd2352.so"
+        ],
+        "sha256": "56ebfcf1f3098dd21e23d9f2991d5c8b61a4f71c0776a7f051954b981b58d42b",
+        "size": 148704
+      },
+      "matchCondition": "iQOO Z9 Turbo (PD2352/V2352A) 16.2.17.0.W10, kernel 6.1.145-android14-11-maybe-dirty. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST: pselect fd_set здесь НЕ накрывает висячий waiter (слова -19/-5 вне окна), а копия do_ip_setsockopt 0x108 (setsockopt SOL_IP/MCAST_JOIN_SOURCE_GROUP, optlen ровно 0x108, буфер с обнулённым ss_family -> errno 99, без реальных multicast-побочек) накрывает целиком: waiter = buf+0x60 (цепочка 0x10+0x60+0x10+0x10+0x40 + кадр do_ip 0x280; waiter=E-0x2D8; disasm собственного boot.img 16.2.17.0). Байт-карта waiter — ghostlock-kit, устройство-верифицирована на соседнем теле 6.1.145. Ожидается 25-30% попаданий, промахи = паника/ребут (гонка кадра), как у кита. Root-стадия на этом теле не валидирована (ashmem_misc в kallsyms вырезан). Откат Z9T на 6.1.124 по советам из чатов: прошивка 6.1.124 по OTA-API НЕ отдаётся (цепочка даёт только 14.0.11.0=6.1.57 и 16.2.17.0; сетка 15.x пуста)."
+    },
+    "g2e8d90b015f1_pd2425": {
+      "match": [
+        "6.1.124-android14"
+      ],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "experimental",
+      "file": {
+        "name": "preload.so",
+        "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g2e8d90b015f1_pd2425.so",
+        "mirrors": [
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g2e8d90b015f1_pd2425.so"
+        ],
+        "sha256": "d2ed8075be41f93c815f370806667386aeaaceb916b8cdab865b62eeaa9611da",
+        "size": 148720
+      },
+      "matchCondition": "iQOO Neo 10 China (PD2425/V2425A) 15.0.19.3.W10.V000L1, kernel 6.1.124-android14. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST (тот же принцип, что g2e8d90b015f1_pd2352): геометрия этого тела — кадр do_ip_setsockopt 0x230 => waiter = buf+0x10, буфер накрывает waiter [0x10,0x68) полностью; байт раннего выхода buf[8] лежит ниже waiter. Символы из kallsyms boot.img 15.0.19.3.W10.V000L1. Ожидается 25-30% попаданий с паниками на промахе; root-стадия не валидирована. Совпадает с прошивкой, для которой в закрытых каналах заявлен готовый эксплойт (исходников публично нет)."
     }
   },
   "devices": [
@@ -530,6 +564,50 @@
         {
           "build": "g1f71897ac249",
           "note": "JoinChang ghostlock-oneplus vivox200ultra — тот же Image g1f71897ac249 (init_task/ashmem_fops/ashmem_ioctl совпадают с Neo11); configfs_read_iter в его заголовке 0x48CEDC vs 0x48CBB8 — в каталоге символы, проверенные по kernel_6_6_89.img Neo11."
+        }
+      ]
+    },
+    {
+      "id": "z9t-cn",
+      "marketName": "iQOO Z9 Turbo (China)",
+      "code": "V2352A",
+      "models": [
+        "PD2352",
+        "PD2352A",
+        "V2352A"
+      ],
+      "names": [
+        "iQOO Z9 Turbo",
+        "Z9 Turbo",
+        "iQOO Z9T",
+        "V2352A"
+      ],
+      "kernels": [
+        {
+          "build": "g2e8d90b015f1_pd2352",
+          "note": "16.2.17.0.W10 = kernel 6.1.145-android14: GhostLock жив через MCAST-транспорт (pselect на этом теле мёртв геометрически). ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ, не запускался на устройстве; риск ребута на промахе. Откат на 6.1.124 через OTA недоступен (только 14.0.11.0=6.1.57 и 16.2.17.0 в цепочке)."
+        }
+      ]
+    },
+    {
+      "id": "neo10-cn",
+      "marketName": "iQOO Neo 10 (China)",
+      "code": "V2425A",
+      "models": [
+        "PD2425",
+        "PD2425A",
+        "V2425A"
+      ],
+      "names": [
+        "iQOO Neo 10",
+        "iQOO Neo10",
+        "Neo 10",
+        "V2425A"
+      ],
+      "kernels": [
+        {
+          "build": "g2e8d90b015f1_pd2425",
+          "note": "15.0.19.3.W10.V000L1 = kernel 6.1.124-android14 (та же прошивка, для которой в закрытых каналах заявлен готовый эксплойт). ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ: MCAST-геометрия выверена по disasm (waiter=buf+0x10), на устройстве не проверялся."
         }
       ]
     }
