@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updated": "2026-09-23",
+  "updated": "2026-09-25",
   "exploits": {
     "ghostlock-cve-2026-43499": {
       "name": "GhostLock (futex PI UAF)",
@@ -181,6 +181,23 @@
         "size": 148720
       },
       "matchCondition": "iQOO Neo 10 China (PD2425/V2425A) 15.0.19.3.W10.V000L1, kernel 6.1.124-android14. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST (тот же принцип, что g2e8d90b015f1_pd2352): геометрия этого тела — кадр do_ip_setsockopt 0x230 => waiter = buf+0x10, буфер накрывает waiter [0x10,0x68) полностью; байт раннего выхода buf[8] лежит ниже waiter. Символы из kallsyms boot.img 15.0.19.3.W10.V000L1. Ожидается 25-30% попаданий с паниками на промахе; root-стадия не валидирована. Совпадает с прошивкой, для которой в закрытых каналах заявлен готовый эксплойт (исходников публично нет)."
+    },
+    "g2e8d90b015f1_pd2352_124": {
+      "match": [
+        "6.1.124-android14"
+      ],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "experimental",
+      "file": {
+        "name": "preload.so",
+        "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g2e8d90b015f1_pd2352_124.so",
+        "mirrors": [
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g2e8d90b015f1_pd2352_124.so"
+        ],
+        "sha256": "c89bcfa12692d8f7a81062133776842d544af6bf45b97a86bae716dbe3f0bd05",
+        "size": 148720
+      },
+      "matchCondition": "iQOO Z9 Turbo (PD2352/V2352A) 15.1.14.0.W10.V000L1 (декабрьское OTA 20251210), kernel 6.1.124-android14-11-maybe-dirty. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST: геометрия disasm этого ядра ПОЛНОСТЬЮ совпадает с 16.2.17.0 (6.1.145): цепочка setsockopt 0x10+0x60+0x10+0x10+0x40, кадр do_ip_setsockopt 0x280, waiter=E-0x2D8, buf=E-0x338 => waiter=buf+0x60, окно 0x108 накрывает waiter [0x60,0xB8) целиком. Символы — kallsyms boot.img, извлечённого из официального OTA (REPLACE_ZSTD, sha256 boot-образа совпал с манифестом payload.bin). pselect-мартрут здесь мёртв (как и на 6.1.145). Ожидается 25-30% попаданий, промахи = паника/ребут. Root-стадия не валидирована (copy_splice_read вырезан из kallsyms, splice-слот берётся через generic_file_splice_read; ashmem_misc присутствует в .data = 0x2351a68)."
     }
   },
   "devices": [
@@ -586,6 +603,10 @@
         {
           "build": "g2e8d90b015f1_pd2352",
           "note": "16.2.17.0.W10 = kernel 6.1.145-android14: GhostLock жив через MCAST-транспорт (pselect на этом теле мёртв геометрически). ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ, не запускался на устройстве; риск ребута на промахе. Откат на 6.1.124 через OTA недоступен (только 14.0.11.0=6.1.57 и 16.2.17.0 в цепочке)."
+        },
+        {
+          "build": "g2e8d90b015f1_pd2352_124",
+          "note": "15.1.14.0.W10.V000L1 (OTA 20251210) = kernel 6.1.124-android14: GhostLock жив через MCAST-транспорт, геометрия совпадает с 6.1.145 (waiter=buf+0x60, disasm подтверждён). ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ, на устройстве не запускался; риск ребута на промахе."
         }
       ]
     },
