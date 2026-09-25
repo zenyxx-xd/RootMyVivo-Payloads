@@ -181,6 +181,23 @@
         "size": 148720
       },
       "matchCondition": "iQOO Z9 Turbo (PD2352/V2352A) 15.1.14.0.W10.V000L1 (декабрьское OTA 20251210), kernel 6.1.124-android14-11-maybe-dirty. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST: геометрия disasm этого ядра ПОЛНОСТЬЮ совпадает с 16.2.17.0 (6.1.145): цепочка setsockopt 0x10+0x60+0x10+0x10+0x40, кадр do_ip_setsockopt 0x280, waiter=E-0x2D8, buf=E-0x338 => waiter=buf+0x60, окно 0x108 накрывает waiter [0x60,0xB8) целиком. Символы — kallsyms boot.img, извлечённого из официального OTA (REPLACE_ZSTD, sha256 boot-образа совпал с манифестом payload.bin). pselect-мартрут здесь мёртв (как и на 6.1.145). Ожидается 25-30% попаданий, промахи = паника/ребут. Root-стадия не валидирована (copy_splice_read вырезан из kallsyms, splice-слот берётся через generic_file_splice_read; ashmem_misc присутствует в .data = 0x2351a68)."
+    },
+    "ga7861f9f1a53_pd2453": {
+      "match": [
+        "6.6.57-android15-8-ga7861f9f1a53"
+      ],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "experimental",
+      "file": {
+        "name": "preload.so",
+        "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/ga7861f9f1a53_pd2453.so",
+        "mirrors": [
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/ga7861f9f1a53_pd2453.so"
+        ],
+        "sha256": "97d35927fcb752ce32048d1ee3c5661498161afee07f36818d6432166983d553",
+        "size": 144112
+      },
+      "matchCondition": "iQOO Z10 Turbo Pro (PD2453/V2453A) на откатной OriginOS 5 15.0.5.10.W10.V000L1, kernel 6.6.57-android15-8-ga7861f9f1a53-abogki400616479-4k. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся, НО: pselect-геометрия этого ядра побайтно совпадает с device-verified 6.6.89 Neo11 (кадры pselect6 0x90/core_sys_select 0x1f0/do_select 0x3c0, слоты sp+0xe0; futex 0x70+0x60+0x1c0, waiter sp+0x90; WAITER_WORD_SHIFT=0), а remove_waiter в УЯЗВИМОЙ форме CVE-2026-43499 (current/sp_el0, waiter->task читается после операций над current). Символы — kallsyms boot.img из официального OTA 20250401 (REPLACE_ZSTD, sha образа сверен с манифестом). Требует откат на 15.0.5.10 — на новых прошивках (6.6.127+) этот пейлоад НЕ работает."
     }
   },
   "devices": [
@@ -419,6 +436,10 @@
         {
           "build": "g1f71897ac249",
           "note": "hybLOVE кладёт preload Neo11 в комплект для Z10 Turbo Pro."
+        },
+        {
+          "build": "ga7861f9f1a53_pd2453",
+          "note": "Откатная OriginOS 5 15.0.5.10.W10.V000L1 = kernel 6.6.57: GhostLock жив (pselect, геометрия = device-verified 6.6.89). ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ; текущая прошивка 16.x (6.6.127+) не покрыта — нужен откат."
         }
       ]
     },
