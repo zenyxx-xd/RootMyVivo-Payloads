@@ -131,23 +131,6 @@
       },
       "matchCondition": "Qingizi7 cve-2025-21479_iqooneo8 — Adreno 730 (kernel 5.10.198-gki-gfb2f5774872c), device-verified на V2301A; прошивка GPU должна быть до фикса. Мягкий паттерн 5.10.198 — для корпусов с иной сборкой той же минорной версии."
     },
-    "g468e81627094": {
-      "match": [
-        "6.6.127-android15-8-g468e81627094"
-      ],
-      "exploit": "ghostlock-cve-2026-43499",
-      "status": "patched",
-      "file": {
-        "name": "preload.so",
-        "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g468e81627094.so",
-        "mirrors": [
-          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g468e81627094.so"
-        ],
-        "sha256": "ffe020524e76cf68e389c9b891005e6f63ea000f57db7c6dc5c13cb77b4ad159",
-        "size": 145376
-      },
-      "matchCondition": "ЗАКРЫТО vivo-бэкпортом 2026-09-22 (disasm доказательства, X200 Ultra PD2454/V2454A, OTA 16.1.20.6.W10.V000L1, boot sha 54d36b22e0f1846df6cf1b2111f7e75b). remove_waiter в исправленной форме: waiter->task грузится (ldr xN,[xM,#0x50]) перед операцией над current — сигнатура побайтово совпадает с закрытым Neo11 6.6.127 (g24b70dd1cb81) и отличается от открытой 6.6.89; waiter-слово вне контролируемого окна (raw=34/cal=36, окно 0..14). Попытки запуска бессмысленны (полный мисс slide), пейлоад изъят из ready. Для X200 Ultra на 6.6.89 (без обнова) остаётся билд g1f71897ac249."
-    },
     "g2e8d90b015f1_pd2352": {
       "match": [
         "6.1.145-android14"
@@ -574,10 +557,6 @@
         "X200 Ultra"
       ],
       "kernels": [
-        {
-          "build": "g468e81627094",
-          "note": "X200 Ultra 6.6.127-g468e81627094 (OTA 16.1.20.6.W10) — vivo закрыл 43499 бэкпортом: remove_waiter в исправленной форме (waiter->task через ldr [xM,#0x50]), сигнатура побайтово совпадает с закрытым Neo11 6.6.127; waiter-слово вне окна (raw=34/cal=36). Статус patched, на 127-обновлённых запуск бессмысленен. Без обнова до 127 остаётся g1f71897ac249."
-        },
         {
           "build": "g1f71897ac249",
           "note": "JoinChang ghostlock-oneplus vivox200ultra — тот же Image g1f71897ac249 (init_task/ashmem_fops/ashmem_ioctl совпадают с Neo11); configfs_read_iter в его заголовке 0x48CEDC vs 0x48CBB8 — в каталоге символы, проверенные по kernel_6_6_89.img Neo11."
