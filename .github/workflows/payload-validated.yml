@@ -1,0 +1,75 @@
+name: payload-validated
+
+# Отчёт валидации: приложение после реального рута через experimental-билд
+# отправляет repository_dispatch с HMAC-доказательством из нативной части
+# эксплойта (proof.c). Здесь проверяем подпись и, если она верна, переводим
+# билд experimental → ready в catalog/devices.json.
+#
+# Защита:
+#  — HMAC-ключ (secret RMV_PROOF_KEY) совпадает с ключом в preload.so
+#    (proof.c) и в репозитории НЕ хранится;
+#  — сообщение = nonce||uname||payload_id, нонс одноразовый из приложения;
+#  — меняется статус ТОЛЬКО того билда, чей payload_id стоит в подписи, и
+#    только если он сейчас experimental — чужие/готовые/закрытые билды
+#    трогать нельзя даже при валидной подписи.
+
+on:
+  repository_dispatch:
+    types: [payload-validated]
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify proof and promote build
+        env:
+          PROOF_KEY: ${{ secrets.RMV_PROOF_KEY }}
+          PAYLOAD_ID: ${{ github.event.client_payload.payload_id }}
+          NONCE: ${{ github.event.client_payload.nonce }}
+          PROOF: ${{ github.event.client_payload.proof }}
+          KERNEL: ${{ github.event.client_payload.kernel }}
+          APP: ${{ github.event.client_payload.app }}
+        run: |
+          set -euo pipefail
+          test -n "$PAYLOAD_ID" -a -n "$NONCE" -a -n "$PROOF" -a -n "$PROOF_KEY"
+          echo "$PAYLOAD_ID" | grep -Eq '^[A-Za-z0-9._-]+$' || { echo "bad payload_id"; exit 1; }
+          echo "$NONCE" | grep -Eq '^[0-9a-f]{32}$' || { echo "bad nonce"; exit 1; }
+          echo "$PROOF" | grep -Eq '^[0-9a-f]{64}$' || { echo "bad proof"; exit 1; }
+
+          git clone --depth 1 "https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY.git" repo
+          cd repo
+
+          python3 - "$PAYLOAD_ID" "$NONCE" "$PROOF" "$KERNEL" "$PROOF_KEY" <<'EOF'
+          import hmac, hashlib, json, sys
+          pid, nonce, proof, kernel, keyhex = sys.argv[1:6]
+          key = bytes.fromhex(keyhex)
+          msg = f"{nonce}\n{kernel}\n{pid}".encode()
+          expect = hmac.new(key, msg, hashlib.sha256).hexdigest()
+          if not hmac.compare_digest(expect, proof):
+              print("HMAC mismatch — report rejected"); sys.exit(1)
+          print("HMAC OK")
+          p = "catalog/devices.json"
+          d = json.load(open(p, encoding="utf-8"))
+          b = d["builds"].get(pid)
+          if b is None:
+              print(f"build {pid} not in catalog"); sys.exit(1)
+          if b.get("status") != "experimental":
+              print(f"build {pid} is {b.get('status')} — nothing to promote"); sys.exit(0)
+          b["status"] = "ready"
+          b["matchCondition"] = (b.get("matchCondition", "") +
+              f" | Валидирован на устройстве (kernel {kernel}, app {sys.argv[4] if len(sys.argv)>4 else ''})".strip(" |"))
+          json.dump(d, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+          print(f"promoted {pid}: experimental -> ready")
+          EOF
+
+          if git diff --quiet; then
+            echo "no changes — done"
+            exit 0
+          fi
+          git config user.name "rmv-validator"
+          git config user.email "rmv-validator@users.noreply.github.com"
+          git commit -am "payload validated on device: $PAYLOAD_ID experimental -> ready (kernel $KERNEL, app $APP)"
+          git push origin HEAD
