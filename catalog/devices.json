@@ -198,6 +198,23 @@
         "size": 147336
       },
       "matchCondition": "iQOO Z10 Turbo Pro (PD2453/V2453A) на откатной OriginOS 5 15.0.5.10.W10.V000L1, kernel 6.6.57-android15-8-ga7861f9f1a53-abogki400616479-4k. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся, НО: pselect-геометрия этого ядра побайтно совпадает с device-verified 6.6.89 Neo11 (кадры pselect6 0x90/core_sys_select 0x1f0/do_select 0x3c0, слоты sp+0xe0; futex 0x70+0x60+0x1c0, waiter sp+0x90; WAITER_WORD_SHIFT=0), а remove_waiter в УЯЗВИМОЙ форме CVE-2026-43499 (current/sp_el0, waiter->task читается после операций над current). Символы — kallsyms boot.img из официального OTA 20250401 (REPLACE_ZSTD, sha образа сверен с манифестом). Требует откат на 15.0.5.10 — на новых прошивках (6.6.127+) этот пейлоад НЕ работает."
+    },
+    "gda7e4eafe109_pd2453": {
+      "match": [
+        "6.6.57-android15-8-gda7e4eafe109"
+      ],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "experimental",
+      "file": {
+        "name": "preload.so",
+        "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/gda7e4eafe109_pd2453.so",
+        "mirrors": [
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/gda7e4eafe109_pd2453.so"
+        ],
+        "sha256": "1e92602ea31a6a811509150d5ce13033139ac8011040baa8401632d096a228c0",
+        "size": 147336
+      },
+      "matchCondition": "iQOO Z10 Turbo Pro (PD2453/V2453A) на OriginOS 5 15.0.7.8–15.0.8.15.W10.V000L1, kernel 6.6.57-android15-8-gda7e4eafe109-abogki418618663-4k. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся: pselect-геометрия этого ядра побайтово совпадает с device-verified 6.6.89 и с ga7861-сборкой 15.0.5.10 (кадры pselect6 0x90/core_sys_select 0x1f0/do_select 0x3c0; futex 0x70+0x60+0x1c0, waiter sp+0x90; WAITER_WORD_SHIFT=0), remove_waiter в УЯЗВИМОЙ форме. Символы — kallsyms boot.img из официального OTA 15.0.7.8 (REPLACE_ZSTD, sha образа сверен с манифестом). Пейлоад ga7861-сборки (15.0.5.10) здесь НЕ подходит — иная раскладка ядра."
     }
   },
   "devices": [
@@ -440,6 +457,10 @@
         {
           "build": "ga7861f9f1a53_pd2453",
           "note": "Откатная OriginOS 5 15.0.5.10.W10.V000L1 = kernel 6.6.57: GhostLock жив (pselect, геометрия = device-verified 6.6.89). ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ; текущая прошивка 16.x (6.6.127+) не покрыта — нужен откат."
+        },
+        {
+          "build": "gda7e4eafe109_pd2453",
+          "note": "OriginOS 5 15.0.7.8/15.0.8.3/15.0.8.15 = kernel 6.6.57-gda7e4eafe109: GhostLock жив (pselect, геометрия = device-verified 6.6.89). ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ; отдельный билд — ядро отличается от 15.0.5.10 (ga7861), их пейлоады не взаимозаменяемы."
         }
       ]
     },
