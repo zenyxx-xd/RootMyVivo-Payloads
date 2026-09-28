@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updated": "2026-09-26",
+  "updated": "2026-09-28",
   "exploits": {
     "ghostlock-cve-2026-43499": {
       "name": "GhostLock (futex PI UAF)",
@@ -215,6 +215,27 @@
         "size": 149632
       },
       "matchCondition": "iQOO Z10 Turbo Pro (PD2453/V2453A) на OriginOS 5 15.0.7.8–15.0.8.15.W10.V000L1, kernel 6.6.57-android15-8-gda7e4eafe109-abogki418618663-4k. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся: pselect-геометрия этого ядра побайтово совпадает с device-verified 6.6.89 и с ga7861-сборкой 15.0.5.10 (кадры pselect6 0x90/core_sys_select 0x1f0/do_select 0x3c0; futex 0x70+0x60+0x1c0, waiter sp+0x90; WAITER_WORD_SHIFT=0), remove_waiter в УЯЗВИМОЙ форме. Символы — kallsyms boot.img из официального OTA 15.0.7.8 (REPLACE_ZSTD, sha образа сверен с манифестом). Пейлоад ga7861-сборки (15.0.5.10) здесь НЕ подходит — иная раскладка ядра."
+    },
+    "g2e8d90b015f1_pd2425_145": {
+      "match": [
+        "6.1.145-android14"
+      ],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "experimental",
+      "file": {
+        "name": "preload.so",
+        "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g2e8d90b015f1_pd2425_145.so",
+        "mirrors": [
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g2e8d90b015f1_pd2425_145.so"
+        ],
+        "sha256": "86acd730a25562983418799247fc273e0609b30b1995623637f91e1f0da03a0b",
+        "size": 154144
+      },
+      "env": {
+        "RMV_ATTEMPTS": "3",
+        "RMV_RETRY_DELAY": "8"
+      },
+      "matchCondition": "PD2425 16.1.16.2.W10.V000L1 (OTA 20260729) = kernel 6.1.145-android14 — ПОСЛЕДНЕЕ доступное на Neo10 CN, уязвимость открыта (remove_waiter @0x10c619c, mrs sp_el0 = vulnerable form). Image ОТЛИЧАЕТСЯ от Z9T 6.1.145 (те же короткие git-id, другой бинарь: 19 из 26 символов сдвинуты до 0x2D0) — отдельный билд. MCAST-геометрия ПОБАЙТОВО как Z9T-145 (waiter=buf+0x60, цепочка 0x10+0x60+0x10+0x10+0x40, do_ip 0x280). ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ, на устройстве не проверялся; риск ребута на промахе."
     }
   },
   "devices": [
@@ -607,7 +628,7 @@
     },
     {
       "id": "z9t-cn",
-      "marketName": "iQOO Z9 Turbo (China)",
+      "marketName": "iQOO Z9 Turbo",
       "code": "V2352A",
       "models": [
         "PD2352",
@@ -633,7 +654,7 @@
     },
     {
       "id": "neo10-cn",
-      "marketName": "iQOO Neo 10 (China)",
+      "marketName": "iQOO Neo 10",
       "code": "V2425A",
       "models": [
         "PD2425",
@@ -650,6 +671,10 @@
         {
           "build": "g2e8d90b015f1_pd2425",
           "note": "15.0.19.3.W10.V000L1 = kernel 6.1.124-android14 (та же прошивка, для которой в закрытых каналах заявлен готовый эксплойт). ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ: MCAST-геометрия выверена по disasm (waiter=buf+0x10), на устройстве не проверялся."
+        },
+        {
+          "build": "g2e8d90b015f1_pd2425_145",
+          "note": "16.1.16.2.W10 (последнее доступное) = kernel 6.1.145: GhostLock жив через MCAST, геометрия = Z9T-145 (waiter=buf+0x60). Image отличается от Z9T-145 — отдельный .so. ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ; риск ребута на промахе."
         }
       ]
     }
