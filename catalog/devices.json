@@ -34,8 +34,8 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g1f71897ac249.so"
         ],
-        "sha256": "ccb851b3f8ec191eea15a1345fd672ed92c3ac84476a1979d87ce2b250d9212e",
-        "size": 152552
+        "sha256": "fb409a529d259d750cc97eb6a998cc7f7921884fe06774dcb57d34c4de5ad388",
+        "size": 152920
       },
       "matchCondition": "Пейлоад Neo11 v0.4.1 (rebuild 2026-09-22). По локальному kernel_6_6_89.img проверено: это Linux 6.6.89-android15-8-g1f71897ac249-abogki467805059-4k, remove_waiter в unpatched-форме 43499 (current/sp_el0), ashmem_ioctl/init_task/configfs_read_iter совпадают. 6.6.127-g24b70dd1cb81 на тех же телах — другой Image, закрытый. v0.4.1: пересборка движка по размеченной геометрии ghostlock-x200-root v1.3.5 — init_ashmem_path больше не читает boot_id до слайда (чтение генерирует UUID и ломает rb-обход -> 100% мисс); dup2 всех fd фиксированным числом; filler fd для max_fds; RED-бит words[0] и drift-безопасные fill слова; писатель на CPU7. Оффсеты не менялись."
     },
@@ -51,8 +51,8 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/gb57af212129c.so"
         ],
-        "sha256": "b172b73613be35ac12e76d277f7c603699d76fc18b331d49b859c980491989df",
-        "size": 152376
+        "sha256": "381928f3fdd3ca227c6f0c0a1ad4637b4e7395b8fd380b792c87244bbc993fa4",
+        "size": 152728
       },
       "env": {
         "RMV_ATTEMPTS": "3",
@@ -72,8 +72,8 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g97a9aaefab9a.so"
         ],
-        "sha256": "1fee53f9b3b3cd5285cbcca435a0b8aa3344cff197f76927e33d9315c2202570",
-        "size": 152536
+        "sha256": "f2dd3317493a7b6119b3c1d731489f26ec625bff3e63d5895687f71e7b006a01",
+        "size": 152920
       },
       "env": {
         "RMV_ATTEMPTS": "3",
@@ -93,8 +93,8 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/gf2c960562dc8.so"
         ],
-        "sha256": "15613b084e44a9fe169820b6568cde096fcfa0d192a53ad3518a7baa35643e2b",
-        "size": 152408
+        "sha256": "29f6c611476da80b64fdee18b9d18b3e74f6a6437f8799fe81b105f2aa601d75",
+        "size": 152776
       },
       "env": {
         "RMV_ATTEMPTS": "3",
@@ -143,8 +143,8 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g2e8d90b015f1_pd2352.so"
         ],
-        "sha256": "12d80d4deed88ffc6b899ab74eefce3d34480e2d5560ca8ffe2f4f24049308df",
-        "size": 155616
+        "sha256": "73502477b99141dd7c7a4ebf958b787163a24f9537514d941a689f831c3868ad",
+        "size": 156072
       },
       "matchCondition": "iQOO Z9 Turbo (PD2352/V2352A) 16.2.17.0.W10, kernel 6.1.145-android14-11-maybe-dirty. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST: pselect fd_set здесь НЕ накрывает висячий waiter (слова -19/-5 вне окна), а копия do_ip_setsockopt 0x108 (setsockopt SOL_IP/MCAST_JOIN_SOURCE_GROUP, optlen ровно 0x108, буфер с обнулённым ss_family -> errno 99, без реальных multicast-побочек) накрывает целиком: waiter = buf+0x60 (цепочка 0x10+0x60+0x10+0x10+0x40 + кадр do_ip 0x280; waiter=E-0x2D8; disasm собственного boot.img 16.2.17.0). Байт-карта waiter — ghostlock-kit, устройство-верифицирована на соседнем теле 6.1.145. Ожидается 25-30% попаданий, промахи = паника/ребут (гонка кадра), как у кита. Root-стадия на этом теле не валидирована (ashmem_misc в kallsyms вырезан). Откат Z9T на 6.1.124 по советам из чатов: прошивка 6.1.124 по OTA-API НЕ отдаётся (цепочка даёт только 14.0.11.0=6.1.57 и 16.2.17.0; сетка 15.x пуста)."
     },
@@ -160,8 +160,8 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g2e8d90b015f1_pd2425.so"
         ],
-        "sha256": "6ab96de47e6597a028e41edb750b7115ae2b8384a310d5a8fa11513b29014b7a",
-        "size": 155704
+        "sha256": "6460df44e66ac29b12be7bc0e495817a58208d24dc977b7158b4bb09bee55c52",
+        "size": 155984
       },
       "matchCondition": "iQOO Neo 10 China (PD2425/V2425A) 15.0.19.3.W10.V000L1, kernel 6.1.124-android14. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST (тот же принцип, что g2e8d90b015f1_pd2352): геометрия этого тела — кадр do_ip_setsockopt 0x230 => waiter = buf+0x10, буфер накрывает waiter [0x10,0x68) полностью; байт раннего выхода buf[8] лежит ниже waiter. Символы из kallsyms boot.img 15.0.19.3.W10.V000L1. Ожидается 25-30% попаданий с паниками на промахе; root-стадия не валидирована. Совпадает с прошивкой, для которой в закрытых каналах заявлен готовый эксплойт (исходников публично нет)."
     },
@@ -177,8 +177,8 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g2e8d90b015f1_pd2352_124.so"
         ],
-        "sha256": "4d6b445783a1af50254153cad3115d02073f35813f1a41b1b66d6c8efcf291b6",
-        "size": 155704
+        "sha256": "69d80d1a19e042805ce965b720f84b701f58275169bd364cfc4894a8730cc9f0",
+        "size": 155984
       },
       "matchCondition": "iQOO Z9 Turbo (PD2352/V2352A) 15.1.14.0.W10.V000L1 (декабрьское OTA 20251210), kernel 6.1.124-android14-11-maybe-dirty. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST: геометрия disasm этого ядра ПОЛНОСТЬЮ совпадает с 16.2.17.0 (6.1.145): цепочка setsockopt 0x10+0x60+0x10+0x10+0x40, кадр do_ip_setsockopt 0x280, waiter=E-0x2D8, buf=E-0x338 => waiter=buf+0x60, окно 0x108 накрывает waiter [0x60,0xB8) целиком. Символы — kallsyms boot.img, извлечённого из официального OTA (REPLACE_ZSTD, sha256 boot-образа совпал с манифестом payload.bin). pselect-мартрут здесь мёртв (как и на 6.1.145). Ожидается 25-30% попаданий, промахи = паника/ребут. Root-стадия не валидирована (copy_splice_read вырезан из kallsyms, splice-слот берётся через generic_file_splice_read; ashmem_misc присутствует в .data = 0x2351a68)."
     },
@@ -194,8 +194,8 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/ga7861f9f1a53_pd2453.so"
         ],
-        "sha256": "d8f95a5bac74bc192ba9c187fdcf438e72335ffddeb03cbc9dffcce52d0a8891",
-        "size": 150840
+        "sha256": "eedf27cd54779c544a6e4e2c09d19ccf481cc0d5b4cd354bdc97e455d0b128ea",
+        "size": 151296
       },
       "matchCondition": "iQOO Z10 Turbo Pro (PD2453/V2453A) на откатной OriginOS 5 15.0.5.10.W10.V000L1, kernel 6.6.57-android15-8-ga7861f9f1a53-abogki400616479-4k. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся, НО: pselect-геометрия этого ядра побайтно совпадает с device-verified 6.6.89 Neo11 (кадры pselect6 0x90/core_sys_select 0x1f0/do_select 0x3c0, слоты sp+0xe0; futex 0x70+0x60+0x1c0, waiter sp+0x90; WAITER_WORD_SHIFT=0), а remove_waiter в УЯЗВИМОЙ форме CVE-2026-43499 (current/sp_el0, waiter->task читается после операций над current). Символы — kallsyms boot.img из официального OTA 20250401 (REPLACE_ZSTD, sha образа сверен с манифестом). Требует откат на 15.0.5.10 — на новых прошивках (6.6.127+) этот пейлоад НЕ работает."
     },
@@ -211,8 +211,8 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/gda7e4eafe109_pd2453.so"
         ],
-        "sha256": "c41f576502fc4cefb80bc5c80d416699c907424457a742268310ac930ca6c4a5",
-        "size": 150840
+        "sha256": "64795f82de76201657c63c6227d660dcb1aa97975d20e668934e2c890232e227",
+        "size": 151224
       },
       "matchCondition": "iQOO Z10 Turbo Pro (PD2453/V2453A) на OriginOS 5 15.0.7.8–15.0.8.15.W10.V000L1, kernel 6.6.57-android15-8-gda7e4eafe109-abogki418618663-4k. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся: pselect-геометрия этого ядра побайтово совпадает с device-verified 6.6.89 и с ga7861-сборкой 15.0.5.10 (кадры pselect6 0x90/core_sys_select 0x1f0/do_select 0x3c0; futex 0x70+0x60+0x1c0, waiter sp+0x90; WAITER_WORD_SHIFT=0), remove_waiter в УЯЗВИМОЙ форме. Символы — kallsyms boot.img из официального OTA 15.0.7.8 (REPLACE_ZSTD, sha образа сверен с манифестом). Пейлоад ga7861-сборки (15.0.5.10) здесь НЕ подходит — иная раскладка ядра."
     },
@@ -228,8 +228,8 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g2e8d90b015f1_pd2425_145.so"
         ],
-        "sha256": "2c94dbf65334dc4c4e967f0ff4583d01b54f4c32e5719d436ec2db4bf14dfaf9",
-        "size": 155616
+        "sha256": "ded30d64d262d0df5232b6a6bcf0f6a6083bf1fd2b461d658830afd3540d688e",
+        "size": 156072
       },
       "env": {
         "RMV_ATTEMPTS": "3",
@@ -249,8 +249,8 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g7d37760ec777_pd2361.so"
         ],
-        "sha256": "cebe7876a6fabd8976b44134fefc970dbc2e95aa6362e48eb39414f7419d9e35",
-        "size": 150632
+        "sha256": "f6c470da7bd7d644f9f7e2faff8eeadfe93ce4b349d9cd7ba71a6c9f8f257372",
+        "size": 151104
       },
       "env": {
         "RMV_ATTEMPTS": "3",
