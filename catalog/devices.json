@@ -34,10 +34,10 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g1f71897ac249.so"
         ],
-        "sha256": "072920b04c3fd0301a8b38a95b06bdd37a925ea8b14dd7eb27b688c069c28483",
-        "size": 151744
+        "sha256": "838baabd40b9665f06ca81058ef787f193c7c95d9c6677b971d35e6009b17e38",
+        "size": 151784
       },
-      "matchCondition": "v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. Пейлоад Neo11 v0.4.1 (rebuild 2026-09-22). По локальному kernel_6_6_89.img проверено: это Linux 6.6.89-android15-8-g1f71897ac249-abogki467805059-4k, remove_waiter в unpatched-форме 43499 (current/sp_el0), ashmem_ioctl/init_task/configfs_read_iter совпадают. 6.6.127-g24b70dd1cb81 на тех же телах — другой Image, закрытый. v0.4.1: пересборка движка по размеченной геометрии ghostlock-x200-root v1.3.5 — init_ashmem_path больше не читает boot_id до слайда (чтение генерирует UUID и ломает rb-обход -> 100% мисс); dup2 всех fd фиксированным числом; filler fd для max_fds; RED-бит words[0] и drift-безопасные fill слова; писатель на CPU7. Оффсеты не менялись."
+      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. Пейлоад Neo11 v0.4.1 (rebuild 2026-09-22). По локальному kernel_6_6_89.img проверено: это Linux 6.6.89-android15-8-g1f71897ac249-abogki467805059-4k, remove_waiter в unpatched-форме 43499 (current/sp_el0), ashmem_ioctl/init_task/configfs_read_iter совпадают. 6.6.127-g24b70dd1cb81 на тех же телах — другой Image, закрытый. v0.4.1: пересборка движка по размеченной геометрии ghostlock-x200-root v1.3.5 — init_ashmem_path больше не читает boot_id до слайда (чтение генерирует UUID и ломает rb-обход -> 100% мисс); dup2 всех fd фиксированным числом; filler fd для max_fds; RED-бит words[0] и drift-безопасные fill слова; писатель на CPU7. Оффсеты не менялись."
     },
     "gb57af212129c": {
       "match": [
@@ -51,14 +51,14 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/gb57af212129c.so"
         ],
-        "sha256": "2616577ce515c478a05c2c6080997f2b12918ed4b7db916291071d6c16068121",
-        "size": 151568
+        "sha256": "688680cd03ae5189ca36728fdd54150b319d4fea863a7d118efc7a93fdcfc43d",
+        "size": 151488
       },
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
       },
-      "matchCondition": "v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. RMV port v0.4.1 (rebuild 2026-09-22) / xiaohj233 GhostLock-X200 v1.3.5 (device-verified PD2415 16.1.12.2.W10). Оффсеты совпадают с xiaohj233/ghostlock-x200-root devices/x200_b57 (init_task 0x210e280, ashmem_fops 0x12eba58, phys load 0x80000000) и побайтово совпали с собственным свежим OTA-телом Z10 Turbo 16.1.14.1 (все 12 слайд-символов + selinux_state/compat_ashmem_ioctl из kallsyms). v0.4.1: движок пересобран по разметке кита — boot_id больше не читается до слайда (главная причина «24/24 miss, потом пустые попытки»); dup2 всех fd; filler max_fds; RED-бит+drift-fill; CPU7. Оффсеты не менялись."
+      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. RMV port v0.4.1 (rebuild 2026-09-22) / xiaohj233 GhostLock-X200 v1.3.5 (device-verified PD2415 16.1.12.2.W10). Оффсеты совпадают с xiaohj233/ghostlock-x200-root devices/x200_b57 (init_task 0x210e280, ashmem_fops 0x12eba58, phys load 0x80000000) и побайтово совпали с собственным свежим OTA-телом Z10 Turbo 16.1.14.1 (все 12 слайд-символов + selinux_state/compat_ashmem_ioctl из kallsyms). v0.4.1: движок пересобран по разметке кита — boot_id больше не читается до слайда (главная причина «24/24 miss, потом пустые попытки»); dup2 всех fd; filler max_fds; RED-бит+drift-fill; CPU7. Оффсеты не менялись."
     },
     "g97a9aaefab9a": {
       "match": [
@@ -72,14 +72,14 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g97a9aaefab9a.so"
         ],
-        "sha256": "48df222e6bae7c5069660ec5644754b89e48863508eb9ef6691cdf437051a85f",
-        "size": 151728
+        "sha256": "022c2629e43d59c014aa47bdb8261d39376b398241983e75741991dca1476292",
+        "size": 151680
       },
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
       },
-      "matchCondition": "v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. RMV port v0.4.1 (rebuild 2026-09-22): оффсеты из AmarnathCJD/IQOO13-Root (I2401 16.1.22.2.W30, kernel 6.6.89-android15-8-g97a9aaefab9a-ab14519050-4k). v0.4.1 — те же исправления таймингов слайда, что и b57 (boot_id-before-slide fix, dup2-all, filler max_fds, RED-бит, CPU7)."
+      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. RMV port v0.4.1 (rebuild 2026-09-22): оффсеты из AmarnathCJD/IQOO13-Root (I2401 16.1.22.2.W30, kernel 6.6.89-android15-8-g97a9aaefab9a-ab14519050-4k). v0.4.1 — те же исправления таймингов слайда, что и b57 (boot_id-before-slide fix, dup2-all, filler max_fds, RED-бит, CPU7)."
     },
     "gf2c960562dc8": {
       "match": [
@@ -93,14 +93,14 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/gf2c960562dc8.so"
         ],
-        "sha256": "45610c423c52e6a200caf76e5af30bcd28d7522ad31ec20c59e066630eccbe2f",
-        "size": 151600
+        "sha256": "9bacb428beb52c04806504c23baa1cc8d7723ffa02600556c95dbd395c6a12a9",
+        "size": 151552
       },
       "env": {
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
       },
-      "matchCondition": "v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. RMV port v0.4.1 (rebuild 2026-09-22): оффсеты из sgswzglwlx/vivo-root-build PD2426-exact (kernel 6.6.89-android15-8-gf2c960562dc8-abogki443614061-4k). v0.4.1 — те же исправления таймингов слайда, что и b57 (boot_id-before-slide fix, dup2-all, filler max_fds, RED-бит, CPU7)."
+      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. RMV port v0.4.1 (rebuild 2026-09-22): оффсеты из sgswzglwlx/vivo-root-build PD2426-exact (kernel 6.6.89-android15-8-gf2c960562dc8-abogki443614061-4k). v0.4.1 — те же исправления таймингов слайда, что и b57 (boot_id-before-slide fix, dup2-all, filler max_fds, RED-бит, CPU7)."
     },
     "g0ebe6a5da65d": {
       "match": [
@@ -146,7 +146,7 @@
         "sha256": "8cca3f3935f6d83988bb146f6cc64d6f1d90d002b99c9c2e5014ca41f16804c3",
         "size": 154776
       },
-      "matchCondition": "tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. iQOO Z9 Turbo (PD2352/V2352A) 16.2.17.0.W10, kernel 6.1.145-android14-11-maybe-dirty. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST: pselect fd_set здесь НЕ накрывает висячий waiter (слова -19/-5 вне окна), а копия do_ip_setsockopt 0x108 (setsockopt SOL_IP/MCAST_JOIN_SOURCE_GROUP, optlen ровно 0x108, буфер с обнулённым ss_family -> errno 99, без реальных multicast-побочек) накрывает целиком: waiter = buf+0x60 (цепочка 0x10+0x60+0x10+0x10+0x40 + кадр do_ip 0x280; waiter=E-0x2D8; disasm собственного boot.img 16.2.17.0). Байт-карта waiter — ghostlock-kit, устройство-верифицирована на соседнем теле 6.1.145. Ожидается 25-30% попаданий, промахи = паника/ребут (гонка кадра), как у кита. Root-стадия на этом теле не валидирована (ashmem_misc в kallsyms вырезан). Откат Z9T на 6.1.124 по советам из чатов: прошивка 6.1.124 по OTA-API НЕ отдаётся (цепочка даёт только 14.0.11.0=6.1.57 и 16.2.17.0; сетка 15.x пуста)."
+      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. iQOO Z9 Turbo (PD2352/V2352A) 16.2.17.0.W10, kernel 6.1.145-android14-11-maybe-dirty. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST: pselect fd_set здесь НЕ накрывает висячий waiter (слова -19/-5 вне окна), а копия do_ip_setsockopt 0x108 (setsockopt SOL_IP/MCAST_JOIN_SOURCE_GROUP, optlen ровно 0x108, буфер с обнулённым ss_family -> errno 99, без реальных multicast-побочек) накрывает целиком: waiter = buf+0x60 (цепочка 0x10+0x60+0x10+0x10+0x40 + кадр do_ip 0x280; waiter=E-0x2D8; disasm собственного boot.img 16.2.17.0). Байт-карта waiter — ghostlock-kit, устройство-верифицирована на соседнем теле 6.1.145. Ожидается 25-30% попаданий, промахи = паника/ребут (гонка кадра), как у кита. Root-стадия на этом теле не валидирована (ashmem_misc в kallsyms вырезан). Откат Z9T на 6.1.124 по советам из чатов: прошивка 6.1.124 по OTA-API НЕ отдаётся (цепочка даёт только 14.0.11.0=6.1.57 и 16.2.17.0; сетка 15.x пуста)."
     },
     "g2e8d90b015f1_pd2425": {
       "match": [
@@ -163,7 +163,7 @@
         "sha256": "65a5465d344e80ddd34c785c5845669ad400b4afea9997f5563433ae2a493a19",
         "size": 154240
       },
-      "matchCondition": "tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. iQOO Neo 10 China (PD2425/V2425A) 15.0.19.3.W10.V000L1, kernel 6.1.124-android14. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST (тот же принцип, что g2e8d90b015f1_pd2352): геометрия этого тела — кадр do_ip_setsockopt 0x230 => waiter = buf+0x10, буфер накрывает waiter [0x10,0x68) полностью; байт раннего выхода buf[8] лежит ниже waiter. Символы из kallsyms boot.img 15.0.19.3.W10.V000L1. Ожидается 25-30% попаданий с паниками на промахе; root-стадия не валидирована. Совпадает с прошивкой, для которой в закрытых каналах заявлен готовый эксплойт (исходников публично нет)."
+      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. iQOO Neo 10 China (PD2425/V2425A) 15.0.19.3.W10.V000L1, kernel 6.1.124-android14. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST (тот же принцип, что g2e8d90b015f1_pd2352): геометрия этого тела — кадр do_ip_setsockopt 0x230 => waiter = buf+0x10, буфер накрывает waiter [0x10,0x68) полностью; байт раннего выхода buf[8] лежит ниже waiter. Символы из kallsyms boot.img 15.0.19.3.W10.V000L1. Ожидается 25-30% попаданий с паниками на промахе; root-стадия не валидирована. Совпадает с прошивкой, для которой в закрытых каналах заявлен готовый эксплойт (исходников публично нет)."
     },
     "g2e8d90b015f1_pd2352_124": {
       "match": [
@@ -180,7 +180,7 @@
         "sha256": "28bcead36638834859d02fc83d926734189e03e0ed7238656a1fa2f91d88819a",
         "size": 154864
       },
-      "matchCondition": "tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. iQOO Z9 Turbo (PD2352/V2352A) 15.1.14.0.W10.V000L1 (декабрьское OTA 20251210), kernel 6.1.124-android14-11-maybe-dirty. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST: геометрия disasm этого ядра ПОЛНОСТЬЮ совпадает с 16.2.17.0 (6.1.145): цепочка setsockopt 0x10+0x60+0x10+0x10+0x40, кадр do_ip_setsockopt 0x280, waiter=E-0x2D8, buf=E-0x338 => waiter=buf+0x60, окно 0x108 накрывает waiter [0x60,0xB8) целиком. Символы — kallsyms boot.img, извлечённого из официального OTA (REPLACE_ZSTD, sha256 boot-образа совпал с манифестом payload.bin). pselect-мартрут здесь мёртв (как и на 6.1.145). Ожидается 25-30% попаданий, промахи = паника/ребут. Root-стадия не валидирована (copy_splice_read вырезан из kallsyms, splice-слот берётся через generic_file_splice_read; ashmem_misc присутствует в .data = 0x2351a68)."
+      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. iQOO Z9 Turbo (PD2352/V2352A) 15.1.14.0.W10.V000L1 (декабрьское OTA 20251210), kernel 6.1.124-android14-11-maybe-dirty. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST: геометрия disasm этого ядра ПОЛНОСТЬЮ совпадает с 16.2.17.0 (6.1.145): цепочка setsockopt 0x10+0x60+0x10+0x10+0x40, кадр do_ip_setsockopt 0x280, waiter=E-0x2D8, buf=E-0x338 => waiter=buf+0x60, окно 0x108 накрывает waiter [0x60,0xB8) целиком. Символы — kallsyms boot.img, извлечённого из официального OTA (REPLACE_ZSTD, sha256 boot-образа совпал с манифестом payload.bin). pselect-мартрут здесь мёртв (как и на 6.1.145). Ожидается 25-30% попаданий, промахи = паника/ребут. Root-стадия не валидирована (copy_splice_read вырезан из kallsyms, splice-слот берётся через generic_file_splice_read; ashmem_misc присутствует в .data = 0x2351a68)."
     },
     "ga7861f9f1a53_pd2453": {
       "match": [
@@ -194,10 +194,10 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/ga7861f9f1a53_pd2453.so"
         ],
-        "sha256": "a57eb1ba3d473c58668776e06a39b853da9f68da54d4710878ff4c76c0641f2b",
-        "size": 150032
+        "sha256": "e022405cbdfdfaf3e2f91292b84aabed4289f3089c0dbe9b84e15b129d0cea8f",
+        "size": 149984
       },
-      "matchCondition": "v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. iQOO Z10 Turbo Pro (PD2453/V2453A) на откатной OriginOS 5 15.0.5.10.W10.V000L1, kernel 6.6.57-android15-8-ga7861f9f1a53-abogki400616479-4k. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся, НО: pselect-геометрия этого ядра побайтно совпадает с device-verified 6.6.89 Neo11 (кадры pselect6 0x90/core_sys_select 0x1f0/do_select 0x3c0, слоты sp+0xe0; futex 0x70+0x60+0x1c0, waiter sp+0x90; WAITER_WORD_SHIFT=0), а remove_waiter в УЯЗВИМОЙ форме CVE-2026-43499 (current/sp_el0, waiter->task читается после операций над current). Символы — kallsyms boot.img из официального OTA 20250401 (REPLACE_ZSTD, sha образа сверен с манифестом). Требует откат на 15.0.5.10 — на новых прошивках (6.6.127+) этот пейлоад НЕ работает."
+      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. iQOO Z10 Turbo Pro (PD2453/V2453A) на откатной OriginOS 5 15.0.5.10.W10.V000L1, kernel 6.6.57-android15-8-ga7861f9f1a53-abogki400616479-4k. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся, НО: pselect-геометрия этого ядра побайтно совпадает с device-verified 6.6.89 Neo11 (кадры pselect6 0x90/core_sys_select 0x1f0/do_select 0x3c0, слоты sp+0xe0; futex 0x70+0x60+0x1c0, waiter sp+0x90; WAITER_WORD_SHIFT=0), а remove_waiter в УЯЗВИМОЙ форме CVE-2026-43499 (current/sp_el0, waiter->task читается после операций над current). Символы — kallsyms boot.img из официального OTA 20250401 (REPLACE_ZSTD, sha образа сверен с манифестом). Требует откат на 15.0.5.10 — на новых прошивках (6.6.127+) этот пейлоад НЕ работает."
     },
     "gda7e4eafe109_pd2453": {
       "match": [
@@ -211,10 +211,10 @@
         "mirrors": [
           "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/gda7e4eafe109_pd2453.so"
         ],
-        "sha256": "40ed4e7f306c3ce47bfde2e0e03f52187facb6e42b7176121c000c9fe9f95071",
-        "size": 150032
+        "sha256": "f1976cbc842ae9132e249ae86d5b3cde60cf51de645bcaef21def0ad625761c8",
+        "size": 149984
       },
-      "matchCondition": "v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. iQOO Z10 Turbo Pro (PD2453/V2453A) на OriginOS 5 15.0.7.8–15.0.8.15.W10.V000L1, kernel 6.6.57-android15-8-gda7e4eafe109-abogki418618663-4k. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся: pselect-геометрия этого ядра побайтово совпадает с device-verified 6.6.89 и с ga7861-сборкой 15.0.5.10 (кадры pselect6 0x90/core_sys_select 0x1f0/do_select 0x3c0; futex 0x70+0x60+0x1c0, waiter sp+0x90; WAITER_WORD_SHIFT=0), remove_waiter в УЯЗВИМОЙ форме. Символы — kallsyms boot.img из официального OTA 15.0.7.8 (REPLACE_ZSTD, sha образа сверен с манифестом). Пейлоад ga7861-сборки (15.0.5.10) здесь НЕ подходит — иная раскладка ядра."
+      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. iQOO Z10 Turbo Pro (PD2453/V2453A) на OriginOS 5 15.0.7.8–15.0.8.15.W10.V000L1, kernel 6.6.57-android15-8-gda7e4eafe109-abogki418618663-4k. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся: pselect-геометрия этого ядра побайтово совпадает с device-verified 6.6.89 и с ga7861-сборкой 15.0.5.10 (кадры pselect6 0x90/core_sys_select 0x1f0/do_select 0x3c0; futex 0x70+0x60+0x1c0, waiter sp+0x90; WAITER_WORD_SHIFT=0), remove_waiter в УЯЗВИМОЙ форме. Символы — kallsyms boot.img из официального OTA 15.0.7.8 (REPLACE_ZSTD, sha образа сверен с манифестом). Пейлоад ga7861-сборки (15.0.5.10) здесь НЕ подходит — иная раскладка ядра."
     },
     "g2e8d90b015f1_pd2425_145": {
       "match": [
@@ -235,7 +235,7 @@
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
       },
-      "matchCondition": "tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. PD2425 16.1.16.2.W10.V000L1 (OTA 20260729) = kernel 6.1.145-android14 — ПОСЛЕДНЕЕ доступное на Neo10 CN, уязвимость открыта (remove_waiter @0x10c619c, mrs sp_el0 = vulnerable form). Image ОТЛИЧАЕТСЯ от Z9T 6.1.145 (те же короткие git-id, другой бинарь: 19 из 26 символов сдвинуты до 0x2D0) — отдельный билд. MCAST-геометрия ПОБАЙТОВО как Z9T-145 (waiter=buf+0x60, цепочка 0x10+0x60+0x10+0x10+0x40, do_ip 0x280). ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ, на устройстве не проверялся; риск ребута на промахе."
+      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. PD2425 16.1.16.2.W10.V000L1 (OTA 20260729) = kernel 6.1.145-android14 — ПОСЛЕДНЕЕ доступное на Neo10 CN, уязвимость открыта (remove_waiter @0x10c619c, mrs sp_el0 = vulnerable form). Image ОТЛИЧАЕТСЯ от Z9T 6.1.145 (те же короткие git-id, другой бинарь: 19 из 26 символов сдвинуты до 0x2D0) — отдельный билд. MCAST-геометрия ПОБАЙТОВО как Z9T-145 (waiter=buf+0x60, цепочка 0x10+0x60+0x10+0x10+0x40, do_ip 0x280). ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ, на устройстве не проверялся; риск ребута на промахе."
     },
     "g7d37760ec777_pd2361": {
       "match": [
@@ -256,7 +256,7 @@
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
       },
-      "matchCondition": "v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. Стоковый сертифицированный GKI android13-5.15-2026-03_r12 (ci.android.com build 15613975, kernel g7d37760ec777, ABI ab15613975; boot скачан с dl.google.com). remove_waiter @0x1781e60 — уязвимая форма (mrs sp_el0). Транспорт pselect: waiter=E-0x240, fd_set word0 (core_sys_select sp+0x20) = waiter => WAITER_WORD_SHIFT=0; MCAST-ветки в GKI 5.15 нет. pi_blocked_on=0x924 подтверждён дизасмом; остальные task/cred-оффсеты от 6.1 — НЕ ПРОВЕРЕНЫ. ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ, на устройстве не проверялся."
+      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. Стоковый сертифицированный GKI android13-5.15-2026-03_r12 (ci.android.com build 15613975, kernel g7d37760ec777, ABI ab15613975; boot скачан с dl.google.com). remove_waiter @0x1781e60 — уязвимая форма (mrs sp_el0). Транспорт pselect: waiter=E-0x240, fd_set word0 (core_sys_select sp+0x20) = waiter => WAITER_WORD_SHIFT=0; MCAST-ветки в GKI 5.15 нет. pi_blocked_on=0x924 подтверждён дизасмом; остальные task/cred-оффсеты от 6.1 — НЕ ПРОВЕРЕНЫ. ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ, на устройстве не проверялся."
     }
   },
   "devices": [
