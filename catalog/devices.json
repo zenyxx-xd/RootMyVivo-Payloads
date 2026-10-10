@@ -97,6 +97,28 @@
       },
       "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. PD2425 16.1.16.2.W10.V000L1 (OTA 20260729) = kernel 6.1.145-android14 — ПОСЛЕДНЕЕ доступное на Neo10 CN, уязвимость открыта (remove_waiter @0x10c619c, mrs sp_el0 = vulnerable form). Image ОТЛИЧАЕТСЯ от Z9T 6.1.145 (те же короткие git-id, другой бинарь: 19 из 26 символов сдвинуты до 0x2D0) — отдельный билд. MCAST-геометрия ПОБАЙТОВО как Z9T-145 (waiter=buf+0x60, цепочка 0x10+0x60+0x10+0x10+0x40, do_ip 0x280). ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ, на устройстве не проверялся; риск ребута на промахе.",
       "route": "tcp"
+    },
+    "g7d37760ec777_pd2361": {
+      "match": [
+        "5.15.197-android13-8-00049-g7d37760ec777"
+      ],
+      "exploit": "ghostlock-cve-2026-43499",
+      "status": "experimental",
+      "file": {
+        "name": "preload.so",
+        "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g7d37760ec777_pd2361.so",
+        "mirrors": [
+          "https://cdn.jsdelivr.net/gh/zenyxx-xd/RootMyVivo-Payloads@main/bin/g7d37760ec777_pd2361.so"
+        ],
+        "sha256": "b58ca1229ba25c4f4956af51f5022b03542f78a0bffb89a8430aace41708a049",
+        "size": 149792
+      },
+      "env": {
+        "RMV_ATTEMPTS": "3",
+        "RMV_RETRY_DELAY": "8"
+      },
+      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. Стоковый сертифицированный GKI android13-5.15-2026-03_r12 (ci.android.com build 15613975, kernel g7d37760ec777, ABI ab15613975; boot скачан с dl.google.com). remove_waiter @0x1781e60 — уязвимая форма (mrs sp_el0). Транспорт pselect: waiter=E-0x240, fd_set word0 (core_sys_select sp+0x20) = waiter => WAITER_WORD_SHIFT=0; MCAST-ветки в GKI 5.15 нет. pi_blocked_on=0x924 подтверждён дизасмом; остальные task/cred-оффсеты от 6.1 — НЕ ПРОВЕРЕНЫ. ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ, на устройстве не проверялся.",
+      "route": "pselect"
     }
   },
   "devices": [
@@ -149,6 +171,27 @@
         {
           "build": "g2e8d90b015f1_pd2425_145",
           "note": "16.1.16.2.W10 (последнее доступное) = kernel 6.1.145: GhostLock жив через MCAST, геометрия = Z9T-145 (waiter=buf+0x60). Image отличается от Z9T-145 — отдельный .so. ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ; риск ребута на промахе."
+        }
+      ]
+    },
+    {
+      "id": "z9-cn",
+      "marketName": "iQOO Z9",
+      "code": "V2361A",
+      "models": [
+        "PD2361",
+        "PD2361A",
+        "V2361A"
+      ],
+      "names": [
+        "iQOO Z9",
+        "Z9",
+        "V2361A"
+      ],
+      "kernels": [
+        {
+          "build": "g7d37760ec777_pd2361",
+          "note": "GKI 5.15.197-android13-8-00049-g7d37760ec777 (стоковый certified boot, ab15613975): GhostLock жив (remove_waiter уязвимая форма), pselect word0 = waiter. ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ; риск ребута на промахе."
         }
       ]
     }
