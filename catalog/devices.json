@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "updated": "2026-10-18",
+  "updated": "2026-11-02",
   "exploits": {
     "ghostlock-cve-2026-43499": {
       "name": "GhostLock (futex PI UAF)",
@@ -27,7 +27,7 @@
         "6.1.145-android14"
       ],
       "exploit": "ghostlock-cve-2026-43499",
-      "status": "ready",
+      "status": "off",
       "file": {
         "name": "preload.so",
         "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g2e8d90b015f1_pd2352.so",
@@ -37,7 +37,7 @@
         "sha256": "8cca3f3935f6d83988bb146f6cc64d6f1d90d002b99c9c2e5014ca41f16804c3",
         "size": 154776
       },
-      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. iQOO Z9 Turbo (PD2352/V2352A) 16.2.17.0.W10, kernel 6.1.145-android14-11-maybe-dirty. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST: pselect fd_set здесь НЕ накрывает висячий waiter (слова -19/-5 вне окна), а копия do_ip_setsockopt 0x108 (setsockopt SOL_IP/MCAST_JOIN_SOURCE_GROUP, optlen ровно 0x108, буфер с обнулённым ss_family -> errno 99, без реальных multicast-побочек) накрывает целиком: waiter = buf+0x60 (цепочка 0x10+0x60+0x10+0x10+0x40 + кадр do_ip 0x280; waiter=E-0x2D8; disasm собственного boot.img 16.2.17.0). Байт-карта waiter — ghostlock-kit, устройство-верифицирована на соседнем теле 6.1.145. Ожидается 25-30% попаданий, промахи = паника/ребут (гонка кадра), как у кита. Root-стадия на этом теле не валидирована (ashmem_misc в kallsyms вырезан). Откат Z9T на 6.1.124 по советам из чатов: прошивка 6.1.124 по OTA-API НЕ отдаётся (цепочка даёт только 14.0.11.0=6.1.57 и 16.2.17.0; сетка 15.x пуста).",
+      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. iQOO Z9 Turbo (PD2352/V2352A) 16.2.17.0.W10, kernel 6.1.145-android14-11-maybe-dirty. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST: pselect fd_set здесь НЕ накрывает висячий waiter (слова -19/-5 вне окна), а копия do_ip_setsockopt 0x108 (setsockopt SOL_IP/MCAST_JOIN_SOURCE_GROUP, optlen ровно 0x108, буфер с обнулённым ss_family -> errno 99, без реальных multicast-побочек) накрывает целиком: waiter = buf+0x60 (цепочка 0x10+0x60+0x10+0x10+0x40 + кадр do_ip 0x280; waiter=E-0x2D8; disasm собственного boot.img 16.2.17.0). Байт-карта waiter — ghostlock-kit, устройство-верифицирована на соседнем теле 6.1.145. Ожидается 25-30% попаданий, промахи = паника/ребут (гонка кадра), как у кита. Root-стадия на этом теле не валидирована (ashmem_misc в kallsyms вырезан). Откат Z9T на 6.1.124 по советам из чатов: прошивка 6.1.124 по OTA-API НЕ отдаётся (цепочка даёт только 14.0.11.0=6.1.57 и 16.2.17.0; сетка 15.x пуста). [GEOMETRY-FAIL 2026-11-02: on this 6.1.145-android14-11-maybe-dirty build do_futex is inlined into __arm64_sys_futex (chain 0xd0+0x1c0=0x290), the stale waiter sits at S'-0x268 (tree S'-0x268, lock S'-0x230) — 0x70 shallower than the profile. The MCAST 0x108 setsockopt copy reaches only [S'-0x338,S'-0x230), so lock is out by 8 bytes and every other 64-bit transport is too shallow (measured from the device OTA boot.img, issue #52; verified by the generic ghostlock: waiter_off=0xD0 → 0xD0+0x38+8=0x110 > 0x108 → clean EOVERFLOW). Deterministic panic ~36% on all runs (#50: 12/12, #52: 7/7+4/4). Not exploitable with any current 64-bit transport; keep for offsets.]",
       "route": "tcp",
       "label": "6.1.145-dirty"
     },
@@ -46,7 +46,7 @@
         "6.1.124-android14"
       ],
       "exploit": "ghostlock-cve-2026-43499",
-      "status": "ready",
+      "status": "off",
       "file": {
         "name": "preload.so",
         "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g2e8d90b015f1_pd2425.so",
@@ -56,7 +56,7 @@
         "sha256": "65a5465d344e80ddd34c785c5845669ad400b4afea9997f5563433ae2a493a19",
         "size": 154240
       },
-      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. iQOO Neo 10 China (PD2425/V2425A) 15.0.19.3.W10.V000L1, kernel 6.1.124-android14. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST (тот же принцип, что g2e8d90b015f1_pd2352): геометрия этого тела — кадр do_ip_setsockopt 0x230 => waiter = buf+0x10, буфер накрывает waiter [0x10,0x68) полностью; байт раннего выхода buf[8] лежит ниже waiter. Символы из kallsyms boot.img 15.0.19.3.W10.V000L1. Ожидается 25-30% попаданий с паниками на промахе; root-стадия не валидирована. Совпадает с прошивкой, для которой в закрытых каналах заявлен готовый эксплойт (исходников публично нет).",
+      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. iQOO Neo 10 China (PD2425/V2425A) 15.0.19.3.W10.V000L1, kernel 6.1.124-android14. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST (тот же принцип, что g2e8d90b015f1_pd2352): геометрия этого тела — кадр do_ip_setsockopt 0x230 => waiter = buf+0x10, буфер накрывает waiter [0x10,0x68) полностью; байт раннего выхода buf[8] лежит ниже waiter. Символы из kallsyms boot.img 15.0.19.3.W10.V000L1. Ожидается 25-30% попаданий с паниками на промахе; root-стадия не валидирована. Совпадает с прошивкой, для которой в закрытых каналах заявлен готовый эксплойт (исходников публично нет). [GEOMETRY-FAIL 2026-11-02: sibling 6.1.145 build geometry miss applies (#52): do_futex inlined, waiter 0x70 shallower than profile, MCAST 0x108 copy misses lock by 8 bytes; all 64-bit transports too shallow. Marked off until a matching transport appears.]",
       "route": "tcp",
       "label": "6.1.124-dirty"
     },
@@ -65,7 +65,7 @@
         "6.1.124-android14"
       ],
       "exploit": "ghostlock-cve-2026-43499",
-      "status": "ready",
+      "status": "off",
       "file": {
         "name": "preload.so",
         "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g2e8d90b015f1_pd2352_124.so",
@@ -75,7 +75,7 @@
         "sha256": "28bcead36638834859d02fc83d926734189e03e0ed7238656a1fa2f91d88819a",
         "size": 154864
       },
-      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. iQOO Z9 Turbo (PD2352/V2352A) 15.1.14.0.W10.V000L1 (декабрьское OTA 20251210), kernel 6.1.124-android14-11-maybe-dirty. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST: геометрия disasm этого ядра ПОЛНОСТЬЮ совпадает с 16.2.17.0 (6.1.145): цепочка setsockopt 0x10+0x60+0x10+0x10+0x40, кадр do_ip_setsockopt 0x280, waiter=E-0x2D8, buf=E-0x338 => waiter=buf+0x60, окно 0x108 накрывает waiter [0x60,0xB8) целиком. Символы — kallsyms boot.img, извлечённого из официального OTA (REPLACE_ZSTD, sha256 boot-образа совпал с манифестом payload.bin). pselect-мартрут здесь мёртв (как и на 6.1.145). Ожидается 25-30% попаданий, промахи = паника/ребут. Root-стадия не валидирована (copy_splice_read вырезан из kallsyms, splice-слот берётся через generic_file_splice_read; ashmem_misc присутствует в .data = 0x2351a68).",
+      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. iQOO Z9 Turbo (PD2352/V2352A) 15.1.14.0.W10.V000L1 (декабрьское OTA 20251210), kernel 6.1.124-android14-11-maybe-dirty. ЭКСПЕРИМЕНТ, на устройстве НЕ проверялся. Транспорт MCAST: геометрия disasm этого ядра ПОЛНОСТЬЮ совпадает с 16.2.17.0 (6.1.145): цепочка setsockopt 0x10+0x60+0x10+0x10+0x40, кадр do_ip_setsockopt 0x280, waiter=E-0x2D8, buf=E-0x338 => waiter=buf+0x60, окно 0x108 накрывает waiter [0x60,0xB8) целиком. Символы — kallsyms boot.img, извлечённого из официального OTA (REPLACE_ZSTD, sha256 boot-образа совпал с манифестом payload.bin). pselect-мартрут здесь мёртв (как и на 6.1.145). Ожидается 25-30% попаданий, промахи = паника/ребут. Root-стадия не валидирована (copy_splice_read вырезан из kallsyms, splice-слот берётся через generic_file_splice_read; ashmem_misc присутствует в .data = 0x2351a68). [GEOMETRY-FAIL 2026-11-02: on this 6.1.145-android14-11-maybe-dirty build do_futex is inlined into __arm64_sys_futex (chain 0xd0+0x1c0=0x290), the stale waiter sits at S'-0x268 (tree S'-0x268, lock S'-0x230) — 0x70 shallower than the profile. The MCAST 0x108 setsockopt copy reaches only [S'-0x338,S'-0x230), so lock is out by 8 bytes and every other 64-bit transport is too shallow (measured from the device OTA boot.img, issue #52; verified by the generic ghostlock: waiter_off=0xD0 → 0xD0+0x38+8=0x110 > 0x108 → clean EOVERFLOW). Deterministic panic ~36% on all runs (#50: 12/12, #52: 7/7+4/4). Not exploitable with any current 64-bit transport; keep for offsets.]",
       "route": "tcp",
       "label": "6.1.124-dirty"
     },
@@ -84,7 +84,7 @@
         "6.1.145-android14"
       ],
       "exploit": "ghostlock-cve-2026-43499",
-      "status": "ready",
+      "status": "off",
       "file": {
         "name": "preload.so",
         "url": "https://raw.githubusercontent.com/zenyxx-xd/RootMyVivo-Payloads/main/bin/g2e8d90b015f1_pd2425_145.so",
@@ -98,7 +98,7 @@
         "RMV_ATTEMPTS": "3",
         "RMV_RETRY_DELAY": "8"
       },
-      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. PD2425 16.1.16.2.W10.V000L1 (OTA 20260729) = kernel 6.1.145-android14 — ПОСЛЕДНЕЕ доступное на Neo10 CN, уязвимость открыта (remove_waiter @0x10c619c, mrs sp_el0 = vulnerable form). Image ОТЛИЧАЕТСЯ от Z9T 6.1.145 (те же короткие git-id, другой бинарь: 19 из 26 символов сдвинуты до 0x2D0) — отдельный билд. MCAST-геометрия ПОБАЙТОВО как Z9T-145 (waiter=buf+0x60, цепочка 0x10+0x60+0x10+0x10+0x40, do_ip 0x280). ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ, на устройстве не проверялся; риск ребута на промахе.",
+      "matchCondition": "v0.5.1 (2026-10-03): слова слайда приведены байт-в-байт к рабочему бинарю (words[0]/pi0 без бита цвета — простая ветка rb_erase; word4/14 не сажаются; wake_state=3, deadline=0). tcp_zerocopy route (ghostlock-app YuKongA, 2026-10-03): pselect-геометрия на 6.1 мертва (overlap -216), MCAST давал ребуты; getsockopt(TCP_ZEROCOPY_RECEIVE) с zc-буфером (task @ zc+0x28, lock @ zc+0x30, kernel-side геометрия семейства 6.1); консьюмер — вращающийся nice (calls%19)+1. v0.5.0 (revert 2026-10-02): слайд возвращён к простой рабочей форме (одно окно, stext = leaked - off, без перебора окон/проверок, фиксированные 50мс входа, блокирующие ожидания) — как в проверенном бинаре. MCAST-носитель для 6.1 не менялся. PD2425 16.1.16.2.W10.V000L1 (OTA 20260729) = kernel 6.1.145-android14 — ПОСЛЕДНЕЕ доступное на Neo10 CN, уязвимость открыта (remove_waiter @0x10c619c, mrs sp_el0 = vulnerable form). Image ОТЛИЧАЕТСЯ от Z9T 6.1.145 (те же короткие git-id, другой бинарь: 19 из 26 символов сдвинуты до 0x2D0) — отдельный билд. MCAST-геометрия ПОБАЙТОВО как Z9T-145 (waiter=buf+0x60, цепочка 0x10+0x60+0x10+0x10+0x40, do_ip 0x280). ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ, на устройстве не проверялся; риск ребута на промахе. [GEOMETRY-FAIL 2026-11-02: on this 6.1.145-android14-11-maybe-dirty build do_futex is inlined into __arm64_sys_futex (chain 0xd0+0x1c0=0x290), the stale waiter sits at S'-0x268 (tree S'-0x268, lock S'-0x230) — 0x70 shallower than the profile. The MCAST 0x108 setsockopt copy reaches only [S'-0x338,S'-0x230), so lock is out by 8 bytes and every other 64-bit transport is too shallow (measured from the device OTA boot.img, issue #52; verified by the generic ghostlock: waiter_off=0xD0 → 0xD0+0x38+8=0x110 > 0x108 → clean EOVERFLOW). Deterministic panic ~36% on all runs (#50: 12/12, #52: 7/7+4/4). Not exploitable with any current 64-bit transport; keep for offsets.]",
       "route": "tcp",
       "label": "6.1.145-dirty"
     },
