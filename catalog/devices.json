@@ -177,27 +177,6 @@
           "note": "16.1.16.2.W10 (последнее доступное) = kernel 6.1.145: GhostLock жив через MCAST, геометрия = Z9T-145 (waiter=buf+0x60). Image отличается от Z9T-145 — отдельный .so. ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ; риск ребута на промахе."
         }
       ]
-    },
-    {
-      "id": "z9-cn",
-      "marketName": "iQOO Z9",
-      "code": "V2361A",
-      "models": [
-        "PD2361",
-        "PD2361A",
-        "V2361A"
-      ],
-      "names": [
-        "iQOO Z9",
-        "Z9",
-        "V2361A"
-      ],
-      "kernels": [
-        {
-          "build": "g7d37760ec777_pd2361",
-          "note": "GKI 5.15.197-android13-8-00049-g7d37760ec777 (стоковый certified boot, ab15613975): GhostLock жив (remove_waiter уязвимая форма), pselect word0 = waiter. ПЕЙЛОАД ЭКСПЕРИМЕНТАЛЬНЫЙ; риск ребута на промахе."
-        }
-      ]
     }
   ]
 }

@@ -283,38 +283,6 @@
       "verifiedBy": "No public 6.6.127 GhostLock .so for PD2507. Local kernel_6_6_127.img is 6.6.127-android15-8-g24b70dd1cb81-abogki543627741-4k: remove_waiter loads waiter->task then str xzr,[x20,#0x938] — patched 43499 form on that Image. Units still on gb57af212129c match pd2415-x200-b57. Do not reuse Neo11 6.6.89 .so here."
     },
     {
-      "payloadId": "i2302-z9-5g",
-      "displayName": "iQOO Z9 5G / vivo T3 5G | MT6886 | Kernel 5.15.178",
-      "models": [
-        "I2302",
-        "V2334"
-      ],
-      "marketNames": [
-        "iQOO Z9 5G",
-        "vivo T3 5G"
-      ],
-      "kernelVersions": [
-        "5.15.178-android13-8-g0ebe6a5da65d"
-      ],
-      "exploit": "ghostlock-cve-2026-43499",
-      "enabled": true,
-      "files": {
-        "preload.so": {
-          "url": "https://github.com/ankitrawatgit/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock/releases/download/v0.0.1-build.34135024085.1/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock-v0.0.1-build.34135024085.1-preload",
-          "sha256": "4bcda6f69489d312695a2a5dab41349f6a391efa8c66376c3636a9dfa9e30d1d",
-          "size": 107728
-        },
-        "ksud": {
-          "url": "https://github.com/ankitrawatgit/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock/releases/download/v0.0.1-build.34135024085.1/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock-v0.0.1-build.34135024085.1-ksud",
-          "sha256": "c3dd9718dcd52ed58a98c6ea2efa2dd31ad4137d90e3802fc4a913ef0108c4f2",
-          "size": 5310568
-        }
-      },
-      "offsets": {},
-      "structLayout": "5.15",
-      "verifiedBy": "ankitrawatgit iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock (CVE-2026-43499), kernel 5.15.178-android13-8-g0ebe6a5da65d, models I2302 / V2334 (MT6886). This is GhostLock, not Adreno. China iQOO Z9 V2361A is a different SoC/kernel (forms: 5.15.178-g3575c47dc7ce-dirty / gcd4530fed6e8-dirty) — not this payload. JoinChang lists a generic 'iQOO Z9 5G 5.15.178' as infeasible for the OnePlus pselect engine; ankitrawatgit uses a different 5.15 target (phys 0x44000000)."
-    },
-    {
       "payloadId": "pd2415-x200-b57",
       "displayName": "vivo X200 (PD2415, build b57) | Dimensity 9400 | Kernel 6.6.89",
       "models": [
